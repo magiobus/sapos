@@ -1,0 +1,24 @@
+- form_for @institution, :remote => true, :html => { :'data-type' => 'html', :id => 'item-new-form' } do |f|
+
+  .resource-header
+    .resource-picture
+      = image_tag @institution.image_url(:medium).to_s
+    .resource-title
+      %h1= "Nueva Institucion"
+    .resource-save
+      = f.submit 'Agregar'
+
+  #resource-tabs
+    %ul
+      %li.first-tab= link_to "Detalles", "#detalles"
+
+    #detalles
+      %h2 Detalles
+
+      .field#field_institution_name
+        = f.label :name, mark_required(@institution, :name) + 'Nombre' 
+        = f.text_field :name 
+        
+      .field#field_institution_short_name
+        = f.label :short_name, mark_required(@institution, :short_name) + 'Nombre corto'
+        = f.text_field :short_name

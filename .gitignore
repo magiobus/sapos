@@ -1,0 +1,12 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+private/*
+public/images/student/
+public/images/staff/
+public/images/institution/
+db/seed-data/
+.DS_Store
+.swp
+.swo

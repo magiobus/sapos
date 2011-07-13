@@ -1,0 +1,1155 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, ../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 115, ../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 1, ../../../app/stylesheets/partials/_general.scss */
+ins {
+  text-decoration: none;
+}
+
+/* line 2, ../../../app/stylesheets/partials/_general.scss */
+del {
+  text-decoration: line-through;
+}
+
+/* line 3, ../../../app/stylesheets/partials/_general.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 4, ../../../app/stylesheets/partials/_general.scss */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2em;
+  font-weight: bold;
+}
+
+/* line 5, ../../../app/stylesheets/partials/_general.scss */
+h1 {
+  font-size: 2em;
+  color: #dc291e;
+}
+
+/* line 6, ../../../app/stylesheets/partials/_general.scss */
+h2 {
+  font-size: 1.6em;
+  color: #154c97;
+}
+
+/* line 7, ../../../app/stylesheets/partials/_general.scss */
+h3 {
+  font-size: 1.4em;
+  color: #777777;
+  font-weight: normal;
+}
+
+/* line 8, ../../../app/stylesheets/partials/_general.scss */
+h4 {
+  font-size: 1.1em;
+}
+
+/* line 9, ../../../app/stylesheets/partials/_general.scss */
+h5 {
+  font-size: 1em;
+}
+
+/* line 10, ../../../app/stylesheets/partials/_general.scss */
+h6 {
+  font-size: 1em;
+  font-weight: normal;
+}
+
+/* line 11, ../../../app/stylesheets/partials/_general.scss */
+em {
+  font-style: italic;
+}
+
+/* line 12, ../../../app/stylesheets/partials/_general.scss */
+strong {
+  font-weight: bold;
+}
+
+/* line 13, ../../../app/stylesheets/partials/_general.scss */
+a {
+  color: #1e8edc;
+}
+
+/* line 14, ../../../app/stylesheets/partials/_general.scss */
+a:hover {
+  color: #1e8edc;
+}
+
+/* line 16, ../../../app/stylesheets/partials/_general.scss */
+body {
+  color: #1e1e1e;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.2em;
+  background-color: #fff;
+}
+
+/* line 24, ../../../app/stylesheets/partials/_general.scss */
+span.red {
+  color: #dc291e;
+}
+
+/* line 26, ../../../app/stylesheets/partials/_general.scss */
+.hidden {
+  display: none;
+}
+
+/* line 28, ../../../app/stylesheets/partials/_general.scss */
+.with-top-margin {
+  margin-top: 20px;
+}
+
+/* line 32, ../../../app/stylesheets/partials/_general.scss */
+.loading {
+  background-image: url(/images/ajax-loader.gif);
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
+
+/* line 38, ../../../app/stylesheets/partials/_general.scss */
+.error, .alert, .notice, .success, .info {
+  padding: 10px;
+  margin-bottom: 1em;
+  border: 2px solid #ddd;
+}
+
+/* line 44, ../../../app/stylesheets/partials/_general.scss */
+.error, .alert {
+  background: #fbe3e4;
+  color: #8a1f11;
+  border-color: #fbc2c4;
+}
+
+/* line 50, ../../../app/stylesheets/partials/_general.scss */
+.notice {
+  background: #fff6bf;
+  color: #514721;
+  border-color: #ffd324;
+}
+
+/* line 56, ../../../app/stylesheets/partials/_general.scss */
+.success {
+  background: #e6efc2;
+  color: #264409;
+  border-color: #c6d880;
+}
+
+/* line 62, ../../../app/stylesheets/partials/_general.scss */
+.info {
+  background: #d5edf8;
+  color: #205791;
+  border-color: #92cae4;
+}
+
+/* line 68, ../../../app/stylesheets/partials/_general.scss */
+.error a, .alert a {
+  color: #8a1f11;
+}
+
+/* line 72, ../../../app/stylesheets/partials/_general.scss */
+.notice a {
+  color: #514721;
+}
+
+/* line 76, ../../../app/stylesheets/partials/_general.scss */
+.success a {
+  color: #264409;
+}
+
+/* line 80, ../../../app/stylesheets/partials/_general.scss */
+.info a {
+  color: #205791;
+}
+
+/* line 84, ../../../app/stylesheets/partials/_general.scss */
+#upload-box {
+  float: right;
+  position: relative;
+  width: 200px;
+}
+
+/* line 90, ../../../app/stylesheets/partials/_general.scss */
+#upload-pic-box {
+  position: relative;
+  width: 150px;
+  margin-left: 150px;
+  margin-top: 10px;
+}
+
+/* line 97, ../../../app/stylesheets/partials/_general.scss */
+#upload-pic-box input[type=file] {
+  position: absolute;
+  text-align: right;
+  moz-opacity: 0;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  font-size: 60px;
+  z-index: 2;
+  top: 0px;
+  left: 0px;
+  cursor: pointer;
+  cursor: hand;
+}
+
+/* line 110, ../../../app/stylesheets/partials/_general.scss */
+#upload-box input[type=file] {
+  position: absolute;
+  text-align: right;
+  moz-opacity: 0;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  font-size: 60px;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  cursor: pointer;
+  cursor: hand;
+}
+
+/* line 123, ../../../app/stylesheets/partials/_general.scss */
+.upload {
+  z-index: 1;
+  width: 150px;
+  text-align: center;
+  border: 0;
+  margin: 0;
+  padding: 6px 8px;
+  outline: none;
+  color: #27c;
+  font-weight: bold;
+  text-shadow: #fff 0px 1px 0px;
+  border: 1px solid #ccddee;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#ccddee));
+  background: -moz-linear-gradient(top, white, #ccddee);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to');
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  moz-box-shadow: inset 1px 1px 0 white;
+  -webkit-box-shadow: inset 1px 1px 0 white;
+  box-shadow: inset 1px 1px 0 white;
+  font-size: 14px;
+  cursor: pointer;
+  cursor: hand;
+  height: 20px;
+}
+
+/* line 143, ../../../app/stylesheets/partials/_general.scss */
+#upload-box .upload {
+  width: 180px;
+  padding: 50px 8px 6px 8px;
+  background: #e7f3ff url(/images/up.png) center 5px no-repeat;
+}
+
+/* line 149, ../../../app/stylesheets/partials/_general.scss */
+.upload-msg {
+  text-align: left;
+  font-size: 11px;
+  margin-top: 20px;
+  color: #777777;
+}
+
+/* line 156, ../../../app/stylesheets/partials/_general.scss */
+#files-area {
+  margin-right: 220px;
+}
+
+/* line 160, ../../../app/stylesheets/partials/_general.scss */
+.files-table {
+  width: 100%;
+}
+
+/* line 164, ../../../app/stylesheets/partials/_general.scss */
+.files-table td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* line 169, ../../../app/stylesheets/partials/_general.scss */
+.file-entry {
+  border-bottom: 1px solid #ccddee;
+}
+/* line 172, ../../../app/stylesheets/partials/_general.scss */
+.file-entry .file-desc-form {
+  display: none;
+}
+/* line 174, ../../../app/stylesheets/partials/_general.scss */
+.file-entry .file-desc-form input {
+  width: 90%;
+  margin-top: 10px;
+}
+/* line 180, ../../../app/stylesheets/partials/_general.scss */
+.file-entry .file-desc {
+  font-weight: bold;
+  moz-box-shadow: 0 1px 0 white;
+  -webkit-box-shadow: 0 1px 0 white;
+  box-shadow: 0 1px 0 white;
+}
+/* line 185, ../../../app/stylesheets/partials/_general.scss */
+.file-entry .file-details {
+  color: #777777;
+  font-size: 11px;
+}
+/* line 190, ../../../app/stylesheets/partials/_general.scss */
+.file-entry .file-edit {
+  float: right;
+  font-size: 10px;
+  display: none;
+  color: #f0f0f0;
+}
+/* line 197, ../../../app/stylesheets/partials/_general.scss */
+.file-entry:hover .file-edit {
+  display: inline;
+}
+
+/* line 203, ../../../app/stylesheets/partials/_general.scss */
+#institution_name {
+  width: 400px;
+}
+
+/* line 207, ../../../app/stylesheets/partials/_general.scss */
+.adv-hidden {
+  display: none;
+}
+
+/* line 211, ../../../app/stylesheets/partials/_general.scss */
+.todo {
+  color: #f00;
+  background-color: #ff0;
+  font-weight: bold;
+  border: 1px solid #ee0;
+  padding: 10px;
+  margin: 10px;
+}
+
+/* line 1, ../../../app/stylesheets/partials/_layout.scss */
+#top-bar {
+  position: fixed;
+  z-index: 99999;
+  background: transparent url(/images/bg-bar.png) repeat-x;
+  height: 32px;
+  width: 100%;
+  color: #fff;
+}
+/* line 9, ../../../app/stylesheets/partials/_layout.scss */
+#top-bar #logo {
+  position: absolute;
+  top: 2px;
+  left: 10px;
+}
+/* line 15, ../../../app/stylesheets/partials/_layout.scss */
+#top-bar #branding {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  left: 70px;
+  text-shadow: #113f7d 0px -1px 1px;
+}
+/* line 25, ../../../app/stylesheets/partials/_layout.scss */
+#top-bar #account {
+  float: right;
+  height: 32px;
+  background: transparent url(/images/sep-account.png) no-repeat;
+  padding: 7px 0px 0px 20px;
+  margin-right: 20px;
+}
+
+/* line 34, ../../../app/stylesheets/partials/_layout.scss */
+#flash-notice {
+  z-index: 8888;
+  display: none;
+  width: 400px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0px;
+  right: 20px;
+  height: 20px;
+  padding: 5px 10px;
+}
+
+/* line 46, ../../../app/stylesheets/partials/_layout.scss */
+#side-menu {
+  width: 190px;
+  background-color: #f7fbff;
+  border-right: 1px solid #ccddee;
+  position: fixed;
+  bottom: 0px;
+  top: 32px;
+}
+/* line 53, ../../../app/stylesheets/partials/_layout.scss */
+#side-menu .nav {
+  color: #000;
+}
+/* line 55, ../../../app/stylesheets/partials/_layout.scss */
+#side-menu .nav a {
+  display: block;
+  width: 100%;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+/* line 62, ../../../app/stylesheets/partials/_layout.scss */
+#side-menu .nav li {
+  border-bottom: 1px solid #ccddee;
+  padding: 10px;
+}
+/* line 66, ../../../app/stylesheets/partials/_layout.scss */
+#side-menu .nav li.op a {
+  padding-left: 10px;
+  text-shadow: #fff 0px 1px 1px;
+}
+/* line 70, ../../../app/stylesheets/partials/_layout.scss */
+#side-menu .nav li.op:hover {
+  background-color: #eef5fd;
+}
+/* line 74, ../../../app/stylesheets/partials/_layout.scss */
+#side-menu .nav li.selected {
+  background: #27c;
+  color: #fff;
+}
+/* line 77, ../../../app/stylesheets/partials/_layout.scss */
+#side-menu .nav li.selected a {
+  color: #fff;
+  text-shadow: #113f7d 0px 1px 1px;
+}
+/* line 81, ../../../app/stylesheets/partials/_layout.scss */
+#side-menu .nav li.selected:hover {
+  background-color: #27c;
+}
+/* line 85, ../../../app/stylesheets/partials/_layout.scss */
+#side-menu .nav li.op-title {
+  color: #688db3;
+  text-shadow: #fff 0px 1px 1px;
+}
+
+/* line 94, ../../../app/stylesheets/partials/_layout.scss */
+#main {
+  background: #fff;
+  margin-left: 190px;
+}
+/* line 97, ../../../app/stylesheets/partials/_layout.scss */
+#main #work-area {
+  padding: 50px 30px;
+}
+
+/* line 103, ../../../app/stylesheets/partials/_layout.scss */
+.side-panel {
+  float: left;
+  width: 280px;
+  position: fixed;
+  bottom: 0px;
+  top: 32px;
+  background-color: #fff;
+  border-left: 1px solid #ccddee;
+  border-right: 1px solid #ccddee;
+}
+
+/* line 114, ../../../app/stylesheets/partials/_layout.scss */
+.panel-search {
+  background: #f7fbff;
+  border-bottom: 1px solid #ccddee;
+  padding: 10px;
+  height: 70px;
+}
+/* line 120, ../../../app/stylesheets/partials/_layout.scss */
+.panel-search input[type=search], .panel-search select {
+  width: 260px;
+  background-color: #fff;
+  padding: 2px;
+}
+/* line 125, ../../../app/stylesheets/partials/_layout.scss */
+.panel-search input[type=checkbox] {
+  background-color: #fff;
+}
+/* line 128, ../../../app/stylesheets/partials/_layout.scss */
+.panel-search .cbs {
+  padding-top: 0;
+  color: #7ea0c3;
+}
+/* line 131, ../../../app/stylesheets/partials/_layout.scss */
+.panel-search .cbs label {
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+}
+/* line 135, ../../../app/stylesheets/partials/_layout.scss */
+.panel-search .cbs label:after {
+  content: none;
+}
+/* line 137, ../../../app/stylesheets/partials/_layout.scss */
+.panel-search .cbs span {
+  margin-right: 10px;
+}
+
+/* line 141, ../../../app/stylesheets/partials/_layout.scss */
+.inst-side-panel .panel-search {
+  height: 32px !important;
+}
+
+/* line 145, ../../../app/stylesheets/partials/_layout.scss */
+.panel-list {
+  font-size: 90%;
+}
+/* line 147, ../../../app/stylesheets/partials/_layout.scss */
+.panel-list li {
+  padding: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  height: 58px;
+}
+/* line 151, ../../../app/stylesheets/partials/_layout.scss */
+.panel-list li img {
+  float: left;
+  margin-right: 10px;
+  padding-bottom: 20px;
+}
+/* line 156, ../../../app/stylesheets/partials/_layout.scss */
+.panel-list li a {
+  color: #000;
+  display: block;
+  width: 100%;
+  height: 68px;
+  text-decoration: none;
+}
+/* line 162, ../../../app/stylesheets/partials/_layout.scss */
+.panel-list li a .title {
+  font-weight: bold;
+  font-size: 110%;
+  margin-bottom: 2px;
+}
+/* line 167, ../../../app/stylesheets/partials/_layout.scss */
+.panel-list li a .comment {
+  color: #777777;
+  font-size: 90%;
+}
+/* line 172, ../../../app/stylesheets/partials/_layout.scss */
+.panel-list li:hover {
+  background-color: #eef5fd;
+}
+/* line 173, ../../../app/stylesheets/partials/_layout.scss */
+.panel-list li.selected {
+  background: #2277cc;
+  color: #fff;
+}
+/* line 176, ../../../app/stylesheets/partials/_layout.scss */
+.panel-list li.selected .title {
+  color: #fff;
+  text-shadow: #113f7d 0px 1px 1px;
+}
+/* line 180, ../../../app/stylesheets/partials/_layout.scss */
+.panel-list li.selected .comment {
+  color: #fff;
+}
+/* line 182, ../../../app/stylesheets/partials/_layout.scss */
+.panel-list li.loading {
+  background-position: 240px 56px;
+}
+
+/* line 188, ../../../app/stylesheets/partials/_layout.scss */
+.panel-items {
+  position: absolute;
+  width: 280px;
+  bottom: 40px;
+  top: 91px;
+  overflow: auto;
+}
+
+/* line 196, ../../../app/stylesheets/partials/_layout.scss */
+.inst-side-panel .panel-items {
+  top: 53px !important;
+}
+
+/* line 200, ../../../app/stylesheets/partials/_layout.scss */
+.panel-add {
+  position: absolute;
+  width: 260px;
+  bottom: 0px;
+  height: 20px;
+  background: #f7fbff;
+  border-top: 1px solid #ccddee;
+  padding: 10px;
+  text-align: center;
+}
+/* line 210, ../../../app/stylesheets/partials/_layout.scss */
+.panel-add.selected a {
+  text-decoration: none;
+  color: #2277cc;
+  font-weight: bold;
+}
+
+/* line 218, ../../../app/stylesheets/partials/_layout.scss */
+.main-panel {
+  padding-top: 32px;
+  margin-left: 280px;
+}
+/* line 221, ../../../app/stylesheets/partials/_layout.scss */
+.main-panel .resource-header {
+  padding: 20px;
+  height: 100px;
+  background-color: #f7fbff;
+  min-width: 500px;
+}
+/* line 226, ../../../app/stylesheets/partials/_layout.scss */
+.main-panel .resource-header .resource-picture {
+  float: left;
+  font-size: 80%;
+  text-align: center;
+}
+/* line 230, ../../../app/stylesheets/partials/_layout.scss */
+.main-panel .resource-header .resource-picture a {
+  display: none;
+  position: relative;
+  top: -50px;
+  background: #fff;
+  padding: 4px;
+}
+/* line 237, ../../../app/stylesheets/partials/_layout.scss */
+.main-panel .resource-header .resource-picture:hover a {
+  display: inline;
+}
+/* line 241, ../../../app/stylesheets/partials/_layout.scss */
+.main-panel .resource-header .resource-title {
+  float: left;
+  padding-top: 10px;
+  margin-left: 20px;
+}
+/* line 246, ../../../app/stylesheets/partials/_layout.scss */
+.main-panel .resource-header .resource-save {
+  float: right;
+  text-align: right;
+  padding-top: 20px;
+  width: 110px;
+}
+/* line 252, ../../../app/stylesheets/partials/_layout.scss */
+.main-panel .resource-header .comment {
+  font-size: 90%;
+  color: #777777;
+}
+/* line 257, ../../../app/stylesheets/partials/_layout.scss */
+.main-panel #resource-tabs {
+  position: relative;
+  top: -27px;
+}
+/* line 260, ../../../app/stylesheets/partials/_layout.scss */
+.main-panel #resource-tabs .ui-tabs-panel {
+  margin-right: 10px;
+}
+/* line 263, ../../../app/stylesheets/partials/_layout.scss */
+.main-panel #resource-tabs .ui-tabs-nav li.first-tab {
+  margin-left: 140px;
+}
+
+/* line 1, ../../../app/stylesheets/partials/_forms.scss */
+form {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 5, ../../../app/stylesheets/partials/_forms.scss */
+input[type=text], input[type=password], input[type=email], textarea {
+  border: 1px solid #cccccc;
+  padding: 4px;
+  font-size: 14px;
+}
+
+/* line 11, ../../../app/stylesheets/partials/_forms.scss */
+select {
+  background: #fff;
+  border: 1px solid #cccccc;
+  padding: 4px;
+}
+
+/* line 17, ../../../app/stylesheets/partials/_forms.scss */
+input[type=search] {
+  -webkit-appearance: textfield;
+}
+
+/* line 23, ../../../app/stylesheets/partials/_forms.scss */
+button,
+input[type=submit],
+input[type=button] {
+  border: 0;
+  margin: 0;
+  padding: 6px 8px;
+  outline: none;
+  color: #27c;
+  font-weight: bold;
+  text-shadow: #fff 0px 1px 0px;
+  border: 1px solid #ccddee;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background: #ddeeff;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#ccddee));
+  background: -moz-linear-gradient(top, white, #ccddee);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to');
+  moz-box-shadow: inset 1px 1px 0 white;
+  -webkit-box-shadow: inset 1px 1px 0 white;
+  box-shadow: inset 1px 1px 0 white;
+  font-size: 110%;
+  cursor: pointer;
+  cursor: hand;
+}
+/* line 39, ../../../app/stylesheets/partials/_forms.scss */
+button.disabled,
+input[type=submit].disabled,
+input[type=button].disabled {
+  color: #eaeaea;
+  font-weight: bold;
+  border: 1px solid #efefef;
+  background: #fafafa;
+  text-shadow: none;
+  moz-box-shadow: inset 0 1px 1px #fafafa;
+  -webkit-box-shadow: inset 0 1px 1px #fafafa;
+  box-shadow: inset 0 1px 1px #fafafa;
+  cursor: default;
+}
+/* line 49, ../../../app/stylesheets/partials/_forms.scss */
+button:active,
+input[type=submit]:active,
+input[type=button]:active {
+  moz-box-shadow: inset 0 1px 4px #ccddee;
+  -webkit-box-shadow: inset 0 1px 4px #ccddee;
+  box-shadow: inset 0 1px 4px #ccddee;
+  padding: 7px 8px 5px 8px;
+}
+
+/* line 57, ../../../app/stylesheets/partials/_forms.scss */
+button.disabled:active,
+input[type=submit].disabled:active,
+input[type=button].disabled:active {
+  moz-box-shadow: inset 1px 0 4px #fafafa;
+  -webkit-box-shadow: inset 1px 0 4px #fafafa;
+  box-shadow: inset 1px 0 4px #fafafa;
+  padding: 6px 8px;
+}
+
+/* line 65, ../../../app/stylesheets/partials/_forms.scss */
+button:hover,
+input[type=submit]:hover,
+input[type=button]:hover {
+  cursor: pointer;
+}
+
+/* line 71, ../../../app/stylesheets/partials/_forms.scss */
+button.disabled:hover,
+input[type=submit].disabled:hover,
+input[type=button].disabled:hover {
+  cursor: default;
+}
+
+/* line 75, ../../../app/stylesheets/partials/_forms.scss */
+.required {
+  font-size: 90%;
+  color: #dc291e;
+}
+
+/* line 80, ../../../app/stylesheets/partials/_forms.scss */
+.field {
+  margin: 5px 0;
+}
+
+/* line 84, ../../../app/stylesheets/partials/_forms.scss */
+.field label {
+  font-size: 14px;
+  color: #777777;
+  width: 150px;
+  float: left;
+  display: block;
+  padding-top: 5px;
+}
+
+/* line 93, ../../../app/stylesheets/partials/_forms.scss */
+.field label:after {
+  content: ": ";
+}
+
+/* line 97, ../../../app/stylesheets/partials/_forms.scss */
+.field input {
+  font-size: 14px;
+}
+
+/* line 101, ../../../app/stylesheets/partials/_forms.scss */
+.field select {
+  background-color: #fff;
+  padding: 2px;
+  font-size: 14px;
+}
+
+/* line 107, ../../../app/stylesheets/partials/_forms.scss */
+.with-errors label {
+  color: #dc291e;
+}
+
+/* line 110, ../../../app/stylesheets/partials/_forms.scss */
+.with-errors .error-message {
+  margin-left: 150px;
+  color: #c00;
+}
+
+/* line 115, ../../../app/stylesheets/partials/_forms.scss */
+#notas textarea {
+  width: 100%;
+  height: 250px;
+}
+
+/* line 120, ../../../app/stylesheets/partials/_forms.scss */
+#field_student_contact_address2 label {
+  color: #fff;
+}
+
+/* line 124, ../../../app/stylesheets/partials/_forms.scss */
+#field_student_scholarship_notes label,
+#field_student_thesis_abstract label,
+#field_student_thesis_notes label {
+  width: 100%;
+}
+
+/* line 127, ../../../app/stylesheets/partials/_forms.scss */
+#field_student_scholarship_notes textarea {
+  margin-top: 10px;
+  width: 100%;
+  height: 150px;
+}
+
+/* line 133, ../../../app/stylesheets/partials/_forms.scss */
+#field_student_thesis_title input {
+  width: 400px;
+}
+
+/* line 137, ../../../app/stylesheets/partials/_forms.scss */
+#field_student_thesis_abstract textarea {
+  margin-top: 10px;
+  width: 100%;
+  height: 150px;
+}
+
+/* line 143, ../../../app/stylesheets/partials/_forms.scss */
+#field_student_thesis_notes textarea {
+  margin-top: 10px;
+  width: 100%;
+  height: 50px;
+}
+
+/* line 149, ../../../app/stylesheets/partials/_forms.scss */
+#change-image-box {
+  text-align: center;
+}
+
+/* line 153, ../../../app/stylesheets/partials/_forms.scss */
+#change-image-box input[type=submit] {
+  margin-top: 20px;
+}
+
+/* line 1, ../../../app/stylesheets/partials/_tabs.scss */
+.ui-tabs {
+  zoom: 1;
+}
+
+/* line 2, ../../../app/stylesheets/partials/_tabs.scss */
+.ui-tabs .ui-tabs-nav {
+  list-style: none;
+  height: 24px;
+  border-bottom: 1px solid #cde;
+  padding-top: 2px;
+}
+
+/* line 9, ../../../app/stylesheets/partials/_tabs.scss */
+.ui-tabs-nav li {
+  height: 15px;
+  float: left;
+  text-align: center;
+  padding: 4px 16px;
+  margin: 0 4px;
+}
+
+/* line 16, ../../../app/stylesheets/partials/_tabs.scss */
+.ui-tabs-nav li.ui-tabs-selected {
+  background-color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+/* line 17, ../../../app/stylesheets/partials/_tabs.scss */
+.ui-tabs-nav a {
+  color: #8da4bc;
+  text-decoration: none;
+  display: block;
+  text-shadow: #fff 0px 1px 1px;
+}
+
+/* line 18, ../../../app/stylesheets/partials/_tabs.scss */
+.ui-tabs-nav a:hover {
+  color: #8da4bc;
+  text-decoration: none;
+}
+
+/* line 19, ../../../app/stylesheets/partials/_tabs.scss */
+.ui-tabs-nav li.ui-tabs-selected {
+  border: 1px solid #cde;
+  border-bottom: 1px solid #fff;
+  border-top-left-radius: 5px;
+  -moz-border-radius-top-left: 5px;
+  -webkit-border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  -moz-border-radius-top-right: 5px;
+  -webkit-border-top-right-radius: 5px;
+}
+
+/* line 25, ../../../app/stylesheets/partials/_tabs.scss */
+.ui-tabs-nav li.ui-tabs-selected a {
+  color: #000;
+  font-weight: bold;
+}
+
+/* line 26, ../../../app/stylesheets/partials/_tabs.scss */
+.ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a {
+  cursor: pointer;
+}
+
+/* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+/* line 27, ../../../app/stylesheets/partials/_tabs.scss */
+.ui-tabs .ui-tabs-panel {
+  padding: 20px;
+  display: block;
+  border-width: 0;
+  background: none;
+}
+
+/* line 28, ../../../app/stylesheets/partials/_tabs.scss */
+.ui-tabs .ui-tabs-hide {
+  display: none !important;
+}
+
+/* line 30, ../../../app/stylesheets/partials/_tabs.scss */
+.ui-tabs h2 {
+  margin-bottom: 20px;
+}
+
+/* line 34, ../../../app/stylesheets/partials/_tabs.scss */
+.ui-tabs h3 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+/* line 39, ../../../app/stylesheets/partials/_tabs.scss */
+#advance-header {
+  height: 32px;
+  border-bottom: 1px dashed #def;
+  padding-bottom: 10px;
+}
+
+/* line 45, ../../../app/stylesheets/partials/_tabs.scss */
+#advance-title {
+  width: 300px;
+  float: left;
+}
+
+/* line 50, ../../../app/stylesheets/partials/_tabs.scss */
+#advance-filter {
+  float: right;
+}
+
+/* line 55, ../../../app/stylesheets/partials/_tabs.scss */
+#avances textarea,
+#advance-new textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+}
+
+/* line 1, ../../../app/stylesheets/partials/_dialog.scss */
+.ui-dialog {
+  position: relative;
+  padding: 2px;
+  width: 300px;
+  background: transparent url(/images/bg-dialog.png);
+  text-align: left;
+}
+
+/* line 2, ../../../app/stylesheets/partials/_dialog.scss */
+.ui-dialog .ui-dialog-titlebar {
+  height: 28px;
+  position: relative;
+  background: transparent;
+}
+
+/* line 3, ../../../app/stylesheets/partials/_dialog.scss */
+.ui-dialog .ui-dialog-title {
+  float: left;
+  margin: 6px 0 0 8px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: #00122e 0px 1px 0px;
+}
+
+/* line 4, ../../../app/stylesheets/partials/_dialog.scss */
+.ui-dialog .ui-dialog-titlebar-close {
+  position: absolute;
+  right: 8px;
+  top: 6px;
+  background: transparent url(/images/bg-dialog-titlebar-close.gif) no-repeat;
+  text-indent: -99999px;
+  overflow: hidden;
+  width: 14px;
+}
+
+/* line 5, ../../../app/stylesheets/partials/_dialog.scss */
+.ui-dialog .ui-dialog-titlebar-close span {
+  display: block;
+  margin: 1px;
+}
+
+/* line 6, ../../../app/stylesheets/partials/_dialog.scss */
+.ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus {
+  padding: 0;
+}
+
+/* line 7, ../../../app/stylesheets/partials/_dialog.scss */
+.ui-dialog .ui-dialog-content {
+  border: 0;
+  padding: 16px;
+  background: #fff;
+  overflow: auto;
+  zoom: 1;
+}
+
+/* line 8, ../../../app/stylesheets/partials/_dialog.scss */
+.ui-dialog .ui-dialog-buttonpane {
+  text-align: left;
+  border-width: 1px 0 0 0;
+  background: #fff;
+  padding: 16px;
+  border-top: 1px solid #cde;
+}
+
+/* line 9, ../../../app/stylesheets/partials/_dialog.scss */
+.ui-dialog .ui-dialog-buttonpane button {
+  float: right;
+  margin-left: 8px;
+  cursor: pointer;
+  width: auto;
+  overflow: visible;
+}
+
+/* line 10, ../../../app/stylesheets/partials/_dialog.scss */
+.ui-dialog .ui-resizable-se {
+  width: 14px;
+  height: 14px;
+  right: 3px;
+  bottom: 3px;
+}
+
+/* line 11, ../../../app/stylesheets/partials/_dialog.scss */
+.ui-draggable .ui-dialog-titlebar {
+  cursor: move;
+}
+
+/* line 12, ../../../app/stylesheets/partials/_dialog.scss */
+.ui-dialog.ui-corner-all {
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+}
+
+/* line 13, ../../../app/stylesheets/partials/_dialog.scss */
+.ui-dialog .button {
+  float: right;
+}
+
+/* line 14, ../../../app/stylesheets/partials/_dialog.scss */
+.ui-dialog .propstable {
+  width: 100%;
+}
+
+/* line 15, ../../../app/stylesheets/partials/_dialog.scss */
+.ui-dialog p {
+  margin: 0.5em 0 1em 0;
+}
+
+/* line 17, ../../../app/stylesheets/partials/_dialog.scss */
+#dialog-submit-button-area {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* line 1, ../../../app/stylesheets/partials/_mime.scss */
+.file-entry {
+  padding-left: 60px;
+  height: 58px;
+}
+
+/* line 6, ../../../app/stylesheets/partials/_mime.scss */
+.type-unknown {
+  background: transparent url(/images/mime/unknown.png) 0 15px no-repeat;
+}

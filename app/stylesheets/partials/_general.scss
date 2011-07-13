@@ -1,0 +1,218 @@
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+h1, h2, h3, h4, h5, h6 { line-height: 1.2em; font-weight: bold; }
+h1 { font-size: 2em; color: $red; }
+h2 { font-size: 1.6em; color: $blue-strong; }
+h3 { font-size: 1.4em; color: $grey; font-weight: normal; }
+h4 { font-size: 1.1em; }
+h5 { font-size: 1em; }
+h6 { font-size: 1em; font-weight: normal; }
+em { font-style: italic; }
+strong { font-weight: bold; }
+a { color: #1e8edc; }
+a:hover { color: #1e8edc; }
+
+body {
+  color: $text-color;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.2em;
+  background-color: #fff;
+}
+
+span.red { color: $red; }
+
+.hidden { display: none; }
+
+.with-top-margin { 
+  margin-top: 20px; 
+}
+
+.loading {
+  background-image: url(/images/ajax-loader.gif);
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
+
+.error, .alert, .notice, .success, .info {
+  padding: 10px;
+  margin-bottom: 1em;
+  border: 2px solid #ddd;
+}
+
+.error, .alert {
+  background: $error-bg;
+  color: $error-color;
+  border-color: $error-border-color;
+}
+
+.notice {
+  background: $notice-bg;
+  color: $notice-color;
+  border-color: $notice-border-color;
+}
+
+.success {
+  background: $success-bg;
+  color: $success-color;
+  border-color: $success-border-color;
+}
+
+.info {
+  background: $info-bg;
+  color: $info-color;
+  border-color: $info-border-color;
+}
+
+.error a, .alert a {
+  color: $error-color;
+}
+
+.notice a {
+  color: $notice-color;
+}
+
+.success a {
+  color: $success-color;
+}
+
+.info a {
+  color: $info-color;
+}
+
+#upload-box {
+  float: right;
+  position: relative;
+  width: 200px;
+}
+
+#upload-pic-box {
+  position: relative;
+  width: 150px;
+  margin-left: 150px;
+  margin-top: 10px;
+}
+
+#upload-pic-box input[type=file] {
+  position: absolute;
+  text-align: right;
+  moz-opacity:0 ;
+  filter:alpha(opacity=0);
+  opacity: 0;
+  font-size: 60px;
+  z-index: 2;
+  top: 0px;
+  left: 0px;
+  cursor: pointer; cursor: hand;
+}
+
+#upload-box input[type=file] {
+  position: absolute;
+  text-align: right;
+  moz-opacity:0 ;
+  filter:alpha(opacity=0);
+  opacity: 0; 
+  font-size: 60px;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  cursor: pointer; cursor: hand;
+}
+
+.upload {
+  z-index: 1;
+  width: 150px;
+  text-align: center;
+  border: 0;
+  margin: 0;
+  padding: 6px 8px;
+  outline: none;
+  color: #27c;
+  font-weight: bold;
+  text-shadow: #fff 0px 1px 0px;
+  border: 1px solid $line-color;
+  @include gradient(#ffffff,$line-color);
+  @include rounded(5px);
+  @include shadow_inset(0,1px,1px,#fff);
+  font-size: 14px;
+  cursor: pointer; cursor: hand;
+  height: 20px;
+}
+
+#upload-box .upload {
+  width: 180px;
+  padding: 50px 8px 6px 8px;
+  background: #e7f3ff url(/images/up.png) center 5px no-repeat;
+}
+
+.upload-msg {
+  text-align: left;
+  font-size: 11px;
+  margin-top: 20px;
+  color: $grey;
+}
+
+#files-area {
+  margin-right: 220px;
+}
+
+.files-table {
+  width: 100%;
+}
+
+.files-table td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.file-entry {
+  border-bottom: 1px solid $line-color;
+
+  .file-desc-form {
+    display: none;
+    input {
+      width: 90%;
+      margin-top: 10px;
+    }
+  }
+
+  .file-desc {
+    font-weight: bold;
+    @include shadow(0,1px,0,#fff);
+  }
+
+  .file-details {
+    color: $grey;
+    font-size: 11px;
+  }
+
+  .file-edit {
+    float: right;
+    font-size: 10px;
+    display: none;
+    color: $line2-color;
+  }
+ 
+  &:hover .file-edit {
+   display: inline;
+  }
+}
+
+
+#institution_name {
+  width: 400px;
+}
+
+.adv-hidden {
+  display: none;
+}
+
+.todo {
+  color: #f00;
+  background-color: #ff0;
+  font-weight: bold;
+  border: 1px solid #ee0;
+  padding: 10px;
+  margin: 10px;
+}

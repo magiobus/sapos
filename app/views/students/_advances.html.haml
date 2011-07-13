@@ -1,0 +1,68 @@
+:javascript
+  $(function() {
+    $("#new-advance-dialog").remove();
+    $('#content-panel').append('<div title="Nuevo avance" id="new-advance-dialog"><iframe width="550" height="340" src="/estudiantes/#{@student.id}/nuevo_avance" scrolling="no"></iframe></div>');
+    $("#new-advance-dialog").dialog({ autoOpen: false, width: 640, height: 450, modal:true });
+    $("#a-new-advance").live("click", function() {
+      $("#new-advance-dialog").dialog('open');
+    });
+  });
+
+
+#advance-header 
+  #advance-title
+    %h2 Avances Programaticos
+  #advance-filter
+    - adv_options = ""
+    - student.advance.each_with_index do |adv, index|
+      - adv_options += "<option value=\"#{index}\">#{Date::MONTHNAMES[adv.advance_date.month]} #{adv.advance_date.year}</option>"
+    - if adv_options != ""
+      = select_tag "select_advance", adv_options.html_safe, :id => 'advance-select'
+    = link_to 'Crear nuevo avance', '#', :id=>'a-new-advance'
+
+
+- student.advance.each_with_index do |adv, index|
+  - advclass = ''
+  - if index != 0 
+    - advclass = 'adv-hidden'
+  = fields_for "student[advance_attributes][#{index}]", adv do |fields|
+    %div{:id => "advance-#{index}", :class => advclass}
+      %h3 Avance #{Date::MONTHNAMES[adv.advance_date.month]} #{adv.advance_date.year}
+      = fields.hidden_field :id
+
+      %div{:id => "field_student_advance_#{index}_title", :class => 'field'}
+        = fields.label :title, 'Titulo'
+        = fields.text_field :title
+
+      %div{:id => "field_student_advance_#{index}_status", :class => 'field'}
+        = fields.label :status, 'Estado'
+        = fields.select :status,  [['', ''],['Programada', 'P'], ['Concluida', 'C'], ['Cancelada', 'X']]
+
+      %div{:id => "field_student_advance_#{index}_advance_date", :class => 'field'}
+        = fields.label :advance_date, 'Fecha de presentacion'
+        = fields.datetime_select :advance_date
+
+      %div{:id => "field_student_advance_#{index}_tutor1", :class => 'field'}
+        = fields.label :tutor1, 'Comite Tutoral 1'
+        = fields.collection_select :tutor1, staffs, :id, :full_name, options = {:prompt => "Selecciona un miembro del comite"} 
+
+      %div{:id => "field_student_advance_#{index}_tutor2", :class => 'field'}
+        = fields.label :tutor1, 'Comite Tutoral 2'
+        = fields.collection_select :tutor2, staffs, :id, :full_name, options = {:prompt => "Selecciona un miembro del comite"} 
+
+      %div{:id => "field_student_advance_#{index}_tutor3", :class => 'field'}
+        = fields.label :tutor1, 'Comite Tutoral 3'
+        = fields.collection_select :tutor3, staffs, :id, :full_name, options = {:prompt => "Selecciona un miembro del comite"} 
+
+      %div{:id => "field_student_advance_#{index}_tutor4", :class => 'field'}
+        = fields.label :tutor1, 'Comite Tutoral 4'
+        = fields.collection_select :tutor4, staffs, :id, :full_name, options = {:prompt => "Selecciona un miembro del comite"} 
+
+      %div{:id => "field_student_advance_#{index}_tutor5", :class => 'field'}
+        = fields.label :tutor1, 'Comite Tutoral 5'
+        = fields.collection_select :tutor5, staffs, :id, :full_name, options = {:prompt => "Selecciona un miembro del comite"} 
+
+      %div{:id => "field_student_advance_#{index}_notes", :class => 'field'}
+        = fields.label :notes, 'Notas'
+        = fields.text_area :notes
+

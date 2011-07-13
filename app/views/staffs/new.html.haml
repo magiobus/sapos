@@ -1,0 +1,37 @@
+- form_for @staff, :remote => true, :html => { :'data-type' => 'html', :id => 'item-new-form' } do |f|
+
+  .resource-header
+    .resource-picture
+      = image_tag @staff.image_url(:medium).to_s
+    .resource-title
+      %h1= "Nuevo Docente"
+    .resource-save
+      = f.submit 'Agregar'
+
+  #resource-tabs
+    %ul
+      %li.first-tab= link_to "Detalles", "#detalles"
+      %li= link_to "Notas", "#notas"
+
+    #detalles
+      %h2 Detalles
+
+      .field#field_staff_first_name
+        = f.label :first_name, mark_required(@staff, :first_name) + 'Nombre' 
+        = f.text_field :first_name 
+        
+      .field#field_staff_last_name
+        = f.label :last_name, mark_required(@staff, :last_name) + 'Apellidos'
+        = f.text_field :last_name
+
+      .field#field_staff_gender 
+        = f.label :gender, 'Sexo'
+        = f.select :gender,  [['Hombre', 'H'], ['Mujer', 'F']]
+
+      .field#field_staff_institution_id
+        = f.label :institution_id, 'Institucion'
+        = f.collection_select :institution_id, @institutions, :id, :name, options = {:prompt => "Selecciona la institucion"} 
+
+    #notas
+      %h2 Notas
+      = f.text_area :notes

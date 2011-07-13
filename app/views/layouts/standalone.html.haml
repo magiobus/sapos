@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title= @page_title || 'CIMAV'
+    = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
+    /[if lt IE 8]
+    = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+    = javascript_include_tag :defaults
+    = javascript_include_tag 'jquery-ui-1.8.11.custom.min.js'
+    - if !@include_js.nil?
+      = javascript_include_tag @include_js
+    = csrf_meta_tag
+  %body
+    #standalone-content
+      = yield

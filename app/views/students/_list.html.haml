@@ -1,0 +1,7 @@
+%ul.panel-list
+  - students.each do |student|
+    %li 
+      = link_to student, :method => :get, :remote => true, :class => 'get-item', :'data-type' => 'html', :id => "student_link_#{student.id}" do
+        = image_tag student.image_url(:small).to_s, :id => "img-small-#{student.id}"
+        .title= student.first_name + " " + student.last_name
+        .comment= student.program.name

@@ -1,0 +1,164 @@
+- form_for @student, :remote => true, :html => {:'data-type' => 'html', :id => 'item-edit-form'} do |f|
+
+  :javascript
+    $(function() {
+      $('#resource-tabs').tabs();
+      $("#change-img-dialog").remove();
+      $('#content-panel').append('<div title="Cambiar fotografía" id="change-img-dialog"><iframe width="430" height="450" src="/estudiantes/#{@student.id}/cambiar_foto" scrolling="no"></iframe></div>');
+      $("#change-img-dialog").dialog({ autoOpen: false, width: 470, height: 550, modal:true });   
+      $("#a-change-image").live("click", function() {
+        $("#change-img-dialog").dialog('open');
+      });
+    });
+
+
+  .resource-header
+    .resource-picture
+      = image_tag @student.image_url(:medium).to_s, :id => "img-medium-#{@student.id}"
+      %br
+      = link_to 'Cambiar foto', '#', :id=>'a-change-image'
+    .resource-title
+      %h1= "#{@student.first_name} #{@student.last_name}"
+      .comment= "Matrícula: #{@student.card}"
+      .comment= @student.program.name
+    .resource-save
+      = f.submit 'Actualizar'
+
+  #resource-tabs
+    %ul
+      %li.first-tab= link_to "Detalles", "#detalles"
+      %li= link_to "Contacto", "#contacto"
+      %li= link_to "Beca", "#beca"
+      %li= link_to "Avances", "#avances"
+      %li= link_to "Tesis", "#tesis"
+      %li= link_to "Archivos", "#archivos"
+      %li= link_to "Notas", "#notas"
+
+    #detalles
+      %h2 Detalles
+
+      .field#field_student_first_name
+        = f.label :first_name, mark_required(@student, :first_name) + 'Nombre'
+        = f.text_field :first_name 
+
+      .field#field_student_last_name
+        = f.label :last_name, mark_required(@student, :last_name) + 'Apellidos'
+        = f.text_field :last_name
+
+      .field#field_student_email
+        = f.label :email, 'Correo Electrónico'
+        = f.email_field :email
+
+      %h3 Datos Academicos
+      .field#field_supervisor
+        = f.label :supervisor, 'Asesor'
+        = f.grouped_collection_select :supervisor, @institutions, :staffs, :name, :id, :full_name, options = {:prompt => "Selecciona el asesor"}
+      .field#field_co_supervisor
+        = f.label :co_supervisor, 'Coasesor'
+        = f.grouped_collection_select :co_supervisor, @institutions, :staffs, :name, :id, :full_name, options = {:prompt => "Sin coasesor"}
+      .field#field_student_start_date
+        = f.label :start_date, 'Fecha de inicio'
+        = f.date_select :start_date
+      - if @student.status.to_i == 3
+        .field#field_student_inactive_date
+          = f.label :inactive_date, 'Fecha de baja'
+          = f.date_select :inactive_date
+      .field#field_student_cvu
+        = f.label :cvu, 'CVU'
+        = f.text_field :cvu
+      .field#field_student_location
+        = f.label :location, 'Ubicación'
+        = f.text_field :location
+      
+      %h3 Datos Personales
+
+      .field#field_student_gender 
+        = f.label :gender, 'Sexo'
+        = f.select :gender,  [['Hombre', 'H'], ['Mujer', 'F']]
+
+      .field#field_student_date_of_birth
+        = f.label :date_of_birth, 'Fecha de nacimiento'
+        = f.date_select :date_of_birth, :start_year => 1920
+
+      .field#field_student_country_id
+        = f.label :country_id, 'País de nacimiento'
+        = f.collection_select :country_id, @countries, :id, :name, options = {:prompt => "Selecciona un País"} 
+
+      .field#field_city
+        = f.label :city, 'Ciudad de nacimiento'
+        = f.text_field :city
+
+      .field#field_state
+        = f.label :state, 'Estado de nacimiento'
+        = f.collection_select :state_id, @states, :id, :name, options = {:prompt => "Selecciona el Estado"}
+      .field#field_student_ife
+        = f.label :ife, 'IFE'
+        = f.text_field :ife
+      .field#field_student_cvu
+        = f.label :curp, 'CURP'
+        = f.text_field :curp
+
+
+
+      %h3 Grado anterior
+      .field#field_previous_institution
+        = f.label :previous_institution, 'Institucion'
+        = f.collection_select :previous_institution, @institutions, :id, :name, options = {:prompt => "Selecciona la institucion"} 
+      .field#field_previous_degree_type
+        = f.label :previous_degree_type, 'Tipo'
+        = f.select :previous_degree_type,  [['Selecciona el grado',''], ['Post-Doctorado', 'POSDOCTORADO'], ['Doctorado', 'DOCTORADO'], ['Maestria', 'MAESTRIA'], ['Licenciatura', 'LICENCIATURA'], ['Bachillerato', 'BACHILLERATO']]
+      .field#field_previous_degree_desc
+        = f.label :previous_degree_desc, 'Grado'
+        = f.text_field :previous_degree_desc
+      .field#field_previous_degree_date
+        = f.label :previous_degree_date, 'Fecha'
+        = f.date_select :previous_degree_date
+
+
+      %h3 Información en caso de accidente
+      .field#field_student_accident_contact
+        = f.label :accident_contact, 'Contactar a'
+        = f.text_field :accident_contact
+
+      .field#field_student_accident_phone
+        = f.label :accident_phone, 'Teléfono'
+        = f.text_field :accident_phone
+
+      .field#field_student_ssn
+        = f.label :ssn, 'Seguridad Social'
+        = f.text_field :ssn
+
+      .field#field_student_blood_type
+        = f.label :blood_type, 'Tipo de sangre'
+        = f.text_field :blood_type
+
+      .field#field_student_passport
+        = f.label :passport, 'Pasaporte'
+        = f.text_field :passport
+    
+    #contacto
+      %h2 Contacto
+      = f.fields_for :contact do |contact_fields|
+        = render :partial => 'shared/contact', :locals => {:table => 'student', :fields => contact_fields, :countries => @countries, :states => @states}
+ 
+    #beca
+      %h2 Beca
+      = f.fields_for :scholarship do |scholarship_fields|
+        = render :partial => 'scholarship', :locals => {:fields => scholarship_fields}
+
+    #avances 
+      = render :partial => 'advances', :locals => {:student => @student, :staffs => @staffs, :f => f}
+
+    #tesis 
+      %h2 Tesis
+      = f.fields_for :thesis do |thesis_fields|
+        = render :partial => 'thesis', :locals => {:fields => thesis_fields, :staffs => @staffs}
+
+    #archivos
+      %h2 Archivos
+      %iframe{"name" => "submit_iframe", "id" => "files_iframe", "width" => "100%", "height" => "250", "src" => "/estudiantes/#{@student.id}/archivos", "scrolling" => "no", "onLoad" => "calcFrameHeight(this.id);" }
+	
+    #notas
+      %h2 Notas
+      = f.text_area :notes
+

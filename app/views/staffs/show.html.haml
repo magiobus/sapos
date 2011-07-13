@@ -1,0 +1,80 @@
+- form_for @staff, :remote => true, :html => {:'data-type' => 'html', :id => 'item-edit-form'} do |f|
+
+  :javascript
+    $(function() {
+      $('#resource-tabs').tabs();
+      $("#change-img-dialog").remove();
+      $('#content-panel').append('<div title="Cambiar fotografía" id="change-img-dialog"><iframe width="430" height="450" src="/docentes/#{@staff.id}/cambiar_foto" scrolling="no"></iframe></div>');
+      $("#change-img-dialog").dialog({ autoOpen: false, width: 470, height: 550, modal:true });   
+      $("#a-change-image").live("click", function() {
+        $("#change-img-dialog").dialog('open');
+      });
+    });
+
+
+  .resource-header
+    .resource-picture
+      = image_tag @staff.image_url(:medium).to_s, :id => "img-medium-#{@staff.id}"
+      %br
+      = link_to 'Cambiar foto', '#', :id=>'a-change-image'
+    .resource-title
+      %h1= "#{@staff.first_name} #{@staff.last_name}"
+      .comment= @staff.institution.name
+      .comment= "ID: #{@staff.id}"
+    .resource-save
+      = f.submit 'Actualizar'
+
+  #resource-tabs
+    %ul
+      %li.first-tab= link_to "Detalles", "#detalles"
+      %li= link_to "Contacto", "#contacto"
+      %li= link_to "Estudiantes", "#estudiantes"
+      %li= link_to "Notas", "#notas"
+
+    #detalles
+      %h2 Detalles
+
+      .field#field_staff_first_name
+        = f.label :first_name, mark_required(@staff, :first_name) + 'Nombre'
+        = f.text_field :first_name 
+
+      .field#field_staff_last_name
+        = f.label :last_name, mark_required(@staff, :last_name) + 'Apellidos'
+        = f.text_field :last_name
+
+      .field#field_staff_email
+        = f.label :email, 'Correo Electrónico'
+        = f.email_field :email
+
+      - if @staff.institution_id.to_i != 1
+        .field#field_staff_institution_id
+          = f.label :institution_id, 'Institucion'
+          = f.collection_select :institution_id, @institutions, :id, :name, options = {:prompt => "Selecciona la institucion"}
+      
+      .field#field_staff_gender 
+        = f.label :gender, 'Sexo'
+        = f.select :gender,  [['Hombre', 'H'], ['Mujer', 'F']]
+
+      .field#field_staff_date_of_birth
+        = f.label :date_of_birth, 'Fecha de nacimiento'
+        = f.date_select :date_of_birth
+
+      .field#field_staff_sni
+        = f.label :sni, 'SNI'
+        = f.select :sni,  [['I', 'I'], ['II', 'II'], ['III', 'III'], ['IV', 'IV'], ['Candidato', 'CANDIDATO'], ['Ninguno', 'NINGUNO']]
+      .field#field_staff_cvu
+        = f.label :cvu, 'CVU'
+        = f.text_field :cvu
+
+    #estudiantes
+      %h2 Estudiantes
+
+    #contacto
+      %h2 Contacto
+      = f.fields_for :contact do |contact_fields|
+        = render :partial => 'shared/contact', :locals => {:table => 'staff', :fields => contact_fields, :countries => @countries, :states => @states}
+ 
+    #notas
+      %h2 Notas
+      = f.text_area :notes
+

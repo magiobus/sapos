@@ -1,0 +1,40 @@
+%div{:id => "field_student_thesis_title", :class => 'field'}
+  = fields.label :title, 'Titulo'
+  = fields.text_field :title
+
+%div{:id => "field_student_thesis_status", :class => 'field'}
+  = fields.label :status, 'Estado'
+  = fields.select :status,  [['', ''],['En progreso', 'P'], ['Inactiva', 'I']]
+
+%div{:id => "field_student_thesis_defence_date", :class => 'field'}
+  = fields.label :defence_date, 'Fecha de defensa'
+  = fields.datetime_select :defence_date
+
+%div{:id => "field_student_thesis_examiner1", :class => 'field'}
+  = fields.label :examiner1, 'Sinodal 1'
+  = fields.collection_select :examiner1, staffs, :id, :full_name, options = {:prompt => "Selecciona un sinodal"} 
+
+%div{:id => "field_student_thesis_examiner2", :class => 'field'}
+  = fields.label :examiner1, 'Sinodal 2'
+  = fields.collection_select :examiner2, staffs, :id, :full_name, options = {:prompt => "Selecciona un sinodal"} 
+
+%div{:id => "field_student_thesis_examiner3", :class => 'field'}
+  = fields.label :examiner1, 'Sinodal 3'
+  = fields.collection_select :examiner3, staffs, :id, :full_name, options = {:prompt => "Selecciona un sinodal"} 
+
+%div{:id => "field_student_thesis_examiner4", :class => 'field'}
+  = fields.label :examiner1, 'Sinodal 4'
+  = fields.collection_select :examiner4, staffs, :id, :full_name, options = {:prompt => "Selecciona un sinodal"} 
+
+%div{:id => "field_student_thesis_examiner5", :class => 'field'}
+  = fields.label :examiner1, 'Sinodal 5'
+  = fields.collection_select :examiner5, staffs, :id, :full_name, options = {:prompt => "Selecciona un sinodal"} 
+
+
+%div{:id => "field_student_thesis_abstract", :class => 'field'}
+  = fields.label :abstract, 'Abstract'
+  = fields.text_area :abstract
+
+%div{:id => "field_student_thesis_notes", :class => 'field'}
+  = fields.label :notes, 'Notas'
+  = fields.text_area :notes

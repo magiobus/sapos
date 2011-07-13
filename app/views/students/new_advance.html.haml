@@ -1,0 +1,41 @@
+= form_for(@student, :url => { :action => "create_advance" }) do |f|
+  = hidden_field_tag 'student_id', @student.id
+  = hidden_field_tag 'student[advance_attributes][0][student_id]', @student.id
+  = fields_for "student[advance_attributes][0]" do |fields|
+    #advance-new
+      %h3 Nuevo Avance
+
+      %div{:id => "field_student_advance_0_title", :class => 'field'}
+        = fields.label :title, 'Titulo'
+        = fields.text_field :title
+
+      %div{:id => "field_student_advance_0_status", :class => 'field'}
+        = fields.label :status, 'Estado'
+        = fields.select :status,  [['', ''],['Programada', 'P'], ['Concluida', 'C'], ['Cancelada', 'X']]
+
+      %div{:id => "field_student_advance_0_advance_date", :class => 'field'}
+        = fields.label :advance_date, 'Fecha de presentacion'
+        = fields.datetime_select :advance_date
+
+      %div{:id => "field_student_advance_0_tutor1", :class => 'field'}
+        = fields.label :tutor1, 'Comite Tutoral 1'
+        = fields.collection_select :tutor1, @staffs, :id, :full_name, options = {:prompt => "Selecciona un miembro del comite"} 
+
+      %div{:id => "field_student_advance_0_tutor2", :class => 'field'}
+        = fields.label :tutor1, 'Comite Tutoral 2'
+        = fields.collection_select :tutor2, @staffs, :id, :full_name, options = {:prompt => "Selecciona un miembro del comite"} 
+
+      %div{:id => "field_student_advance_0_tutor3", :class => 'field'}
+        = fields.label :tutor1, 'Comite Tutoral 3'
+        = fields.collection_select :tutor3, @staffs, :id, :full_name, options = {:prompt => "Selecciona un miembro del comite"} 
+
+      %div{:id => "field_student_advance_0_tutor4", :class => 'field'}
+        = fields.label :tutor1, 'Comite Tutoral 4'
+        = fields.collection_select :tutor4, @staffs, :id, :full_name, options = {:prompt => "Selecciona un miembro del comite"} 
+
+      %div{:id => "field_student_advance_0_tutor5", :class => 'field'}
+        = fields.label :tutor1, 'Comite Tutoral 5'
+        = fields.collection_select :tutor5, @staffs, :id, :full_name, options = {:prompt => "Selecciona un miembro del comite"} 
+     
+      #dialog-submit-button-area
+        = fields.submit "Crear nuevo avance"

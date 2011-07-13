@@ -1,0 +1,6 @@
+var errors = $('<ul />');
+<% target.errors.full_messages.each do |error| %>
+    errors.append('<li><%= escape_javascript( error ) %></li>');
+<% end %>
+$("#flash-notice").append(errors);
+$("#flash-notice").slideDown();

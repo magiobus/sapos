@@ -1,0 +1,46 @@
+%div{:id => "field_#{table}_contact_address1", :class => 'field'}
+  = fields.label :address1, 'Dirección'
+  = fields.text_field :address1
+
+%div{:id => "field_#{table}_contact_address2", :class => 'field'}
+  = fields.label :address2, 'Dirección (linea 2)', {:class => 'hidden'}
+  = fields.text_field :address2
+
+%div{:id => "field_#{table}_contact_city", :class => 'field'}
+  = fields.label :city, 'Ciudad'
+  = fields.text_field :city
+
+%div{:id => "field_#{table}_contact_state", :class => 'field'}
+  = fields.label :state, 'Estado'
+  = fields.collection_select :state_id, states, :id, :name, options = {:prompt => "Selecciona el Estado"} 
+
+%div{:id => "field_#{table}_contact_zip", :class => 'field'}
+  = fields.label :zip, 'Código Postal'
+  = fields.text_field :zip
+
+%div{:id => "field_#{table}_contact_country_id", :class => 'field'}
+  = fields.label :address2, 'País'
+  = fields.collection_select :country_id, countries, :id, :name, options = {:prompt => "Selecciona un país"} 
+%div{:id => "field_#{table}_contact_mobile_phone", :class => 'field'}
+  = fields.label :mobile_phone, 'Teléfono Móvil'
+  = fields.text_field :mobile_phone
+
+%div{:id => "field_#{table}_contact_home_phone", :class => 'field'}
+  = fields.label :home_phone, 'Teléfono de Casa' 
+  = fields.text_field :home_phone
+
+%div{:id => "field_#{table}_contact_work_phone", :class => 'field'}
+  = fields.label :work_phone, 'Teléfono de Trabajo'
+  = fields.text_field :work_phone
+
+%div{:id => "field_#{table}_contact_website", :class => 'field'}
+  = fields.label :website, 'Sitio Web'
+  = fields.text_field :website
+
+%div{:id => "field_#{table}_contact_lat", :class => 'field'}
+  = fields.label :lat, 'Latitud'
+  = fields.text_field :lat
+
+%div{:id => "field_#{table}_contact_long", :class => 'field'}
+  = fields.label :long, 'Longitud'
+  = fields.text_field :long

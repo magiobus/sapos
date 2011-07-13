@@ -1,0 +1,16 @@
+:javascript
+  $(document).ready(function() {
+    parent.changeResourceImage("#{@institution.id}", "#{@institution.image_url(:small).to_s}", "#{@institution.image_url(:medium).to_s}");
+  });
+  $("#institution_image").live("change", function() {
+    $('#upload-button').html('Cambiando...')
+    $("#item-upload-image-form").submit();
+  });
+#change-image-box
+  = form_for(@institution, :url => { :action => "upload_image" }, :html => {:id => 'item-upload-image-form', :multipart => true}) do |f|
+    = hidden_field_tag :id, @institution.id
+    = image_tag @institution.image_url.to_s
+
+    #upload-pic-box
+      = f.file_field :image
+      #upload-button.upload Cambiar logotipo

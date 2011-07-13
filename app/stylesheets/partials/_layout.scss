@@ -1,0 +1,267 @@
+#top-bar {
+  position: fixed;
+  z-index: 99999;
+  background: transparent url(/images/bg-bar.png) repeat-x;
+  height: 32px;
+  width: 100%;
+  color: #fff;
+
+  #logo {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+  }
+
+  #branding {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute; 
+    top: 10px; 
+    left: 70px;
+    text-shadow: #113f7d 0px -1px 1px;
+  }
+
+  #account {
+    float: right;
+    height: 32px;
+    background: transparent url(/images/sep-account.png) no-repeat;
+    padding: 7px 0px 0px 20px;
+    margin-right: 20px;
+  }
+}
+
+#flash-notice {
+  z-index: 8888;
+  display: none;
+  width: 400px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0px;
+  right: 20px;
+  height: 20px;
+  padding: 5px 10px;
+}
+
+#side-menu {
+  width: 190px;
+  background-color: $bg-color;
+  border-right: 1px solid $line-color; 
+  position: fixed;
+  bottom: 0px;
+  top: 32px;
+  .nav { 
+    color: #000; 
+    a {
+      display: block;
+      width: 100%;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    li {
+      border-bottom: 1px solid $line-color;
+      padding: 10px; 
+      &.op {
+        a {
+          padding-left: 10px;
+          text-shadow: #fff 0px 1px 1px;
+        }
+        &:hover { 
+          background-color: $hover-color; 
+        }
+      } 
+      &.selected {
+        background: #27c;
+        color: #fff;
+        a { 
+          color: #fff; 
+          text-shadow: #113f7d 0px 1px 1px;
+        }
+        &:hover { 
+          background-color: #27c; 
+        }
+      }
+      &.op-title { 
+        color: #688db3;
+        text-shadow: #fff 0px 1px 1px;
+      }
+    }
+  }
+}
+
+
+#main {
+  background: #fff;
+  margin-left: 190px;
+  #work-area {
+    padding: 50px 30px;
+  }
+}
+
+
+.side-panel {
+  float: left;
+  width: 280px;
+  position: fixed;
+  bottom: 0px;
+  top: 32px;
+  background-color: #fff;
+  border-left: 1px solid $line-color;
+  border-right: 1px solid $line-color;
+}
+
+.panel-search {
+  background: $bg-color;
+  border-bottom: 1px solid $line-color; 
+  padding: 10px;
+  height: 70px;
+
+  input[type=search], select {
+    width: 260px;
+    background-color: #fff;
+    padding: 2px;
+  }
+  input[type=checkbox] {
+    background-color: #fff;
+  }
+  .cbs {
+    padding-top: 0;
+    color: #7ea0c3;
+    label {
+      font-size: 12px;
+      padding: 0;
+      margin: 0;
+	  &:after { content: none; }
+    }
+    span { margin-right: 10px; }
+  }
+}
+
+.inst-side-panel .panel-search {
+  height: 32px !important;
+}
+
+.panel-list {
+  font-size: 90%;
+  li {
+    padding: 10px;
+    border-bottom: 1px solid $line2-color;
+    height: 58px;
+	img {
+	  float: left;
+	  margin-right: 10px;
+	  padding-bottom: 20px;
+	}
+    a {  
+      color: #000; 
+      display: block; 
+      width: 100%; 
+      height: 68px;
+      text-decoration: none;
+	  .title { 
+	    font-weight: bold;
+	    font-size: 110%;
+	    margin-bottom: 2px;
+	  }
+	  .comment { 
+	    color: $grey;
+	    font-size: 90%;
+	  }
+    }
+    &:hover { background-color: #eef5fd; }
+	&.selected {
+	  background: $selected-color;
+	  color: #fff;
+	  .title {
+	    color: #fff;
+	    text-shadow: #113f7d 0px 1px 1px;
+	  }
+	  .comment { color: #fff; }
+    }
+    &.loading {
+      background-position: 240px 56px;
+    }
+  }
+}
+
+.panel-items {
+  position: absolute;
+  width: 280px;
+  bottom: 40px;
+  top: 91px;
+  overflow: auto;
+}
+
+.inst-side-panel .panel-items {
+  top: 53px !important;
+}
+
+.panel-add {
+  position: absolute;
+  width: 260px;
+  bottom: 0px;
+  height: 20px;
+  background: $bg-color;
+  border-top: 1px solid $line-color;
+  padding: 10px;
+  text-align: center;
+  &.selected {
+    a { 
+      text-decoration: none;
+      color: $selected-color; 
+      font-weight: bold;
+    }
+  }
+}
+
+.main-panel {
+  padding-top: 32px;
+  margin-left: 280px;
+  .resource-header {
+    padding: 20px;
+    height: 100px;
+    background-color: $bg-color;
+    min-width: 500px;
+    .resource-picture {
+      float: left; 
+      font-size: 80%;
+      text-align: center;
+      a {
+        display: none;
+        position: relative;
+        top: -50px;
+        background: #fff;
+        padding: 4px;
+      }
+      &:hover a {
+        display: inline;
+      }
+    }
+    .resource-title {
+      float: left;
+      padding-top: 10px;
+      margin-left: 20px;
+    }
+    .resource-save {
+      float: right;
+      text-align: right;
+      padding-top: 20px;
+      width: 110px;
+    }
+    .comment { 
+      font-size: 90%;
+      color: $grey;
+    }
+  }
+  #resource-tabs {
+    position: relative;
+    top: -27px;
+    .ui-tabs-panel {
+      margin-right: 10px;
+    }
+    .ui-tabs-nav li.first-tab { 
+      margin-left: 140px;
+    }
+  }
+}

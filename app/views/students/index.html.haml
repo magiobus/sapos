@@ -1,0 +1,30 @@
+- @include_js = ['students']
+#items-panel.side-panel 
+  .panel-search
+    
+    = form_tag students_path, :id => 'live-search', :method => 'get', :remote => true do
+  
+      - program_options = "<option value=\"0\">Todos los programas</option>"
+      - @programs.each do |program|
+        - program_options += "<option value=\"#{program.id}\">#{program.name}</option>" 
+      = select_tag "program", program_options.html_safe
+  
+      = search_field_tag :q, nil, :id => 'search-box', :placeholder => 'Busqueda'
+     
+      .cbs
+        %span 
+          = check_box_tag 'status_activos', '1', true, :class => 'status-cbs'
+          = label_tag 'status_activos', 'Activos'
+        %span 
+          = check_box_tag 'status_egresados', '2', false, :class => 'status-cbs'
+          = label_tag 'status_egresados', 'Egresados'
+        %span   
+          = check_box_tag 'status_bajas', '3', false, :class => 'status-cbs'
+          = label_tag 'status_bajas', 'Bajas'
+  
+  #items-list.panel-items
+  
+  .panel-add
+    = link_to  'Agregar nuevo estudiante', {:action => 'new'},  {:id => 'add-new-item', :method => :get, :remote => true, :'data-type' => 'html'}
+
+#content-panel.main-panel

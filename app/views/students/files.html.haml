@@ -1,0 +1,71 @@
+:javascript
+  function edit_description(id)
+  {
+    $("#file-" + id + " .file-desc").hide();
+    $("#file-" + id + " .file-details").hide();
+    $("#file-" + id + " .file-desc-form").show();
+    $("#file-" + id + " .file-desc-form input").focus();
+  }
+
+
+  $('#student_file_file').live('change', function() {
+    $("#item-upload-file-form").submit();
+  });
+
+  $('.file-desc-form')
+    .live("ajax:success", function(evt, data, status, xhr) {
+      var res = $.parseJSON(xhr.responseText);
+      //$("#flash-notice").removeClass('error').removeClass('notice').removeClass('info');
+      //$("#flash-notice").addClass('success').html(res['flash']['notice']);
+      //$("#flash-notice").slideDown().delay(1500).slideUp();
+      id = res['id'];
+      $("#file-" + id + " .file-desc-form").hide();
+      $("#file-" + id + " .file-desc").show();
+      $("#file-" + id + " .file-desc a").html(res['newdesc']);
+      $("#file-" + id + " .file-details").show();
+    })
+
+    .live('ajax:beforeSend', function(ev, xhr, settings) {
+       $(this).closest('input').addClass("loading");
+    })
+
+    .live('ajax:complete', function(evt, xhr, status) {
+
+    });
+
+  $('.delete-file')
+    .live('ajax:success', function(data, status, xhr) {
+      $(this).closest('tr').hide("slow", function() { $(this).remove(); });
+      $('#content-panel').html(status);
+    })
+
+    .live('ajax:beforeSend', function(ev, xhr, settings) {
+       $(this).closest('tr').addClass("loading");
+    })
+
+    .live('ajax:complete', function(evt, xhr, status) {
+
+    });
+
+= form_for(@student_file, :url => { :action => "upload_file" }, :html => {:id => 'item-upload-file-form', :multipart => true}) do |f|
+  = hidden_field_tag :id, @student.id
+  = f.hidden_field :student_id, {:value => @student.id }
+  #upload-box
+    = f.file_field :file, {"multiple" => "multiple"}
+    .upload Subir archivos
+    .upload-msg Puedes seleccionar varios archivos a la vez para subir.
+#files-area
+  %table{'class' => 'files-table'}
+    - @student.student_file.each do |student_file|
+      %tr{'id' => "file-#{student_file.id}"}
+        %td{"class" => "file-entry type-unknown type-" + File.extname(student_file.file.to_s)[1..-1], "title" => File.basename(student_file.file.to_s)}
+          = form_for(student_file, :remote => true, :html => {:'data-type' => 'html', :class => 'file-desc-form'}) do |ff|
+            = ff.text_field :description
+          %span.file-desc
+            %a{'href' => "/estudiantes/#{@student.id}/archivo/#{student_file.id}"}= student_file.description
+          %br
+          %span.file-details= File.extname(student_file.file.to_s)[1..-1].upcase + ", " + number_to_human_size(File.size(student_file.file.to_s))
+          %span.file-edit
+            = link_to_function 'Editar descripci?n', "edit_description(#{student_file.id})"
+            |
+            = link_to 'Eliminar archivo', [@students, student_file], :confirm => '?Estas seguro?', :method => 'delete', :remote => true, :class => 'delete-file'

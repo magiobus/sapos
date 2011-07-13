@@ -1,0 +1,27 @@
+- @include_js = ['staffs']
+#items-panel.side-panel 
+  .panel-search
+    
+    - form_tag institutions_path, :id => 'live-search', :method => 'get', :remote => true do
+  
+      - institution_options = "<option value=\"0\">Todas las instituciones</option>"
+      - @institutions.each do |institution|
+        - institution_options += "<option value=\"#{institution.id}\">#{institution.name}</option>" 
+      = select_tag "institution", institution_options.html_safe
+  
+      = search_field_tag :q, nil, :id => 'search-box', :placeholder => 'Busqueda'
+     
+      .cbs
+        %span 
+          = check_box_tag 'status_activos', '0', true, :class => 'status-cbs'
+          = label_tag 'status_activos', 'Activos'
+        %span   
+          = check_box_tag 'status_inactivos', '1', false, :class => 'status-cbs'
+          = label_tag 'status_inactivos', 'Inactivos'
+  
+  #items-list.panel-items
+  
+  .panel-add
+    = link_to  'Agregar nuevo docente', {:action => 'new'},  {:id => 'add-new-item', :method => :get, :remote => true, :'data-type' => 'html'}
+
+#content-panel.main-panel

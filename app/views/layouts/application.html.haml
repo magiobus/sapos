@@ -1,0 +1,44 @@
+!!!
+%html
+  %head
+    %title= @page_title || 'CIMAV'
+    = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'compiled/print.css', :media => 'print'
+    /[if lt IE 8]
+    = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+    = javascript_include_tag :defaults
+    = javascript_include_tag 'jquery-ui-1.8.11.custom.min.js'
+    - if !@include_js.nil?
+      = javascript_include_tag @include_js
+    = csrf_meta_tag
+  %body
+    #top-bar
+      %img#logo{:src => '/images/logo.png'}
+      #branding Posgrado
+      #account= @user.email
+
+    #side-menu
+      %ul.nav
+        %li.op-title Recursos
+        - if request.fullpath == students_path
+          %li.op#op-students.selected= link_to "Estudiantes", students_path
+        - else
+          %li.op#op-students= link_to "Estudiantes", students_path
+        - if request.fullpath == staffs_path
+          %li.op#op-staff.selected= link_to "Docentes", staffs_path
+        - else
+          %li.op#op-staff= link_to "Docentes", staffs_path
+        - if request.fullpath == institutions_path
+          %li.op#op-institutions.selected= link_to "Instituciones", institutions_path
+        - else
+          %li.op#op-institutions= link_to "Instituciones", institutions_path
+        %li.op-title Administracion
+        - if request.fullpath == users_path
+          %li.op#op-users.selected= link_to "Usuarios", users_path
+        - else 
+          %li.op#op-users= link_to "Usuarios", users_path
+        
+    #flash-notice
+
+    #main
+      = yield

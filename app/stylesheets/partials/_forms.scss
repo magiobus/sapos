@@ -1,0 +1,155 @@
+form { 
+  margin: 0;
+  padding: 0;
+}
+input[type=text],input[type=password],input[type=email],textarea {
+  border: 1px solid $light-grey;
+  padding: 4px;
+  font-size: 14px;
+}
+
+select {
+  background: #fff;
+  border: 1px solid $light-grey;
+  padding: 4px;
+}
+
+input[type=search] {
+  -webkit-appearance: textfield;
+}
+
+button,
+input[type=submit],
+input[type=button] {
+  border: 0;
+  margin: 0;
+  padding: 6px 8px;
+  outline: none;
+  color: #27c;
+  font-weight: bold;
+  text-shadow: #fff 0px 1px 0px;
+  border: 1px solid $line-color;
+  @include rounded(5px);
+  background: #ddeeff;
+  @include gradient(#ffffff,$line-color);
+  @include shadow_inset(0,1px,1px,#fff);
+  font-size: 110%;
+  cursor: pointer; cursor: hand;
+  
+  &.disabled {
+    color: #eaeaea;
+    font-weight: bold;
+    border: 1px solid #efefef;
+    background: #fafafa;
+    text-shadow: none;
+    @include shadow_inset(1px,1px,0,#fafafa);
+    cursor: default;
+  }
+  
+  &:active {
+    @include shadow_inset(4px,1px,0,$line-color);
+    padding: 7px 8px 5px 8px;
+  }
+}
+
+button.disabled:active,
+input[type=submit].disabled:active,
+input[type=button].disabled:active {
+  @include shadow_inset(4px,0,1px,#fafafa);
+  padding: 6px 8px;
+}
+
+
+button:hover,
+input[type=submit]:hover,
+input[type=button]:hover {
+  cursor: pointer; 
+}
+
+button.disabled:hover,
+input[type=submit].disabled:hover,
+input[type=button].disabled:hover {
+  cursor: default; 
+}
+
+.required {
+  font-size: 90%;
+  color: $red;
+}
+
+.field {
+  margin: 5px 0;
+}
+
+.field label { 
+  font-size: 14px;
+  color: $grey;
+  width: 150px;
+  float: left;
+  display: block;
+  padding-top: 5px;
+}
+
+.field label:after {
+  content: ": ";
+}
+
+.field input {
+  font-size: 14px;
+}
+
+.field select {
+  background-color: #fff;
+  padding: 2px;
+  font-size: 14px;
+}
+
+.with-errors label {
+  color: $red;
+}
+.with-errors .error-message { 
+    margin-left: 150px; 
+    color: #c00; 
+}
+
+#notas textarea {
+  width: 100%;
+  height: 250px;
+}
+
+#field_student_contact_address2 label { color: #fff; }
+
+#field_student_scholarship_notes label,
+#field_student_thesis_abstract label, 
+#field_student_thesis_notes label { 
+  width: 100%; 
+}
+#field_student_scholarship_notes textarea {
+  margin-top: 10px;
+  width: 100%;
+  height: 150px;
+}
+
+#field_student_thesis_title input { 
+  width: 400px;
+}
+
+#field_student_thesis_abstract textarea {
+  margin-top: 10px;
+  width: 100%;
+  height: 150px;
+}
+
+#field_student_thesis_notes textarea {
+  margin-top: 10px;
+  width: 100%;
+  height: 50px;
+}
+
+#change-image-box {
+  text-align: center;
+}
+
+#change-image-box input[type=submit] {
+  margin-top: 20px;
+}
