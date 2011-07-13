@@ -1,0 +1,33 @@
+0000|- Otro -
+AGS|Aguascalientes
+BC|Baja California
+BCS|Baja California Sur
+CAMP|Campeche
+CHIH|Chihuahua
+CHIS|Chiapas
+COAH|Coahuila
+COL|Colima
+DF|Distrito Federal
+DGO|Durango
+GRO|Guerrero
+GTO|Guanajuato
+HGO|Hidalgo
+JAL|Jalisco
+MEX|M??xico
+MICH|Michoac??n
+MOR|Morelos
+NAY|Nayarit
+NL|Nuevo Le??n
+OAX|Oaxaca
+PUE|Puebla
+QRO|Quer??taro
+QROO|Quintana Roo
+SIN|Sinaloa
+SLP|San Luis Potos??
+SON|Sonora
+TAB|Tabasco
+TAMPS|Tamaulipas
+TLAX|Tlaxcala
+VER|Veracruz
+YUC|Yucat??n
+ZAC|Zacatecas

@@ -10,7 +10,7 @@
 # Countries
 puts "Populating Countries..."
 Country.delete_all
-open("db/seed-data/countries.txt") do |countries|
+open("db/seeds/countries.txt") do |countries|
     countries.read.each_line do |country|
         code, name = country.chomp.split("|")
         Country.create!(:name => name, :code => code)
@@ -20,7 +20,7 @@ end
 # Populate Mexico States
 puts "Populating States..."
 State.delete_all
-open("db/seed-data/states.txt") do |states|
+open("db/seeds/states.txt") do |states|
     states.read.each_line do |state|
         code, name = state.chomp.split("|")
         State.create!(:name => name, :code => code)
