@@ -184,7 +184,6 @@ $('#item-edit-form')
         var $submitButton = $(this).find('input[type="submit"]');
         $submitButton.text( $(this).data('origText') );
         $submitButton.attr('disabled', 'disabled').addClass('disabled');
-
     })
 
     .live("ajax:error", function(evt, xhr, status, error) {

@@ -1,10 +1,14 @@
 - if student.thesis.status == 'C'
-  %div{:id => "field_student_thesis_number", :class => 'field'}
-    = fields.label :number, 'Número'
-    - if student.thesis.number.blank?
-    #thesis-number= link_to 'Asignar número', {:action => 'assign_thesis_number', :student_id => student.id}, :confirm => '¿Estás seguro?', :student_id => student.id, :method => 'put', :remote => true, :class => 'assign-number'
-    - else
-      #thesis-number= student.thesis.number
+  - thesis_display = 'block';
+- else
+  - thesis_display = 'none';
+
+%div{:id => "field_student_thesis_number", :class => 'field', :style => "display:#{thesis_display};"}
+  = fields.label :number, 'Número'
+  - if student.thesis.number.blank?
+  #thesis-number= link_to 'Asignar número', {:action => 'assign_thesis_number', :student_id => student.id}, :confirm => '¿Estás seguro?', :student_id => student.id, :method => 'put', :remote => true, :class => 'assign-number'
+  - else
+    #thesis-number= student.thesis.number
 
 %div{:id => "field_student_thesis_title", :class => 'field'}
   = fields.label :title, 'Titulo'

@@ -99,6 +99,7 @@ class StudentsController < ApplicationController
           if request.xhr?
             json = {}
             json[:flash] = flash
+            json[:thesis_status] = @student.thesis.status
             render :json => json
           else 
             redirect_to @student

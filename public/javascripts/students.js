@@ -50,3 +50,12 @@ $('.assign-number')
 
   });
 
+
+$('#item-edit-form')
+  .live('ajax:success', function(evt, data, status, xhr) {
+    var r = $.parseJSON(xhr.responseText);
+    if (r['thesis_status'] == 'C') {
+      $("#field_student_thesis_number").show();
+    }
+  })
+
