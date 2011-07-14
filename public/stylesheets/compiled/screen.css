@@ -912,6 +912,12 @@ input[type=button].disabled:hover {
   margin-top: 20px;
 }
 
+/* line 157, ../../../app/stylesheets/partials/_forms.scss */
+#thesis-number {
+  padding: 4px;
+  font-weight: bold;
+}
+
 /* line 1, ../../../app/stylesheets/partials/_tabs.scss */
 .ui-tabs {
   zoom: 1;

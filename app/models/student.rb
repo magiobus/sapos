@@ -52,4 +52,8 @@ class Student < ActiveRecord::Base
     self.save(:validate => false)
   end
 
+  def set_nest(item)
+    item.student ||= self
+  end
+
 end

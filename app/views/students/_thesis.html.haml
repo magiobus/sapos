@@ -1,10 +1,18 @@
+- if student.thesis.status == 'C'
+  %div{:id => "field_student_thesis_number", :class => 'field'}
+    = fields.label :number, 'Número'
+    - if student.thesis.number.blank?
+    #thesis-number= link_to 'Asignar número', {:action => 'assign_thesis_number', :student_id => student.id}, :confirm => '¿Estás seguro?', :student_id => student.id, :method => 'put', :remote => true, :class => 'assign-number'
+    - else
+      #thesis-number= student.thesis.number
+
 %div{:id => "field_student_thesis_title", :class => 'field'}
   = fields.label :title, 'Titulo'
   = fields.text_field :title
 
 %div{:id => "field_student_thesis_status", :class => 'field'}
   = fields.label :status, 'Estado'
-  = fields.select :status,  [['', ''],['En progreso', 'P'], ['Inactiva', 'I']]
+  = fields.select :status,  [['', ''],['Concluida','C'],['En progreso', 'P'], ['Inactiva', 'I']]
 
 %div{:id => "field_student_thesis_defence_date", :class => 'field'}
   = fields.label :defence_date, 'Fecha de defensa'

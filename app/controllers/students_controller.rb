@@ -185,4 +185,39 @@ class StudentsController < ApplicationController
     render :layout => 'standalone'
   end
 
+  def assign_thesis_number
+    @student = Student.find(params[:student_id])
+    @student.thesis.set_number
+    if @student.save
+      flash[:notice] = "Numero de tesis asignado."
+
+      respond_with do |format|
+        format.html do
+          if request.xhr?
+            json = {}
+            json[:flash] = flash
+            json[:number] = @student.thesis.number
+            render :json => json
+          else
+            redirect_to @student
+          end
+        end
+      end
+    else
+      flash[:error] = "Error al asignar el numero de tesis."
+      respond_with do |format|
+        format.html do
+          if request.xhr?
+            json = {}
+            json[:flash] = flash
+            json[:errors] = @student.errors
+            render :json => json, :status => :unprocessable_entity
+          else
+            redirect_to @student
+          end
+        end
+      end
+    end
+  end
+
 end

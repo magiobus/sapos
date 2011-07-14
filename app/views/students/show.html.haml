@@ -152,7 +152,7 @@
     #tesis 
       %h2 Tesis
       = f.fields_for :thesis do |thesis_fields|
-        = render :partial => 'thesis', :locals => {:fields => thesis_fields, :staffs => @staffs}
+        = render :partial => 'thesis', :locals => {:student => @student, :fields => thesis_fields, :staffs => @staffs}
 
     #archivos
       %h2 Archivos
