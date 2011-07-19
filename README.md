@@ -1,7 +1,7 @@
 Sapos
 =====
 
-Sapos is Student Management System for CIMAV (Centro de Investigacion en Materiales Avanzados, S.C.)
+Sapos is Student Management System for CIMAV (Centro de Investigaci&oacute;n en Materiales Avanzados, S.C.)
 
 
 Authors
