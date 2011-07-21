@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110628235022) do
+ActiveRecord::Schema.define(:version => 20110721000422) do
 
   create_table "academic_degrees", :force => true do |t|
     t.integer  "student_id"
@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(:version => 20110628235022) do
   add_index "advances", ["tutor4"], :name => "index_advances_on_tutor4"
   add_index "advances", ["tutor5"], :name => "index_advances_on_tutor5"
 
+  create_table "classrooms", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.integer  "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "contacts", :force => true do |t|
     t.integer  "attachable_id"
     t.string   "attachable_type"
@@ -75,6 +83,30 @@ ActiveRecord::Schema.define(:version => 20110628235022) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "courses", :force => true do |t|
+    t.integer  "program_id"
+    t.string   "code",          :limit => 10
+    t.string   "name"
+    t.integer  "lecture_hours"
+    t.integer  "lab_hours"
+    t.integer  "credits"
+    t.text     "description"
+    t.integer  "type",                        :default => 1
+    t.integer  "prereq1"
+    t.integer  "prereq2"
+    t.integer  "prereq3"
+    t.integer  "coreq1"
+    t.integer  "coreq2"
+    t.integer  "coreq3"
+    t.integer  "coreq4"
+    t.text     "notes"
+    t.integer  "status",                      :default => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "courses", ["program_id"], :name => "index_courses_on_program_id"
 
   create_table "departments", :force => true do |t|
     t.string   "name",        :limit => 100, :null => false
@@ -214,6 +246,60 @@ ActiveRecord::Schema.define(:version => 20110628235022) do
   add_index "students", ["department_id"], :name => "index_students_on_department_id"
   add_index "students", ["program_id"], :name => "index_students_on_program_id"
   add_index "students", ["supervisor"], :name => "index_students_on_supervisor"
+
+  create_table "term_course_schedules", :force => true do |t|
+    t.integer  "term_course_id"
+    t.integer  "day"
+    t.time     "start_hour"
+    t.time     "end_hour"
+    t.integer  "classroom_id"
+    t.integer  "staff_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "type"
+    t.integer  "status",         :default => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "term_course_schedules", ["classroom_id"], :name => "index_term_course_schedules_on_classroom_id"
+  add_index "term_course_schedules", ["staff_id"], :name => "index_term_course_schedules_on_staff_id"
+  add_index "term_course_schedules", ["term_course_id"], :name => "index_term_course_schedules_on_term_course_id"
+
+  create_table "term_course_students", :force => true do |t|
+    t.integer  "term_course_id"
+    t.integer  "student_id"
+    t.integer  "grade"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "term_course_students", ["student_id"], :name => "index_term_course_students_on_student_id"
+  add_index "term_course_students", ["term_course_id"], :name => "index_term_course_students_on_term_course_id"
+
+  create_table "term_courses", :force => true do |t|
+    t.integer  "term_id"
+    t.integer  "course_id"
+    t.integer  "status",     :default => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "term_courses", ["course_id"], :name => "index_term_courses_on_course_id"
+  add_index "term_courses", ["term_id"], :name => "index_term_courses_on_term_id"
+
+  create_table "terms", :force => true do |t|
+    t.integer  "program_id"
+    t.string   "code",       :limit => 10
+    t.string   "name",       :limit => 80
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "status",                   :default => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "terms", ["program_id"], :name => "index_terms_on_program_id"
 
   create_table "theses", :force => true do |t|
     t.integer  "student_id"
