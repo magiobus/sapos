@@ -1,0 +1,24 @@
+- form_for @user, :remote => true, :html => { :'data-type' => 'html', :id => 'item-new-form' } do |f|
+
+  .resource-header
+    .resource-picture
+      = image_tag "/images/users/medium_operator.jpg", :id => "img-medium-#{@user.id}"
+    .resource-title
+      %h1= "Nuevo Usuario"
+    .resource-save
+      = f.submit 'Agregar'
+
+  #resource-tabs
+    %ul
+      %li.first-tab= link_to "Detalles", "#detalles"
+
+    #detalles
+      %h2 Detalles
+
+      .field#field_user_email
+        = f.label :email, mark_required(@user, :email) + 'Correo electrónico' 
+        = f.text_field :email 
+        
+      .field#field_user_access
+        = f.label :access, mark_required(@user, :access) + 'Tipo de acceso'
+        = f.select :access,  User::ACCESS_TYPE.invert

@@ -21,6 +21,8 @@ Sapos::Application.routes.draw do
   match 'instituciones/busqueda' => 'institutions#live_search'
   match 'instituciones/:id/cambiar_logo' => 'institutions#change_image'
   match 'instituciones/upload_image' => 'institutions#upload_image'
+
+  match 'usuarios/busqueda' => 'users#live_search'
  
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
     resources :students, :path => "estudiantes"
