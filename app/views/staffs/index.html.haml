@@ -11,7 +11,7 @@
         - institution_options += "<option value=\"#{institution.id}\">#{institution.name}</option>" 
       = select_tag "institution", institution_options.html_safe
   
-      = search_field_tag :q, nil, :id => 'search-box', :placeholder => 'Busqueda'
+      = text_field_tag :q, nil, :id => 'search-box', :placeholder => 'Busqueda'
      
       .cbs
         %span 

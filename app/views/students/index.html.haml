@@ -11,7 +11,7 @@
         - program_options += "<option value=\"#{program.id}\">#{program.name}</option>" 
       = select_tag "program", program_options.html_safe
   
-      = search_field_tag :q, nil, :id => 'search-box', :placeholder => 'Busqueda'
+      = text_field_tag :q, nil, :id => 'search-box', :placeholder => 'Busqueda'
      
       .cbs
         %span 

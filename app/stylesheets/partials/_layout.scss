@@ -115,7 +115,13 @@
   padding: 10px;
   height: 70px;
 
-  input[type=search], select {
+  input[type=text] {
+    width: 276px;
+    background-color: #fff;
+    padding: 2px;
+  }
+
+  select {
     width: 280px;
     background-color: #fff;
     padding: 2px;
