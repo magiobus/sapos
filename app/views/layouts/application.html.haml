@@ -14,30 +14,19 @@
   %body
     #top-bar
       %img#logo{:src => '/images/logo.png'}
-      #branding Posgrado
+      #nav-select= @page_title || 'Posgrado'
       #account= @user.email
 
-    #side-menu
+    #nav-menu
       %ul.nav
-        %li.op-title Recursos
-        - if request.fullpath == students_path
-          %li.op#op-students.selected= link_to "Estudiantes", students_path
-        - else
-          %li.op#op-students= link_to "Estudiantes", students_path
-        - if request.fullpath == staffs_path
-          %li.op#op-staff.selected= link_to "Docentes", staffs_path
-        - else
-          %li.op#op-staff= link_to "Docentes", staffs_path
-        - if request.fullpath == institutions_path
-          %li.op#op-institutions.selected= link_to "Instituciones", institutions_path
-        - else
-          %li.op#op-institutions= link_to "Instituciones", institutions_path
-        %li.op-title Administracion
-        - if request.fullpath == users_path
-          %li.op#op-users.selected= link_to "Usuarios", users_path
-        - else 
-          %li.op#op-users= link_to "Usuarios", users_path
-        
+        %li.op#op-home= link_to "Escritorio", root_url
+        %li.op#op-students= link_to "Estudiantes", students_path
+        %li.op#op-staff= link_to "Docentes", staffs_path
+        %li.op#op-institutions= link_to "Instituciones", institutions_path
+        %li.op-title Administración
+        %li.op#op-users= link_to "Usuarios", users_path
+
+
     #flash-notice
 
     #main

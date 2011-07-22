@@ -192,7 +192,9 @@ $('#item-edit-form')
 );
 
 
-
+$('#nav-select').bind('click', function() {
+  $('#nav-menu').slideDown();
+});
 
 
 

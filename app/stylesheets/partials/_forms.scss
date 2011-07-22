@@ -1,6 +1,7 @@
 form { 
   margin: 0;
   padding: 0;
+  border: 0;
 }
 input[type=text],input[type=password],input[type=email],textarea {
   border: 1px solid $light-grey;
@@ -25,14 +26,14 @@ input[type=button] {
   margin: 0;
   padding: 6px 8px;
   outline: none;
-  color: #27c;
+  color: $button-text-color;
   font-weight: bold;
   text-shadow: #fff 0px 1px 0px;
-  border: 1px solid $line-color;
+  border: 1px solid $button-color;
   @include rounded(5px);
-  background: #ddeeff;
-  @include gradient(#ffffff,$line-color);
-  @include shadow_inset(0,1px,1px,#fff);
+  background: $button-color;
+  @include gradient($button-color-light,$button-color);
+  @include shadow_inset(0,1px,1px,$button-color-light);
   font-size: 110%;
   cursor: pointer; cursor: hand;
   
@@ -47,7 +48,7 @@ input[type=button] {
   }
   
   &:active {
-    @include shadow_inset(4px,1px,0,$line-color);
+    @include shadow_inset(4px,1px,0,$button-color);
     padding: 7px 8px 5px 8px;
   }
 }

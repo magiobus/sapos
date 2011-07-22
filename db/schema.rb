@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(:version => 20110721000422) do
   add_index "academic_degrees", ["institution_id"], :name => "index_academic_degrees_on_institution_id"
   add_index "academic_degrees", ["student_id"], :name => "index_academic_degrees_on_student_id"
 
+  create_table "accident_contacts", :force => true do |t|
+    t.string   "name",       :limit => 20
+    t.integer  "contact_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "advances", :force => true do |t|
     t.integer  "student_id"
     t.text     "title"
@@ -119,7 +126,6 @@ ActiveRecord::Schema.define(:version => 20110721000422) do
     t.string   "short_name", :limit => 20
     t.string   "name"
     t.integer  "contact_id"
-    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -149,8 +155,8 @@ ActiveRecord::Schema.define(:version => 20110721000422) do
   create_table "staffs", :force => true do |t|
     t.integer  "employee_number"
     t.string   "title",           :limit => 10
-    t.string   "first_name",      :limit => 50,                  :null => false
-    t.string   "last_name",       :limit => 50,                  :null => false
+    t.string   "first_name",      :limit => 50, :null => false
+    t.string   "last_name",       :limit => 50, :null => false
     t.string   "gender",          :limit => 1
     t.date     "date_of_birth"
     t.string   "location"
@@ -159,8 +165,7 @@ ActiveRecord::Schema.define(:version => 20110721000422) do
     t.integer  "contact_id"
     t.string   "cvu"
     t.string   "sni",             :limit => 20
-    t.string   "status",          :limit => 20, :default => "0"
-    t.string   "image"
+    t.string   "status",          :limit => 20
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"

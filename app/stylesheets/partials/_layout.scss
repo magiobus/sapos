@@ -2,7 +2,7 @@
   position: fixed;
   z-index: 99999;
   background: transparent url(/images/bg-bar.png) repeat-x;
-  height: 32px;
+  height: 31px;
   width: 100%;
   color: #fff;
 
@@ -12,22 +12,70 @@
     left: 10px;
   }
 
-  #branding {
+  #nav-select {
     color: #fff;
     font-size: 18px;
     font-weight: bold;
     position: absolute; 
-    top: 10px; 
-    left: 70px;
+    padding-top: 8px; 
+    left: 46px;
+    width: 256px;
+    height: 22px;
     text-shadow: #113f7d 0px -1px 1px;
+    background: transparent url(/images/bg-nav.png) repeat-x;
+    &:hover {
+      background: transparent url(/images/bg-nav-hover.png) repeat-x;
+      cursor: pointer;
+    }
   }
 
   #account {
     float: right;
-    height: 32px;
+    height: 31px;
     background: transparent url(/images/sep-account.png) no-repeat;
     padding: 7px 0px 0px 20px;
     margin-right: 20px;
+  }
+}
+
+#nav-menu {
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  width: 300px;
+  background: #fff;
+  border-right: 1px solid $line-color;
+  border-bottom: 1px solid $line-color;
+  border-left: 1px solid $line-color;
+  z-index: 999999;
+  display: none;
+  @include shadow(4px,1px,0,#eee);
+  .nav { 
+    color: #000; 
+    a {
+      display: block;
+      width: 100%;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    li {
+      border-bottom: 1px solid $line-color;
+      padding: 10px 0 10px 36px; 
+      &.op {
+        a {
+          padding-left: 10px;
+          text-shadow: #fff 0px 1px 1px;
+        }
+        &:hover { 
+          background-color: $hover-color; 
+        }
+      } 
+      &.op-title { 
+        color: #688db3;
+        text-shadow: #fff 0px 1px 1px;
+      }
+    }
   }
 }
 
@@ -43,69 +91,19 @@
   padding: 5px 10px;
 }
 
-#side-menu {
-  width: 190px;
-  background-color: $bg-color;
-  border-right: 1px solid $line-color; 
-  position: fixed;
-  bottom: 0px;
-  top: 32px;
-  .nav { 
-    color: #000; 
-    a {
-      display: block;
-      width: 100%;
-      color: #000;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    li {
-      border-bottom: 1px solid $line-color;
-      padding: 10px; 
-      &.op {
-        a {
-          padding-left: 10px;
-          text-shadow: #fff 0px 1px 1px;
-        }
-        &:hover { 
-          background-color: $hover-color; 
-        }
-      } 
-      &.selected {
-        background: #27c;
-        color: #fff;
-        a { 
-          color: #fff; 
-          text-shadow: #113f7d 0px 1px 1px;
-        }
-        &:hover { 
-          background-color: #27c; 
-        }
-      }
-      &.op-title { 
-        color: #688db3;
-        text-shadow: #fff 0px 1px 1px;
-      }
-    }
-  }
-}
-
-
 #main {
   background: #fff;
-  margin-left: 190px;
   #work-area {
     padding: 50px 30px;
   }
 }
 
-
 .side-panel {
   float: left;
-  width: 280px;
+  width: 300px;
   position: fixed;
   bottom: 0px;
-  top: 32px;
+  top: 31px;
   background-color: #fff;
   border-left: 1px solid $line-color;
   border-right: 1px solid $line-color;
@@ -118,7 +116,7 @@
   height: 70px;
 
   input[type=search], select {
-    width: 260px;
+    width: 280px;
     background-color: #fff;
     padding: 2px;
   }
@@ -147,7 +145,7 @@
   li {
     padding: 10px;
     border-bottom: 1px solid $line2-color;
-    height: 58px;
+    height: 48px;
 	img {
 	  float: left;
 	  margin-right: 10px;
@@ -157,7 +155,7 @@
       color: #000; 
       display: block; 
       width: 100%; 
-      height: 68px;
+      height: 58px;
       text-decoration: none;
 	  .title { 
 	    font-weight: bold;
@@ -169,7 +167,7 @@
 	    font-size: 90%;
 	  }
     }
-    &:hover { background-color: #eef5fd; }
+    &:hover { background-color: $bg-color; }
 	&.selected {
 	  background: $selected-color;
 	  color: #fff;
@@ -187,7 +185,7 @@
 
 .panel-items {
   position: absolute;
-  width: 280px;
+  width: 300px;
   bottom: 40px;
   top: 91px;
   overflow: auto;
@@ -199,7 +197,7 @@
 
 .panel-add {
   position: absolute;
-  width: 260px;
+  width: 280px;
   bottom: 0px;
   height: 20px;
   background: $bg-color;
@@ -217,11 +215,11 @@
 
 .main-panel {
   padding-top: 32px;
-  margin-left: 280px;
+  margin-left: 300px;
   .resource-header {
     padding: 20px;
     height: 100px;
-    background-color: $bg-color;
+    background-color: #fff;
     min-width: 500px;
     .resource-picture {
       float: left; 

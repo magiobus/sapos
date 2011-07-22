@@ -2,7 +2,7 @@
 .ui-tabs .ui-tabs-nav { 
   list-style: none; 
   height: 24px; 
-  border-bottom: 1px solid #cde; 
+  border-bottom: 1px solid $line-color;
   padding-top: 2px;
 }
 
@@ -14,10 +14,10 @@
   margin: 0 4px; 
 }
 .ui-tabs-nav li.ui-tabs-selected { background-color: #fff; border-bottom: 1px solid #fff; }
-.ui-tabs-nav a { color: #8da4bc; text-decoration: none; display: block; text-shadow: #fff 0px 1px 1px; }
-.ui-tabs-nav a:hover { color: #8da4bc; text-decoration: none; }
+.ui-tabs-nav a { color: $grey; text-decoration: none; display: block; text-shadow: #fff 0px 1px 1px; }
+.ui-tabs-nav a:hover { color: $grey; text-decoration: none; }
 .ui-tabs-nav li.ui-tabs-selected { 
-  border: 1px solid #cde; 
+  border: 1px solid $line-color; 
   border-bottom: 1px solid #fff; 
   @include rounded-side(top-left);
   @include rounded-side(top-right);
@@ -38,7 +38,7 @@
 
 #advance-header {
   height: 32px;
-  border-bottom: 1px dashed #def;
+  border-bottom: 1px dashed $line2-color;
   padding-bottom: 10px;
 }
 
