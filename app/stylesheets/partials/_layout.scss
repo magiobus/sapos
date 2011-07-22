@@ -1,6 +1,6 @@
 #top-bar {
   position: fixed;
-  z-index: 99999;
+  z-index: 999999;
   background: transparent url(/images/bg-bar.png) repeat-x;
   height: 31px;
   width: 100%;
@@ -43,13 +43,13 @@
   top: 30px;
   left: 0px;
   width: 300px;
-  background: #fff;
+  background: transparent url(/images/bg-white-trans.png);
   border-right: 1px solid $line-color;
   border-bottom: 1px solid $line-color;
   border-left: 1px solid $line-color;
-  z-index: 999999;
+  z-index: 99999;
   display: none;
-  @include shadow(4px,1px,0,#eee);
+  @include shadow(8px,1px,1px,#dadada);
   .nav { 
     color: #000; 
     a {

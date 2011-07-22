@@ -193,10 +193,12 @@ $('#item-edit-form')
 
 
 $('#nav-select').bind('click', function() {
-  $('#nav-menu').slideDown();
+  event.stopPropagation();
+  $('#nav-menu').slideToggle('fast');
 });
 
-
-
-
 });  // READY
+
+$('html').click(function() {
+  $('#nav-menu').slideUp('fast');
+});
