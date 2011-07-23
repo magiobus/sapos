@@ -12,8 +12,11 @@ module ProfilePictureHelper
     img = client.get(url, {
         'xoauth_requestor_id' => GAPPS_REQUESTOR_ID
     }, false)
-    b64 = Base64.encode64(img)
-
-    haml_tag :img, :src => "data:image/gif;base64,#{b64}", :alt => email
+    if img.nil?
+      "/images/default_picture.jpg"
+    else
+      b64 = Base64.encode64(img)
+      "data:image/gif;base64,#{b64}"
+    end
   end
 end

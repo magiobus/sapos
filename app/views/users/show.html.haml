@@ -8,7 +8,7 @@
 
   .resource-header
     .resource-picture
-      - profile_picture @user.email
+      %img{:src => profile_picture(@user.email), :alt => @user.email}
     .resource-title
       %h1= "#{@user.email}"
       .comment= @user.access_type
@@ -24,8 +24,8 @@
 
       .field#field_user_email
         = f.label :email, mark_required(@user, :email) + 'Correo electrónico' 
-        = f.text_field :email 
-        
+        = f.text_field :email
+
       .field#field_user_access
         = f.label :access, mark_required(@user, :access) + 'Tipo de acceso'
         = f.select :access,  User::ACCESS_TYPE.invert

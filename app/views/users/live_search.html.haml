@@ -2,6 +2,6 @@
   - @users.each do |user|
     %li 
       - link_to user, :method => :get, :remote => true, :class => 'get-item', :'data-type' => 'html' do
-        = image_tag "/images/users/small_#{['','administrator','operator','staff','student'][user.access]}.jpg", :id => "img-small-#{user.id}"
+        %img{:src => profile_picture(user.email), :alt => user.email, :width => 48, :height => 48}
         .title= user.email rescue ''
         .comment= user.access_type rescue ''
