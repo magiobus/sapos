@@ -8,7 +8,7 @@
 
   .resource-header
     .resource-picture
-      = image_tag "/images/users/medium_#{['','administrator','operator','staff','student'][@user.access]}.jpg", :id => "img-medium-#{@user.id}"
+      - profile_picture @user.email
     .resource-title
       %h1= "#{@user.email}"
       .comment= @user.access_type
