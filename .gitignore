@@ -7,6 +7,7 @@ public/images/student/
 public/images/staff/
 public/images/institution/
 db/seed-data/
+config/environment.rb
 .DS_Store
 .swp
 .swo
