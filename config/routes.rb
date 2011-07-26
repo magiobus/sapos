@@ -26,7 +26,9 @@ Sapos::Application.routes.draw do
   
   match 'programas/busqueda' => 'programs#live_search'
   match 'programas/:id/nuevo_curso' => 'programs#new_course'
-  match 'programas/create_advance' => 'programs#create_course'
+  match 'programas/create_course' => 'programs#create_course'
+  match 'programas/update_course' => 'programs#update_course'
+  match 'programas/:id/plan' => 'programs#plan_table'
   match 'programas/:id/curso/:course_id' => 'programs#edit_course'
 
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do

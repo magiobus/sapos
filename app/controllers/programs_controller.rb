@@ -1,3 +1,5 @@
+require "ostruct"
+
 class ProgramsController < ApplicationController
   before_filter :auth_required
   respond_to :html, :xml, :json
@@ -61,7 +63,6 @@ class ProgramsController < ApplicationController
 
   def update 
     @program = Program.find(params[:id])
-
     if @program.update_attributes(params[:program])
       flash[:notice] = "Programa actualizada."
       respond_with do |format|
@@ -92,6 +93,11 @@ class ProgramsController < ApplicationController
     end
   end
 
+  def plan_table
+    @program = Program.find(params[:id])
+    render :layout => false
+  end
+
   def new_course
     @program = Program.find(params[:id])
     render :layout => 'standalone'
@@ -111,6 +117,38 @@ class ProgramsController < ApplicationController
     @program = Program.find(params[:id])
     @course = Course.find(params[:course_id])
     render :layout => false
+  end
+
+  def update_course
+    @program = Program.find(params[:id])
+    if @program.update_attributes(params[:program])
+      flash[:notice] = "Curso actualizado."
+      respond_with do |format|
+        format.html do
+          if request.xhr?
+            json = {}
+            json[:flash] = flash
+            render :json => json
+          else 
+            redirect_to @program
+          end
+        end
+      end
+    else
+      flash[:error] = "Error al actualizar el curso"
+      respond_with do |format|
+        format.html do
+          if request.xhr?
+            json = {}
+            json[:flash] = flash
+            json[:errors] = @program.errors
+            render :json => json, :status => :unprocessable_entity
+          else 
+            redirect_to @program
+          end
+        end
+      end
+    end
   end
 
 end

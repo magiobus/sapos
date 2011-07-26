@@ -55,3 +55,44 @@
   background-color: $white;
   padding: 10px;
 }
+
+#program_courses_attributes_0_code {
+  width: 50px;
+}
+
+#program_courses_attributes_0_name {
+  width: 350px;
+}
+
+#program_courses_attributes_0_description {
+  width: 350px;
+  height: 50px;
+}
+
+#program_courses_attributes_0_notes {
+  width: 350px;
+  height: 35px;
+}
+
+table.plan-credits {
+  border-collapse: collapse;
+  th {
+    border: 1px solid $line-color;
+    font-size: 90%;
+    text-transform: uppercase;
+    background: $bg-color;
+    padding: 4px;
+  }
+  td {
+    border: 1px solid $line-color;
+    padding: 4px;
+  }
+}
+
+table.plan-prereq,
+table.plan-coreq {
+  border-collapse: collapse;
+  td { 
+    border: 0 !important;
+  }
+}

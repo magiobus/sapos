@@ -1,0 +1,38 @@
+- current_term = 0
+%table.plan
+  %tbody
+  - @program.courses.order("term").order("name").each_with_index do |course, index|
+    - if current_term != course.term 
+      - current_term = course.term
+      - if current_term == 99
+        %tr.optional
+          %th{:colspan=>5} Optativas
+      - else
+        %tr.term
+          %th{:colspan=>5}= "#{@program.term_type} #{course.term}"
+      %tr.header
+        %th Clave
+        %th Nombre
+        %th Creditos
+        %th Prerequisitos
+        %th Corequisitos
+    %tr.course{:id=>"tr_#{course.id}", :course_id=>course.id}
+      %td= course.code
+      %td= course.name
+      %td.centered= "#{course.lecture_hours}–#{course.lab_hours}–#{course.credits}"
+      - prereq = []
+      - if !course.prereq1.nil?
+        - prereq << Course.find(course.prereq1).code rescue 'Error'
+      - if !course.prereq2.nil?
+        - prereq << Course.find(course.prereq2).code rescue 'Error'
+      - if !course.prereq3.nil?
+        - prereq << Course.find(course.prereq3).code rescue 'Error'
+      %td= prereq.join(',')
+      - coreq = []
+      - if !course.coreq1.nil?
+        - coreq << Course.find(course.coreq1).code rescue 'Error'
+      - if !course.coreq2.nil?
+        - coreq << Course.find(course.coreq2).code rescue 'Error'
+      - if !course.coreq3.nil?
+        - coreq << Course.find(course.coreq3).code rescue 'Error'
+      %td= coreq.join(',')

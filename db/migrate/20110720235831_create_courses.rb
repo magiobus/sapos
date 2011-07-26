@@ -12,11 +12,9 @@ class CreateCourses < ActiveRecord::Migration
       t.integer "prereq1"
       t.integer "prereq2"
       t.integer "prereq3"
-      t.integer "prereq3"
       t.integer "coreq1"
       t.integer "coreq2"
       t.integer "coreq3"
-      t.integer "coreq4"
       t.text    "notes"
       t.integer "status",    :default => 1  
       t.timestamps

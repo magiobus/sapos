@@ -1,12 +1,20 @@
 :javascript
-  $(function() {
-    var current_edit = 0;
+  function loadPlanTable() {
+    url = location.pathname + "/#{program.id}/plan";
+    $.get(url, {}, function(html) {
+      $("#plan-area").html(html);
+    });
     $("#new-course-dialog").remove();
     $('#content-panel').append('<div title="Nuevo curso" id="new-course-dialog"><iframe width="550" height="340" src="/programas/#{program.id}/nuevo_curso" scrolling="no"></iframe></div>');
     $("#new-course-dialog").dialog({ autoOpen: false, width: 640, height: 450, modal:true });
     $("#a-new-course").live("click", function() {
       $("#new-course-dialog").dialog('open');
     });
+  }
+  $(function() {
+    var current_edit = 0;
+    loadPlanTable();
+
     $(".course").live("click", function() {
       var course_id = $('#'+this.id).attr('course_id');
       var tr_id = this.id;
@@ -42,45 +50,6 @@
   });
 
 %h2 Plan
-
-- current_term = 0
-%table.plan
-  %tbody
-  - program.courses.order("term").order("name").each_with_index do |course, index|
-    - if current_term != course.term 
-      - current_term = course.term
-      - if current_term == 99
-        %tr.optional
-          %th{:colspan=>5} Optativas
-      - else
-        %tr.term
-          %th{:colspan=>5}= "#{program.term_type} #{course.term}"
-      %tr.header
-        %th Clave
-        %th Nombre
-        %th Creditos
-        %th Prerequisitos
-        %th Corequisitos
-    %tr.course{:id=>"tr_#{course.id}", :course_id=>course.id}
-      %td= course.code
-      %td= course.name
-      %td.centered= "#{course.lecture_hours}–#{course.lab_hours}–#{course.credits}"
-      - prereq = []
-      - if !course.prereq1.nil?
-        - prereq << Course.find(course.prereq1).code rescue 'Error'
-      - if !course.prereq2.nil?
-        - prereq << Course.find(course.prereq2).code rescue 'Error'
-      - if !course.prereq3.nil?
-        - prereq << Course.find(course.prereq3).code rescue 'Error'
-      %td= prereq.join(',')
-      - coreq = []
-      - if !course.coreq1.nil?
-        - coreq << Course.find(course.coreq1).code rescue 'Error'
-      - if !course.coreq2.nil?
-        - coreq << Course.find(course.coreq2).code rescue 'Error'
-      - if !course.coreq3.nil?
-        - coreq << Course.find(course.coreq3).code rescue 'Error'
-      %td= coreq.join(',')
-
-
+#plan-area
 = link_to 'Agregar curso', '#', :id=>'a-new-course'
+

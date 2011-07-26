@@ -17,17 +17,18 @@
         = fields.label :name, 'Nombre'
         = fields.text_field :name
 
-      %div{:id => "field_program_courses_0_lecture_hours", :class => 'field'}
-        = fields.label :lecture_hours, 'Horas Teóricas'
-        = fields.select :lecture_hours, (0..12).to_a
-
-      %div{:id => "field_program_courses_0_lab_hours", :class => 'field'}
-        = fields.label :lab_hours, 'Horas Practicas'
-        = fields.select :lab_hours, (0..12).to_a
-
-      %div{:id => "field_program_courses_0_credits", :class => 'field'}
-        = fields.label :credits, 'Creditos'
-        = fields.select :credits, (1..30).to_a
+      %div{:id => "credits", :class => 'field'}
+        %label Creditos
+        %table.plan-credits
+          %tbody
+            %tr
+              %th Teoría
+              %th Practica
+              %th Total
+            %tr
+              %td= fields.select :lecture_hours, (0..12).to_a
+              %td= fields.select :lab_hours, (0..12).to_a
+              %td= fields.select :credits, (1..30).to_a
 
 
       #dialog-submit-button-area
