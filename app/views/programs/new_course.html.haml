@@ -1,0 +1,34 @@
+= form_for(@program, :url => { :action => "create_course" }) do |f|
+  = hidden_field_tag 'program_id', @program.id
+  = hidden_field_tag 'program[courses_attributes][0][program_id]', @program.id
+  = fields_for "program[courses_attributes][0]" do |fields|
+    #course-new
+      %h3 Nuevo Curso
+
+      %div{:id => "field_program_courses_0_term", :class => 'field'}
+        = fields.label :term, @program.term_type
+        = fields.select :term,  (1..@program.terms_qty).to_a << ['Optativa',99]
+
+      %div{:id => "field_program_courses_0_code", :class => 'field'}
+        = fields.label :code, 'Clave'
+        = fields.text_field :code
+
+      %div{:id => "field_program_courses_0_name", :class => 'field'}
+        = fields.label :name, 'Nombre'
+        = fields.text_field :name
+
+      %div{:id => "field_program_courses_0_lecture_hours", :class => 'field'}
+        = fields.label :lecture_hours, 'Horas Teóricas'
+        = fields.select :lecture_hours, (0..12).to_a
+
+      %div{:id => "field_program_courses_0_lab_hours", :class => 'field'}
+        = fields.label :lab_hours, 'Horas Practicas'
+        = fields.select :lab_hours, (0..12).to_a
+
+      %div{:id => "field_program_courses_0_credits", :class => 'field'}
+        = fields.label :credits, 'Creditos'
+        = fields.select :credits, (1..30).to_a
+
+
+      #dialog-submit-button-area
+        = fields.submit "Crear nuevo curso"

@@ -8,7 +8,7 @@ class ProgramsController < ApplicationController
   def live_search
     @programs = Program.order('name')
     if !params[:q].blank?
-      @programs = @programs.where("name LIKE :n OR code LIKE :n)", {:n => "%#{params[:q]}%"}) 
+      @programs = @programs.where("name LIKE :n OR prefix LIKE :n", {:n => "%#{params[:q]}%"}) 
     end
 
     render :layout => false
@@ -25,7 +25,7 @@ class ProgramsController < ApplicationController
   end
 
   def create
-    @program = Program.new(params[:institution])
+    @program = Program.new(params[:program])
 
     if @program.save
       flash[:notice] = "Programa creada."
@@ -35,7 +35,7 @@ class ProgramsController < ApplicationController
           if request.xhr?
             json = {}
             json[:flash] = flash
-            json[:uniq] = @program.id
+            json[:uniq] = @program.prefix
             render :json => json
           else 
             redirect_to @program
@@ -62,7 +62,7 @@ class ProgramsController < ApplicationController
   def update 
     @program = Program.find(params[:id])
 
-    if @program.update_attributes(params[:institution])
+    if @program.update_attributes(params[:program])
       flash[:notice] = "Programa actualizada."
       respond_with do |format|
         format.html do
@@ -91,4 +91,26 @@ class ProgramsController < ApplicationController
       end
     end
   end
+
+  def new_course
+    @program = Program.find(params[:id])
+    render :layout => 'standalone'
+  end
+
+  def create_course
+    @program = Program.find(params[:program_id])
+    if @program.update_attributes(params[:program])
+      flash[:notice] = "Nuevo curso creado."
+    else
+      flash[:error] = "Error al crear curso."
+    end
+    render :layout => 'standalone'
+  end
+
+  def edit_course
+    @program = Program.find(params[:id])
+    @course = Course.find(params[:course_id])
+    render :layout => false
+  end
+
 end

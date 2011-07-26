@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110721000422) do
+ActiveRecord::Schema.define(:version => 20110725200106) do
 
   create_table "academic_degrees", :force => true do |t|
     t.integer  "student_id"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(:version => 20110721000422) do
     t.integer  "lab_hours"
     t.integer  "credits"
     t.text     "description"
-    t.integer  "type",                        :default => 1
+    t.integer  "term",                        :default => 1
     t.integer  "prereq1"
     t.integer  "prereq2"
     t.integer  "prereq3"
@@ -132,11 +132,13 @@ ActiveRecord::Schema.define(:version => 20110721000422) do
 
   create_table "programs", :force => true do |t|
     t.string   "name"
-    t.string   "level",       :limit => 20
-    t.string   "prefix",      :limit => 5
+    t.string   "level",          :limit => 20
+    t.string   "prefix",         :limit => 5
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "terms_duration"
+    t.integer  "terms_qty"
   end
 
   create_table "scholarships", :force => true do |t|

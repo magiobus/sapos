@@ -1,0 +1,57 @@
+.plan {
+  width: 100%;
+  background: $white;
+  border-collapse: collapse;
+  tr {
+    margin-bottom: 1px;
+    th {
+      font-weight: bold;
+      padding: 4px;
+      border: 1px solid $line-color;
+    }
+    &.term {
+      th {
+        color: $black;
+        background: $bg-color;
+        border-bottom: 2px solid $light-grey;
+      }
+    }
+    &.optional {
+      th {
+        color: $grey;
+        background: $bg-color;
+        border-bottom: 2px solid $light-grey;
+      }
+    }
+    &.header {
+    }
+    td {
+      padding: 4px;
+      border: 1px solid $line-color;
+    }
+    &.course:hover td {
+      background-color: $bg-color;
+      cursor: pointer;
+    }
+    &.selected td {
+      border: 1px solid #ddd;
+    }
+    &.selected:hover td {
+      background: #ddd;
+    }
+  }
+}
+
+#a-new-course {
+  float: right;
+  margin: 10px;
+}
+
+.edit-course td {
+  border: 1px solid #ddd !important;
+}
+
+.edit-course-div {
+  background-color: $white;
+  padding: 10px;
+}

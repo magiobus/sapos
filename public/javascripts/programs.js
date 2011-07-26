@@ -1,3 +1,4 @@
+var model_name = 'program';
 function initializeSearchForm() {
   // Do nothing
 }

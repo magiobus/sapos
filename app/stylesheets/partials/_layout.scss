@@ -221,7 +221,7 @@
 
 .main-panel {
   padding-top: 32px;
-  margin-left: 300px;
+  margin-left: 302px;
   .resource-header {
     padding: 20px;
     height: 100px;
@@ -268,4 +268,8 @@
       margin-left: 140px;
     }
   }
+}
+
+.programs-main .resource-header {
+  height: 70px;
 }

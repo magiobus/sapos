@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,45 +24,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 20, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 20, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
 }
 
-/* line 22, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 24, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 26, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 28, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 101, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 101, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 30, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 114, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 114, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -371,17 +371,18 @@ span.red {
   display: inline;
 }
 
-/* line 203, ../../../app/stylesheets/partials/_general.scss */
-#institution_name {
+/* line 204, ../../../app/stylesheets/partials/_general.scss */
+#institution_name,
+#program_name {
   width: 400px;
 }
 
-/* line 207, ../../../app/stylesheets/partials/_general.scss */
+/* line 208, ../../../app/stylesheets/partials/_general.scss */
 .adv-hidden {
   display: none;
 }
 
-/* line 211, ../../../app/stylesheets/partials/_general.scss */
+/* line 212, ../../../app/stylesheets/partials/_general.scss */
 .todo {
   color: #f00;
   background-color: #ff0;
@@ -389,6 +390,11 @@ span.red {
   border: 1px solid #ee0;
   padding: 10px;
   margin: 10px;
+}
+
+/* line 221, ../../../app/stylesheets/partials/_general.scss */
+.centered {
+  text-align: center;
 }
 
 /* line 1, ../../../app/stylesheets/partials/_layout.scss */
@@ -656,7 +662,7 @@ span.red {
 /* line 222, ../../../app/stylesheets/partials/_layout.scss */
 .main-panel {
   padding-top: 32px;
-  margin-left: 300px;
+  margin-left: 302px;
 }
 /* line 225, ../../../app/stylesheets/partials/_layout.scss */
 .main-panel .resource-header {
@@ -713,6 +719,11 @@ span.red {
 /* line 267, ../../../app/stylesheets/partials/_layout.scss */
 .main-panel #resource-tabs .ui-tabs-nav li.first-tab {
   margin-left: 140px;
+}
+
+/* line 273, ../../../app/stylesheets/partials/_layout.scss */
+.programs-main .resource-header {
+  height: 70px;
 }
 
 /* line 1, ../../../app/stylesheets/partials/_forms.scss */
@@ -922,6 +933,13 @@ input[type=button].disabled:hover {
 #thesis-number {
   padding: 4px;
   font-weight: bold;
+}
+
+/* line 163, ../../../app/stylesheets/partials/_forms.scss */
+#program_course_attributes_0_description {
+  margin-top: 10px;
+  width: 360px;
+  height: 50px;
 }
 
 /* line 1, ../../../app/stylesheets/partials/_tabs.scss */
@@ -1164,4 +1182,68 @@ input[type=button].disabled:hover {
 /* line 6, ../../../app/stylesheets/partials/_mime.scss */
 .type-unknown {
   background: transparent url(/images/mime/unknown.png) 0 15px no-repeat;
+}
+
+/* line 1, ../../../app/stylesheets/partials/_programs.scss */
+.plan {
+  width: 100%;
+  background: white;
+  border-collapse: collapse;
+}
+/* line 5, ../../../app/stylesheets/partials/_programs.scss */
+.plan tr {
+  margin-bottom: 1px;
+}
+/* line 7, ../../../app/stylesheets/partials/_programs.scss */
+.plan tr th {
+  font-weight: bold;
+  padding: 4px;
+  border: 1px solid #ebebeb;
+}
+/* line 13, ../../../app/stylesheets/partials/_programs.scss */
+.plan tr.term th {
+  color: #0a0a0a;
+  background: #fcfcfc;
+  border-bottom: 2px solid #cccccc;
+}
+/* line 20, ../../../app/stylesheets/partials/_programs.scss */
+.plan tr.optional th {
+  color: #777777;
+  background: #fcfcfc;
+  border-bottom: 2px solid #cccccc;
+}
+/* line 28, ../../../app/stylesheets/partials/_programs.scss */
+.plan tr td {
+  padding: 4px;
+  border: 1px solid #ebebeb;
+}
+/* line 32, ../../../app/stylesheets/partials/_programs.scss */
+.plan tr.course:hover td {
+  background-color: #fcfcfc;
+  cursor: pointer;
+}
+/* line 36, ../../../app/stylesheets/partials/_programs.scss */
+.plan tr.selected td {
+  border: 1px solid #ddd;
+}
+/* line 39, ../../../app/stylesheets/partials/_programs.scss */
+.plan tr.selected:hover td {
+  background: #ddd;
+}
+
+/* line 45, ../../../app/stylesheets/partials/_programs.scss */
+#a-new-course {
+  float: right;
+  margin: 10px;
+}
+
+/* line 50, ../../../app/stylesheets/partials/_programs.scss */
+.edit-course td {
+  border: 1px solid #ddd !important;
+}
+
+/* line 54, ../../../app/stylesheets/partials/_programs.scss */
+.edit-course-div {
+  background-color: white;
+  padding: 10px;
 }

@@ -8,7 +8,7 @@ class CreateCourses < ActiveRecord::Migration
       t.integer "lab_hours"
       t.integer "credits"
       t.text    "description"
-      t.integer "type",      :default => 1
+      t.integer "term",      :default => 1
       t.integer "prereq1"
       t.integer "prereq2"
       t.integer "prereq3"

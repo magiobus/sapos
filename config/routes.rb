@@ -25,6 +25,9 @@ Sapos::Application.routes.draw do
   match 'usuarios/busqueda' => 'users#live_search'
   
   match 'programas/busqueda' => 'programs#live_search'
+  match 'programas/:id/nuevo_curso' => 'programs#new_course'
+  match 'programas/create_advance' => 'programs#create_course'
+  match 'programas/:id/curso/:course_id' => 'programs#edit_course'
 
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
     resources :students, :path => "estudiantes"

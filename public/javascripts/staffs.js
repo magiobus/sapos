@@ -1,3 +1,5 @@
+var model_name = 'staff';
+
 // ** On change Program
 $('#institution').live("change", function() {
   liveSearch();

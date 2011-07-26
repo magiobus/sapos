@@ -1,1 +1,6 @@
-= render(:partial => 'list', :locals => {:programs => @programs })
+%ul.panel-list
+  - @programs.each do |program|
+    %li 
+      - link_to program, :method => :get, :remote => true, :class => 'get-item', :'data-type' => 'html' do
+        .title= program.name rescue ''
+        .comment= program.prefix rescue ''

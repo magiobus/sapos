@@ -20,3 +20,17 @@
       .field#field_program_prefix
         = f.label :prefix, mark_required(@program, :prefix) + 'Clave'
         = f.text_field :prefix
+
+      .field#field_program_level
+        = f.label :level, 'Nivel'
+        = f.select :level,  Program::LEVEL.invert
+
+      .field#field_program_terms_duration
+        = f.label :terms_duration, 'Duración del periodo'
+        = f.select :terms_duration,  Program::TERM.invert
+
+      .field#field_program_terms_qty
+        = f.label :terms_qty, 'Cantidad de periodos'
+        = f.select :terms_qty, (1..12).to_a
+
+

@@ -1,3 +1,4 @@
+var model_name = 'student';
 // ** On change Program
 var advprev = 0;
 

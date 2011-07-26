@@ -200,7 +200,8 @@ span.red { color: $red; }
 }
 
 
-#institution_name {
+#institution_name,
+#program_name {
   width: 400px;
 }
 
@@ -215,4 +216,8 @@ span.red { color: $red; }
   border: 1px solid #ee0;
   padding: 10px;
   margin: 10px;
+}
+
+.centered {
+  text-align: center;
 }

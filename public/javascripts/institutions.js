@@ -1,3 +1,5 @@
+var model_name = 'institution';
+
 function initializeSearchForm() {
   // Do nothing
 }

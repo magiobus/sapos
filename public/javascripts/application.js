@@ -47,7 +47,7 @@ function showFormErrors(xhr, status, error) {
 
     for ( e in res['errors'] ) {
         errorMsg = $('<div>' + res['errors'][e] + '</div>').addClass('error-message');
-        $('#field_student_' + e.replace('.', '_')).addClass('with-errors').append(errorMsg);
+        $('#field_' + model_name + '_' + e.replace('.', '_')).addClass('with-errors').append(errorMsg);
     }
 }
 
