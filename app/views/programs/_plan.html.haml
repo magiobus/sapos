@@ -1,4 +1,5 @@
 :javascript
+  var current_edit = 0;
   function loadPlanTable() {
     url = location.pathname + "/#{program.id}/plan";
     $.get(url, {}, function(html) {
@@ -11,8 +12,16 @@
       $("#new-course-dialog").dialog('open');
     });
   }
+  function hideCurrent() {
+    if (current_edit != 0) {
+      $("#div_"+current_edit).slideUp("fast", function() {
+        $('#tr_'+current_edit).animate({ backgroundColor: "white" }, 1000, function() {
+          $('#tr_'+current_edit).removeClass("selected");
+        });
+      });
+    }
+  }
   $(function() {
-    var current_edit = 0;
     loadPlanTable();
 
     $(".course").live("click", function() {
