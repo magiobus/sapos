@@ -1,0 +1,24 @@
+%h3= @tc.course.name
+#schedule-term= "Periodo: #{@tc.term.name} (#{l @tc.term.start_date, :format => :long} – #{l @tc.term.end_date, :format => :long})"
+%table.schedule
+  %tbody
+    %tr.header
+      %th Día
+      %th Inicio
+      %th Fin
+      %th Docente
+      %th Aula
+      %th Comentarios
+  - @tc.term_course_schedule.order("start_date").order("day").order("start_hour").each_with_index do |schedule, index|
+    %tr.schedule-item{:id=>"tr_#{schedule.id}", :schedule_id=>schedule.id}
+      %td= schedule.day_name
+      %td.centered=  l schedule.start_hour, :format => "%H:%M"
+      %td.centered=  l schedule.end_hour, :format => "%H:%M"
+      %td= schedule.staff.full_name
+      %td= schedule.classroom.name
+      - comments = ''
+      - if schedule.start_date != @tc.term.start_date 
+        - comments += "Inicia: #{l @tc.term.start_date, :format => :long}. "
+      - if schedule.start_date != @tc.term.start_date 
+        - comments += "Finaliza: #{l @tc.term.end_date, :format => :long}"
+      %td= comments

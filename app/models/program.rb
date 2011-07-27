@@ -24,6 +24,9 @@ class Program < ActiveRecord::Base
   has_many :courses
   accepts_nested_attributes_for :courses
 
+  has_many :terms
+  accepts_nested_attributes_for :terms
+
   validates :name, :presence => true
   validates :prefix, :presence => true
   validates :level, :presence => true

@@ -1,0 +1,64 @@
+:javascript
+  var current_term_edit = 0;
+  function loadTermsTable() {
+    url = location.pathname + "/#{program.id}/periodos";
+    $.get(url, {}, function(html) {
+      $("#terms-area").html(html);
+    });
+    $("#new-term-dialog").remove();
+    $('#content-panel').append('<div title="Nuevo periodo" id="new-term-dialog"><iframe width="550" height="340" src="/programas/#{program.id}/nuevo_periodo" scrolling="no"></iframe></div>');
+    $("#new-term-dialog").dialog({ autoOpen: false, width: 640, height: 450, modal:true });
+    $("#a-new-term").live("click", function() {
+      $("#new-term-dialog").dialog('open');
+    });
+  }
+  function hideCurrentTerm() {
+    if (current_term_edit != 0) {
+      $("#div_"+current_term_edit).slideUp("fast", function() {
+        $('#tr_term_'+current_term_edit).animate({ backgroundColor: "white" }, 1000, function() {
+          $('#tr_term_'+current_term_edit).removeClass("selected");
+        });
+      });
+    }
+  }
+  $(function() {
+    loadTermsTable();
+
+    $(".term-item").live("click", function() {
+      var term_id = $('#'+this.id).attr('term_id');
+      var tr_term_id = this.id;
+      if (current_term_edit != term_id) {
+        if (current_term_edit != 0) {
+          current_term_edit2 = current_term_edit;
+          $("#div_"+current_term_edit).slideUp("fast", function() {
+            $("#edit-course_"+current_term_edit2).remove();
+            $('#tr_term_'+current_term_edit2).animate({ backgroundColor: "white" }, 1000, function() {
+              $('#tr_term_'+current_term_edit2).removeClass("selected");
+            });
+          });
+        }
+        url = location.pathname + "/#{program.id}/periodo/"+term_id;
+        $("<tr class=\"edit-course\" id=\"edit-course_" + term_id + "\"><td colspan=\"5\"><div class=\"edit-course-div\" id=\"div_"+term_id+"\"></div></td></tr>").insertAfter($('#'+this.id));
+        $.get(url, {}, function(html) {
+          $('#'+tr_term_id).animate({ backgroundColor: "#dddddd" }, 1000);
+          $("#div_"+term_id).hide().html(html).slideDown("fast", function() {
+            $('#'+tr_term_id).addClass("selected");
+          });
+        });
+        current_term_edit = term_id;
+      } else {
+        $("#div_"+term_id).slideUp("fast", function() {
+          $(".edit-course").remove();
+          $('#'+tr_term_id).animate({ backgroundColor: "white" }, 1000, function() {
+            $('#'+tr_term_id).removeClass("selected");
+          });
+        });
+        current_term_edit = 0;
+      }
+    });
+  });
+
+%h2 Periodos
+#terms-area
+= link_to 'Agregar periodo', '#', :id=>'a-new-term'
+

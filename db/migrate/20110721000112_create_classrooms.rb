@@ -3,7 +3,7 @@ class CreateClassrooms < ActiveRecord::Migration
     create_table :classrooms do |t|
       t.string "code"
       t.string "name"
-      t.integer "type"
+      t.integer "room_type"
       t.timestamps
     end
   end

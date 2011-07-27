@@ -1,5 +1,5 @@
 :javascript
-  var current_edit = 0;
+  var current_plan_edit = 0;
   function loadPlanTable() {
     url = location.pathname + "/#{program.id}/plan";
     $.get(url, {}, function(html) {
@@ -12,11 +12,11 @@
       $("#new-course-dialog").dialog('open');
     });
   }
-  function hideCurrent() {
-    if (current_edit != 0) {
-      $("#div_"+current_edit).slideUp("fast", function() {
-        $('#tr_'+current_edit).animate({ backgroundColor: "white" }, 1000, function() {
-          $('#tr_'+current_edit).removeClass("selected");
+  function hideCurrentCourse() {
+    if (current_plan_edit != 0) {
+      $("#div_"+current_plan_edit).slideUp("fast", function() {
+        $('#tr_'+current_plan_edit).animate({ backgroundColor: "white" }, 1000, function() {
+          $('#tr_'+current_plan_edit).removeClass("selected");
         });
       });
     }
@@ -27,13 +27,13 @@
     $(".course").live("click", function() {
       var course_id = $('#'+this.id).attr('course_id');
       var tr_id = this.id;
-      if (current_edit != course_id) {
-        if (current_edit != 0) {
-          current_edit2 = current_edit;
-          $("#div_"+current_edit).slideUp("fast", function() {
-            $("#edit-course_"+current_edit2).remove();
-            $('#tr_'+current_edit2).animate({ backgroundColor: "white" }, 1000, function() {
-              $('#tr_'+current_edit2).removeClass("selected");
+      if (current_plan_edit != course_id) {
+        if (current_plan_edit != 0) {
+          current_plan_edit2 = current_plan_edit;
+          $("#div_"+current_plan_edit).slideUp("fast", function() {
+            $("#edit-course_"+current_plan_edit2).remove();
+            $('#tr_'+current_plan_edit2).animate({ backgroundColor: "white" }, 1000, function() {
+              $('#tr_'+current_plan_edit2).removeClass("selected");
             });
           });
         }
@@ -45,7 +45,7 @@
             $('#'+tr_id).addClass("selected");
           });
         });
-        current_edit = course_id;
+        current_plan_edit = course_id;
       } else {
         $("#div_"+course_id).slideUp("fast", function() {
           $(".edit-course").remove();
@@ -53,7 +53,7 @@
             $('#'+tr_id).removeClass("selected");
           });
         });
-        current_edit = 0;
+        current_plan_edit = 0;
       }
     });
   });

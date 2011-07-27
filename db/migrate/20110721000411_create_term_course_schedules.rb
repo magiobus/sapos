@@ -9,7 +9,7 @@ class CreateTermCourseSchedules < ActiveRecord::Migration
       t.references :staff
       t.date    "start_date"
       t.date    "end_date"
-      t.integer "type"
+      t.integer "class_type"
       t.integer "status",     :default => 1  
       t.timestamps
     end

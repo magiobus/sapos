@@ -27,9 +27,13 @@ Sapos::Application.routes.draw do
   match 'programas/busqueda' => 'programs#live_search'
   match 'programas/:id/nuevo_curso' => 'programs#new_course'
   match 'programas/create_course' => 'programs#create_course'
-  match 'programas/update_course' => 'programs#update_course'
   match 'programas/:id/plan' => 'programs#plan_table'
   match 'programas/:id/curso/:course_id' => 'programs#edit_course'
+  match 'programas/:id/periodos' => 'programs#terms_table'
+  match 'programas/:id/nuevo_periodo' => 'programs#new_term'
+  match 'programas/create_term' => 'programs#create_term'
+  match 'programas/:id/periodo/:term_id' => 'programs#edit_term'
+  match 'programas/:id/periodo/:term_id/curso/:course_id/horario' => 'programs#schedule_table'
 
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
     resources :students, :path => "estudiantes"

@@ -119,36 +119,35 @@ class ProgramsController < ApplicationController
     render :layout => false
   end
 
-  def update_course
+  def new_term
     @program = Program.find(params[:id])
+    render :layout => 'standalone'
+  end
+
+  def create_term
+    @program = Program.find(params[:program_id])
     if @program.update_attributes(params[:program])
-      flash[:notice] = "Curso actualizado."
-      respond_with do |format|
-        format.html do
-          if request.xhr?
-            json = {}
-            json[:flash] = flash
-            render :json => json
-          else 
-            redirect_to @program
-          end
-        end
-      end
+      flash[:notice] = "Nuevo curso creado."
     else
-      flash[:error] = "Error al actualizar el curso"
-      respond_with do |format|
-        format.html do
-          if request.xhr?
-            json = {}
-            json[:flash] = flash
-            json[:errors] = @program.errors
-            render :json => json, :status => :unprocessable_entity
-          else 
-            redirect_to @program
-          end
-        end
-      end
+      flash[:error] = "Error al crear curso."
     end
+    render :layout => 'standalone'
+  end
+
+  def edit_term
+    @program = Program.find(params[:id])
+    @term = Term.find(params[:term_id])
+    render :layout => false
+  end
+
+  def terms_table
+    @program = Program.find(params[:id])
+    render :layout => false
+  end
+
+  def schedule_table
+    @tc = TermCourse.where('term_id = :t AND course_id = :c', {:t => params[:term_id], :c => params[:course_id]}).first
+    render :layout => false
   end
 
 end

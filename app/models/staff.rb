@@ -1,5 +1,6 @@
 class Staff < ActiveRecord::Base
   belongs_to :institution
+  has_many :term_course_schedule
 
   has_one :contact, :as => :attachable
   accepts_nested_attributes_for :contact

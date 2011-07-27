@@ -1,4 +1,3 @@
-//- form_for @program, :remote => true, :url => { :action => "update_course" }, :html => {:'data-type' => 'html', :id => 'course-update-form', :class => 'course-edit'} do |f|
 = fields_for "program[courses_attributes][0]" do |f|
   = hidden_field_tag 'program_id', @program.id
   = hidden_field_tag 'id', @program.id

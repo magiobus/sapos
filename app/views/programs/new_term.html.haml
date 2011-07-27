@@ -1,0 +1,25 @@
+= form_for(@program, :url => { :action => "create_term" }) do |f|
+  = hidden_field_tag 'program_id', @program.id
+  = hidden_field_tag 'program[terms_attributes][0][program_id]', @program.id
+  = fields_for "program[terms_attributes][0]" do |fields|
+    #term-new
+      %h3 Nuevo Periodo
+
+      %div{:id => "field_program_terms_0_code", :class => 'field'}
+        = fields.label :code, 'Clave'
+        = fields.text_field :code
+
+      %div{:id => "field_program_terms_0_name", :class => 'field'}
+        = fields.label :name, 'Nombre'
+        = fields.text_field :name
+
+      %div{:id => "field_program_terms_0_start_date", :class => 'field'}
+        = fields.label :start_date, 'Inicio'
+        = fields.date_select :start_date
+
+      %div{:id => "field_program_terms_0_end_date", :class => 'field'}
+        = fields.label :end_date, 'Fin'
+        = fields.date_select :end_date
+
+      #dialog-submit-button-area
+        = fields.submit "Crear nuevo periodo"

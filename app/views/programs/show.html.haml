@@ -1,4 +1,5 @@
 - form_for @program, :remote => true, :html => {:'data-type' => 'html', :id => 'item-edit-form'} do |f|
+  = hidden_field :program, :id
 
   .resource-header
     .resource-title
@@ -11,6 +12,7 @@
     %ul
       %li.first-tab= link_to "Detalles", "#detalles"
       %li= link_to "Plan", "#plan"
+      %li= link_to "Periodos", "#periodos"
       %li= link_to "Programación", "#programacion"
 
     #detalles
@@ -39,5 +41,8 @@
     #plan
       = render :partial => 'plan', :locals => {:program => @program, :f => f}
 
+    #periodos
+      = render :partial => 'terms', :locals => {:program => @program, :f => f}
+
     #programacion
-      TODO
+      = render :partial => 'program', :locals => {:program => @program, :f => f}

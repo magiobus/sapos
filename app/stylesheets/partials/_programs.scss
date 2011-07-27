@@ -1,4 +1,6 @@
-.plan {
+.plan,
+.terms,
+.schedule {
   width: 100%;
   background: $white;
   border-collapse: collapse;
@@ -29,6 +31,8 @@
       padding: 4px;
       border: 1px solid $line-color;
     }
+    &.schedule-item:hover td,
+    &.term-item:hover td,
     &.course:hover td {
       background-color: $bg-color;
       cursor: pointer;
@@ -42,16 +46,19 @@
   }
 }
 
-#a-new-course {
+#a-new-course,
+#a-new-term {
   float: right;
   margin: 10px;
 }
 
-.edit-course td {
+.edit-course td,
+.edit-term td {
   border: 1px solid #ddd !important;
 }
 
-.edit-course-div {
+.edit-course-div,
+.edit-term-div {
   background-color: $white;
   padding: 10px;
 }
@@ -95,4 +102,26 @@ table.plan-coreq {
   td { 
     border: 0 !important;
   }
+}
+
+#schedule-header {
+  height: 32px;
+  border-bottom: 1px dashed $line2-color;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+
+  #schedule-title {
+    width: 300px;
+    float: left;
+  }
+
+  #schedule-filter {
+    float: right;
+  }
+}
+
+#schedule-term {
+  font-size: 90%;
+  color: $grey;
+  margin-bottom: 10px;
 }
