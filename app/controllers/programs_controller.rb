@@ -145,9 +145,31 @@ class ProgramsController < ApplicationController
     render :layout => false
   end
 
+  def courses_dropdown
+    render :layout => false
+  end
+
   def schedule_table
     @tc = TermCourse.where('term_id = :t AND course_id = :c', {:t => params[:term_id], :c => params[:course_id]}).first
     render :layout => false
+  end
+
+  def select_courses_for_term
+    @program = Program.find(params[:id])
+    @term = Term.find(params[:term_id])
+    @courses_assigned = TermCourse.where("term_id = :t AND status = :s", {:t => @term.id, :s => TermCourse::ASSIGNED}).collect {|i| i.course_id}
+    render :layout => 'standalone'
+  end
+
+  def assign_courses_to_term
+    @term = Term.find(params[:term_id])
+    if !params[:courses].nil?
+      courses = params[:courses].collect {|i| i.to_i}
+    else 
+      courses = []
+    end
+    @term.assign_courses(courses)
+    render :layout => 'standalone'
   end
 
 end

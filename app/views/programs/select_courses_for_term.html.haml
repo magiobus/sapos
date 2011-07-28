@@ -1,0 +1,30 @@
+= form_for(@program, :url => { :action => "assign_courses_to_term" }, :html => {:id => 'assign-course-form'}) do |f|
+  = hidden_field_tag :program_id, @program.id
+  = hidden_field_tag :term_id, @term.id
+  %h3= @program.name
+  #schedule-term= "Periodo: #{@term.name} (#{l @term.start_date, :format => :long} – #{l @term.end_date, :format => :long})"
+  - current_term = 0
+  %table.courses-assign
+    %thead.fixed-header
+      %tr.header
+        %th Clave
+        %th Nombre
+        %th 
+    %tbody.scroll-content
+      - @program.courses.order("term").order("name").each_with_index do |course, index|
+        - if current_term != course.term
+          - current_term = course.term
+          - if current_term == 99
+            %tr.optional
+              %td{:colspan=>3} Optativas
+          - else
+            %tr.term
+              %td{:colspan=>3}= "#{@program.term_type} #{course.term}"
+
+        %tr.course{:id=>"tr_#{course.id}", :course_id=>course.id}
+          %td= course.id
+          %td= course.name
+          %td= check_box_tag "courses[]", course.id, @courses_assigned.include?(course.id), :id => "chk_#{course.id}"
+
+  #dialog-submit-button-area
+    = f.submit "Asignar cursos"

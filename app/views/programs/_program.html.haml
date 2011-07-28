@@ -1,8 +1,11 @@
 #schedule-header
   #schedule-title
     %h2 Programación
-  #schedule-filter
-    = select "tc", "term_id", Term.where("program_id = :p", {:p => @program.id}).collect {|i| [ i.name, i.id]}, :prompt => 'Selecciona un periodo'
-    = select "tc", "course_id", TermCourse.where("term_id = :t", {:t => 2}).collect {|i| [ i.course.name, i.course.id]} + [['Agregar nuevo curso', 0]], :prompt => 'Selecciona un curso'
+  %table#schedule-filter
+    %tbody
+      %tr
+        %td= select "tc", "term_id", Term.where("program_id = :p", {:p => @program.id}).collect {|i| [ i.name, i.id]}, :prompt => 'Selecciona un periodo'
+        %td#courses-dropdown 
+          %span Es necesario seleccionar un periodo
 
 #schedule-area

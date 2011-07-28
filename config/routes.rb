@@ -33,6 +33,9 @@ Sapos::Application.routes.draw do
   match 'programas/:id/nuevo_periodo' => 'programs#new_term'
   match 'programas/create_term' => 'programs#create_term'
   match 'programas/:id/periodo/:term_id' => 'programs#edit_term'
+  match 'programas/:id/periodo/:term_id/courses_dropdown' => 'programs#courses_dropdown'
+  match 'programas/:id/periodo/:term_id/seleccionar_cursos' => 'programs#select_courses_for_term'
+  match 'programas/:id/periodo/:term_id/asignar_cursos_al_periodo' => 'programs#assign_courses_to_term'
   match 'programas/:id/periodo/:term_id/curso/:course_id/horario' => 'programs#schedule_table'
 
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do

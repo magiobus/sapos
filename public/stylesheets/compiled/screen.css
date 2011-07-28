@@ -1340,10 +1340,85 @@ table.plan-coreq td {
 #schedule-header #schedule-filter {
   float: right;
 }
+/* line 120, ../../../app/stylesheets/partials/_programs.scss */
+#schedule-header #schedule-filter td {
+  padding-left: 10px;
+}
+/* line 126, ../../../app/stylesheets/partials/_programs.scss */
+#schedule-header #courses-dropdown span {
+  padding: 8px;
+  color: #777777;
+  font-size: 10px;
+}
 
-/* line 123, ../../../app/stylesheets/partials/_programs.scss */
+/* line 134, ../../../app/stylesheets/partials/_programs.scss */
 #schedule-term {
   font-size: 90%;
   color: #777777;
   margin-bottom: 10px;
+}
+
+/* line 140, ../../../app/stylesheets/partials/_programs.scss */
+.courses-assign {
+  width: 522px;
+  border: 1px solid #ebebeb;
+  background: white;
+  border-collapse: collapse;
+}
+/* line 146, ../../../app/stylesheets/partials/_programs.scss */
+.courses-assign thead tr {
+  position: relative;
+  display: block;
+}
+/* line 149, ../../../app/stylesheets/partials/_programs.scss */
+.courses-assign thead tr th {
+  width: 50px;
+  border: 1px solid #2277cc;
+  padding: 4px;
+  font-weight: bold;
+  color: white;
+  background-color: #2277cc;
+}
+/* line 150, ../../../app/stylesheets/partials/_programs.scss */
+.courses-assign thead tr th + th {
+  width: 440px;
+}
+/* line 151, ../../../app/stylesheets/partials/_programs.scss */
+.courses-assign thead tr th + th + th {
+  width: 56px;
+}
+/* line 154, ../../../app/stylesheets/partials/_programs.scss */
+.courses-assign tbody {
+  display: block;
+  overflow: auto;
+  height: 320px;
+  width: 522px;
+}
+/* line 160, ../../../app/stylesheets/partials/_programs.scss */
+.courses-assign tbody tr td {
+  width: 56px;
+  border: 1px solid #ebebeb;
+  padding: 4px;
+}
+/* line 161, ../../../app/stylesheets/partials/_programs.scss */
+.courses-assign tbody tr td + td {
+  width: 440px;
+}
+/* line 162, ../../../app/stylesheets/partials/_programs.scss */
+.courses-assign tbody tr td + td + td {
+  width: 40px;
+  text-align: center;
+}
+/* line 165, ../../../app/stylesheets/partials/_programs.scss */
+.courses-assign tbody tr.term td {
+  background-color: #fcfcfc;
+  font-weight: bold;
+  padding: 4px;
+}
+/* line 172, ../../../app/stylesheets/partials/_programs.scss */
+.courses-assign tbody tr.optional td {
+  background-color: #fcfcfc;
+  color: #777777;
+  font-weight: bold;
+  padding: 4px;
 }
