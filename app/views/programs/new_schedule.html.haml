@@ -1,0 +1,37 @@
+#schedule-header
+  %h3= @tc.course.name
+  #schedule-term= "Periodo: #{@tc.term.name} (#{l @tc.term.start_date, :format => :long} – #{l @tc.term.end_date, :format => :long})"
+= form_for(@program, :url => { :action => "create_schedule" }) do |f|
+  = hidden_field_tag 'term_course_id', @tc.id
+  = hidden_field_tag 'term_course[term_course_schedules_attributes][0][term_course_id]', @tc.id
+  = fields_for "term_course[term_course_schedules_attributes][0]" do |fields|
+    #term-new
+
+      %div{:id => "field_term_course_term_course_schedules_attributes_0_staff_id", :class => 'field'}
+        = fields.label :start_date, 'Docente'
+        = fields.grouped_collection_select :staff_id, @institutions, :staffs, :name, :id, :full_name, options = {:prompt => "Selecciona el docente"}
+
+      %div{:id => "field_term_course_term_course_schedules_attributes_0_day", :class => 'field'}
+        = fields.label :day, 'Horario'
+        = fields.select :day, TermCourseSchedule::DAY.invert.sort {|a,b| a[1] <=> b[1] }
+        = fields.select :start_hour, TermCourseSchedule::HOURS
+        = fields.select :end_hour, TermCourseSchedule::HOURS
+
+      %div{:id => "field_term_course_term_course_schedules_attributes_0_classroom_id", :class => 'field'}
+        = fields.label :classroom_id, 'Aula'
+        = fields.select :classroom_id, Classroom.order(:name).collect {|i| [i.full_name, i.id]}
+
+      %div{:id => "field_term_course_term_course_schedules_attributes_0_class_type", :class => 'field'}
+        = fields.label :class_type, 'Tipo de clase'
+        = fields.select :class_type, TermCourseSchedule::CLASSTYPE.invert.sort {|a,b| a[1] <=> b[1] }
+
+      %div{:id => "field_term_course_term_course_schedules_attributes_0_start_date", :class => 'field'}
+        = fields.label :start_date, 'Fecha Inicio'
+        = fields.date_select :start_date, :default => @tc.term.start_date
+
+      %div{:id => "field_term_course_term_course_schedules_attributes_0_end_date", :class => 'field'}
+        = fields.label :end_date, 'Fecha Fin'
+        = fields.date_select :end_date, :default => @tc.term.end_date
+
+      #dialog-submit-button-area
+        = fields.submit "Agregar sesión al curso"

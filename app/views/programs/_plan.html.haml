@@ -1,64 +1,9 @@
-:javascript
-  var current_plan_edit = 0;
-  function loadPlanTable() {
-    url = location.pathname + "/#{program.id}/plan";
-    $.get(url, {}, function(html) {
-      $("#plan-area").html(html);
-    });
-    $("#new-course-dialog").remove();
-    $('#content-panel').append('<div title="Nuevo curso" id="new-course-dialog"><iframe width="550" height="340" src="/programas/#{program.id}/nuevo_curso" scrolling="no"></iframe></div>');
-    $("#new-course-dialog").dialog({ autoOpen: false, width: 640, height: 450, modal:true });
-    $("#a-new-course").live("click", function() {
-      $("#new-course-dialog").dialog('open');
-    });
-  }
-  function hideCurrentCourse() {
-    if (current_plan_edit != 0) {
-      $("#div_"+current_plan_edit).slideUp("fast", function() {
-        $('#tr_'+current_plan_edit).animate({ backgroundColor: "white" }, 1000, function() {
-          $('#tr_'+current_plan_edit).removeClass("selected");
-        });
-      });
-    }
-  }
-  $(function() {
-    loadPlanTable();
-
-    $(".course").live("click", function() {
-      var course_id = $('#'+this.id).attr('course_id');
-      var tr_id = this.id;
-      if (current_plan_edit != course_id) {
-        if (current_plan_edit != 0) {
-          current_plan_edit2 = current_plan_edit;
-          $("#div_"+current_plan_edit).slideUp("fast", function() {
-            $("#edit-course_"+current_plan_edit2).remove();
-            $('#tr_'+current_plan_edit2).animate({ backgroundColor: "white" }, 1000, function() {
-              $('#tr_'+current_plan_edit2).removeClass("selected");
-            });
-          });
-        }
-        url = location.pathname + "/#{program.id}/curso/"+course_id;
-        $("<tr class=\"edit-course\" id=\"edit-course_" + course_id + "\"><td colspan=\"5\"><div class=\"edit-course-div\" id=\"div_"+course_id+"\"></div></td></tr>").insertAfter($('#'+this.id));
-        $.get(url, {}, function(html) {
-          $('#'+tr_id).animate({ backgroundColor: "#dddddd" }, 1000);
-          $("#div_"+course_id).hide().html(html).slideDown("fast", function() {
-            $('#'+tr_id).addClass("selected");
-          });
-        });
-        current_plan_edit = course_id;
-      } else {
-        $("#div_"+course_id).slideUp("fast", function() {
-          $(".edit-course").remove();
-          $('#'+tr_id).animate({ backgroundColor: "white" }, 1000, function() {
-            $('#'+tr_id).removeClass("selected");
-          });
-        });
-        current_plan_edit = 0;
-      }
-    });
-  });
-
 %h2 Plan
 #plan-area
 = link_to 'Agregar curso', '#', :id=>'a-new-course'
+
+:javascript
+  $(function() {
+    loadPlanTable();
+  });
 

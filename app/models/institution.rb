@@ -9,7 +9,7 @@ class Institution < ActiveRecord::Base
 
   after_create :add_extra
 
-  mount_uploader :image, StaffImageUploader
+  mount_uploader :image, InstitutionImageUploader
 
   def full_name
     "#{name} (#{short_name})" rescue ''

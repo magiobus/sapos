@@ -106,7 +106,6 @@ ActiveRecord::Schema.define(:version => 20110725200106) do
     t.integer  "coreq1"
     t.integer  "coreq2"
     t.integer  "coreq3"
-    t.integer  "coreq4"
     t.text     "notes"
     t.integer  "status",                      :default => 1
     t.datetime "created_at"
@@ -126,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20110725200106) do
     t.string   "short_name", :limit => 20
     t.string   "name"
     t.integer  "contact_id"
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -157,8 +157,8 @@ ActiveRecord::Schema.define(:version => 20110725200106) do
   create_table "staffs", :force => true do |t|
     t.integer  "employee_number"
     t.string   "title",           :limit => 10
-    t.string   "first_name",      :limit => 50, :null => false
-    t.string   "last_name",       :limit => 50, :null => false
+    t.string   "first_name",      :limit => 50,                  :null => false
+    t.string   "last_name",       :limit => 50,                  :null => false
     t.string   "gender",          :limit => 1
     t.date     "date_of_birth"
     t.string   "location"
@@ -167,7 +167,8 @@ ActiveRecord::Schema.define(:version => 20110725200106) do
     t.integer  "contact_id"
     t.string   "cvu"
     t.string   "sni",             :limit => 20
-    t.string   "status",          :limit => 20
+    t.string   "status",          :limit => 20, :default => "0"
+    t.string   "image"
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -33,10 +33,14 @@ Sapos::Application.routes.draw do
   match 'programas/:id/nuevo_periodo' => 'programs#new_term'
   match 'programas/create_term' => 'programs#create_term'
   match 'programas/:id/periodo/:term_id' => 'programs#edit_term'
+  match 'programas/:id/terms_dropdown' => 'programs#terms_dropdown'
   match 'programas/:id/periodo/:term_id/courses_dropdown' => 'programs#courses_dropdown'
   match 'programas/:id/periodo/:term_id/seleccionar_cursos' => 'programs#select_courses_for_term'
   match 'programas/:id/periodo/:term_id/asignar_cursos_al_periodo' => 'programs#assign_courses_to_term'
   match 'programas/:id/periodo/:term_id/curso/:course_id/horario' => 'programs#schedule_table'
+  match 'programas/:id/periodo/:term_id/curso/:course_id/nueva_sesion' => 'programs#new_schedule'
+  match 'programas/create_session' => 'programs#create_schedule'
+  match 'programas/:id/periodo/:term_id/curso/:course_id/sesion/:term_course_schedule_id' => 'programs#edit_schedule'
 
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
     resources :students, :path => "estudiantes"

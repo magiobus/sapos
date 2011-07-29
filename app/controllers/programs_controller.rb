@@ -1,5 +1,3 @@
-require "ostruct"
-
 class ProgramsController < ApplicationController
   before_filter :auth_required
   respond_to :html, :xml, :json
@@ -145,6 +143,10 @@ class ProgramsController < ApplicationController
     render :layout => false
   end
 
+  def terms_dropdown
+    render :layout => false
+  end
+
   def courses_dropdown
     render :layout => false
   end
@@ -170,6 +172,31 @@ class ProgramsController < ApplicationController
     end
     @term.assign_courses(courses)
     render :layout => 'standalone'
+  end
+
+  def new_schedule
+    @program = Program.find(params[:id])
+    @tc = TermCourse.where('term_id = :t AND course_id = :c', {:t => params[:term_id], :c => params[:course_id]}).first
+    @staffs = Staff.order('first_name').includes(:institution)
+    @institutions = Institution.order('name')
+    render :layout => 'standalone'
+  end
+
+  def create_schedule
+    @tc = TermCourse.find(params[:term_course_id])
+    if @tc.update_attributes(params[:term_course])
+      flash[:notice] = "Sesión creada."
+    else
+      flash[:error] = "Error al crear sesión."
+    end
+    render :layout => 'standalone'
+  end
+
+  def edit_schedule
+    @cs = TermCourseSchedule.find(params[:term_course_schedule_id])
+    @staffs = Staff.order('first_name').includes(:institution)
+    @institutions = Institution.order('name')
+    render :layout => false
   end
 
 end

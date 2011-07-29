@@ -1,8 +1,8 @@
 class Term < ActiveRecord::Base
   belongs_to :program
 
-  has_many :term_course
-  accepts_nested_attributes_for :term_course
+  has_many :term_courses
+  accepts_nested_attributes_for :term_courses
 
   OPEN      = 1
   CLOSED    = 2
@@ -22,25 +22,23 @@ class Term < ActiveRecord::Base
     index = 0
     courses_in_tc = []
     params = Hash.new
-    params[:term_course_attributes] = Hash.new
+    params[:term_courses_attributes] = Hash.new
   
-    puts courses.inspect
-    self.term_course.each do |tc|
+    self.term_courses.each do |tc|
       courses_in_tc << tc.course_id
       if !courses.include?(tc.course_id) 
-        params[:term_course_attributes][index] = {:id => tc.id, :status => TermCourse::UNASSIGNED}
+        params[:term_courses_attributes][index] = {:id => tc.id, :status => TermCourse::UNASSIGNED}
         puts "Dar de baja #{tc.course_id}"
         index += 1
       else
-        params[:term_course_attributes][index] = {:id => tc.id, :status => TermCourse::ASSIGNED}
+        params[:term_courses_attributes][index] = {:id => tc.id, :status => TermCourse::ASSIGNED}
         index += 1
       end
     end
 
-    puts courses_in_tc.inspect
     courses.each do |c|
       if !courses_in_tc.include?(c)
-        params[:term_course_attributes][index] = {:course_id => c, :status => TermCourse::ASSIGNED}
+        params[:term_courses_attributes][index] = {:course_id => c, :status => TermCourse::ASSIGNED}
         puts "Dar de alta #{c}"
         index += 1
       end

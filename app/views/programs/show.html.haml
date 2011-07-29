@@ -28,11 +28,11 @@
 
       .field#field_program_level
         = f.label :level, 'Nivel'
-        = f.select :level,  Program::LEVEL.invert
+        = f.select :level,  Program::LEVEL.invert.sort {|a,b| a[1] <=> b[1] }
 
       .field#field_program_terms_duration
         = f.label :terms_duration, 'Duración del periodo'
-        = f.select :terms_duration,  Program::TERM.invert
+        = f.select :terms_duration,  Program::TERM.invert.sort {|a,b| a[1] <=> b[1] }
 
       .field#field_program_terms_qty
         = f.label :terms_qty, 'Cantidad de periodos'

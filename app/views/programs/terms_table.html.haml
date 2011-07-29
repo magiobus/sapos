@@ -1,15 +1,16 @@
-%table.terms
-  %tbody
-    %tr.header
-      %th Clave
-      %th Nombre
-      %th Inicio
-      %th Fin
-      %th Status
-  - @program.terms.order("start_date DESC").each_with_index do |term, index|
-    %tr.term-item{:id=>"tr_term_#{term.id}", :term_id=>term.id}
-      %td= term.code
-      %td= term.name
-      %td.centered= l term.start_date, :format => :long
-      %td.centered= l term.end_date, :format => :long
-      %td= term.status_type
+-if @program.terms.count > 0 
+  %table.terms
+    %tbody
+      %tr.header
+        %th Clave
+        %th Nombre
+        %th Inicio
+        %th Fin
+        %th Status
+    - @program.terms.order("start_date DESC").each_with_index do |term, index|
+      %tr.term-item{:id=>"tr_term_#{term.id}", :term_id=>term.id}
+        %td= term.code
+        %td= term.name
+        %td.centered= l term.start_date, :format => :long
+        %td.centered= l term.end_date, :format => :long
+        %td= term.status_type

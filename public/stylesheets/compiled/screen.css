@@ -726,6 +726,12 @@ span.red {
   height: 70px;
 }
 
+/* line 277, ../../../app/stylesheets/partials/_layout.scss */
+.small-note {
+  font-size: 90% !important;
+  color: #777777;
+}
+
 /* line 1, ../../../app/stylesheets/partials/_forms.scss */
 form {
   margin: 0;
@@ -1253,53 +1259,54 @@ input[type=button].disabled:hover {
   background: #ddd;
 }
 
-/* line 50, ../../../app/stylesheets/partials/_programs.scss */
+/* line 51, ../../../app/stylesheets/partials/_programs.scss */
 #a-new-course,
-#a-new-term {
+#a-new-term,
+#a-new-schedule {
   float: right;
   margin: 10px;
 }
 
-/* line 56, ../../../app/stylesheets/partials/_programs.scss */
+/* line 57, ../../../app/stylesheets/partials/_programs.scss */
 .edit-course td,
 .edit-term td {
   border: 1px solid #ddd !important;
 }
 
-/* line 61, ../../../app/stylesheets/partials/_programs.scss */
+/* line 62, ../../../app/stylesheets/partials/_programs.scss */
 .edit-course-div,
 .edit-term-div {
   background-color: white;
   padding: 10px;
 }
 
-/* line 66, ../../../app/stylesheets/partials/_programs.scss */
+/* line 67, ../../../app/stylesheets/partials/_programs.scss */
 #program_courses_attributes_0_code {
   width: 50px;
 }
 
-/* line 70, ../../../app/stylesheets/partials/_programs.scss */
+/* line 71, ../../../app/stylesheets/partials/_programs.scss */
 #program_courses_attributes_0_name {
   width: 350px;
 }
 
-/* line 74, ../../../app/stylesheets/partials/_programs.scss */
+/* line 75, ../../../app/stylesheets/partials/_programs.scss */
 #program_courses_attributes_0_description {
   width: 350px;
   height: 50px;
 }
 
-/* line 79, ../../../app/stylesheets/partials/_programs.scss */
+/* line 80, ../../../app/stylesheets/partials/_programs.scss */
 #program_courses_attributes_0_notes {
   width: 350px;
   height: 35px;
 }
 
-/* line 84, ../../../app/stylesheets/partials/_programs.scss */
+/* line 85, ../../../app/stylesheets/partials/_programs.scss */
 table.plan-credits {
   border-collapse: collapse;
 }
-/* line 86, ../../../app/stylesheets/partials/_programs.scss */
+/* line 87, ../../../app/stylesheets/partials/_programs.scss */
 table.plan-credits th {
   border: 1px solid #ebebeb;
   font-size: 90%;
@@ -1307,70 +1314,70 @@ table.plan-credits th {
   background: #fcfcfc;
   padding: 4px;
 }
-/* line 93, ../../../app/stylesheets/partials/_programs.scss */
+/* line 94, ../../../app/stylesheets/partials/_programs.scss */
 table.plan-credits td {
   border: 1px solid #ebebeb;
   padding: 4px;
 }
 
-/* line 100, ../../../app/stylesheets/partials/_programs.scss */
+/* line 101, ../../../app/stylesheets/partials/_programs.scss */
 table.plan-prereq,
 table.plan-coreq {
   border-collapse: collapse;
 }
-/* line 102, ../../../app/stylesheets/partials/_programs.scss */
+/* line 103, ../../../app/stylesheets/partials/_programs.scss */
 table.plan-prereq td,
 table.plan-coreq td {
   border: 0 !important;
 }
 
-/* line 107, ../../../app/stylesheets/partials/_programs.scss */
+/* line 108, ../../../app/stylesheets/partials/_programs.scss */
 #schedule-header {
   height: 32px;
   border-bottom: 1px dashed #f0f0f0;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
-/* line 113, ../../../app/stylesheets/partials/_programs.scss */
+/* line 114, ../../../app/stylesheets/partials/_programs.scss */
 #schedule-header #schedule-title {
   width: 300px;
   float: left;
 }
-/* line 118, ../../../app/stylesheets/partials/_programs.scss */
+/* line 119, ../../../app/stylesheets/partials/_programs.scss */
 #schedule-header #schedule-filter {
   float: right;
 }
-/* line 120, ../../../app/stylesheets/partials/_programs.scss */
+/* line 121, ../../../app/stylesheets/partials/_programs.scss */
 #schedule-header #schedule-filter td {
   padding-left: 10px;
 }
-/* line 126, ../../../app/stylesheets/partials/_programs.scss */
+/* line 127, ../../../app/stylesheets/partials/_programs.scss */
 #schedule-header #courses-dropdown span {
   padding: 8px;
   color: #777777;
   font-size: 10px;
 }
 
-/* line 134, ../../../app/stylesheets/partials/_programs.scss */
+/* line 135, ../../../app/stylesheets/partials/_programs.scss */
 #schedule-term {
   font-size: 90%;
   color: #777777;
   margin-bottom: 10px;
 }
 
-/* line 140, ../../../app/stylesheets/partials/_programs.scss */
+/* line 141, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign {
   width: 522px;
   border: 1px solid #ebebeb;
   background: white;
   border-collapse: collapse;
 }
-/* line 146, ../../../app/stylesheets/partials/_programs.scss */
+/* line 147, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign thead tr {
   position: relative;
   display: block;
 }
-/* line 149, ../../../app/stylesheets/partials/_programs.scss */
+/* line 150, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign thead tr th {
   width: 50px;
   border: 1px solid #2277cc;
@@ -1379,43 +1386,43 @@ table.plan-coreq td {
   color: white;
   background-color: #2277cc;
 }
-/* line 150, ../../../app/stylesheets/partials/_programs.scss */
+/* line 151, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign thead tr th + th {
   width: 440px;
 }
-/* line 151, ../../../app/stylesheets/partials/_programs.scss */
+/* line 152, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign thead tr th + th + th {
   width: 56px;
 }
-/* line 154, ../../../app/stylesheets/partials/_programs.scss */
+/* line 155, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign tbody {
   display: block;
   overflow: auto;
   height: 320px;
   width: 522px;
 }
-/* line 160, ../../../app/stylesheets/partials/_programs.scss */
+/* line 161, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign tbody tr td {
   width: 56px;
   border: 1px solid #ebebeb;
   padding: 4px;
 }
-/* line 161, ../../../app/stylesheets/partials/_programs.scss */
+/* line 162, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign tbody tr td + td {
   width: 440px;
 }
-/* line 162, ../../../app/stylesheets/partials/_programs.scss */
+/* line 163, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign tbody tr td + td + td {
   width: 40px;
   text-align: center;
 }
-/* line 165, ../../../app/stylesheets/partials/_programs.scss */
+/* line 166, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign tbody tr.term td {
   background-color: #fcfcfc;
   font-weight: bold;
   padding: 4px;
 }
-/* line 172, ../../../app/stylesheets/partials/_programs.scss */
+/* line 173, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign tbody tr.optional td {
   background-color: #fcfcfc;
   color: #777777;
