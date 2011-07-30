@@ -1,0 +1,24 @@
+#schedule-header
+  %h3= @tc.course.name
+  #schedule-term= "Periodo: #{@tc.term.name} (#{l @tc.term.start_date, :format => :long} – #{l @tc.term.end_date, :format => :long})"
+= form_for(@program, :url => { :action => "create_course_student" }) do |f|
+  = hidden_field_tag 'term_course_id', @tc.id
+  = hidden_field_tag 'term_course[term_course_students_attributes][0][term_course_id]', @tc.id
+  = fields_for "term_course[term_course_students_attributes][0]" do |fields|
+    #course-student-new
+      - students_in_course = TermCourseStudent.where(:term_course_id => @tc.id).map(&:term_student_id)
+      - if students_in_course.count > 0
+        - conditions = ['term_id = ? AND id not in (?)', @tc.term_id, students_in_course]
+      - else 
+        - conditions = ['term_id = ?', @tc.term_id]
+      - students_available = TermStudent.find(:all, :conditions => conditions).collect {|i| [i.student.full_name_with_card, i.id]}
+
+      - if students_available.count > 0 
+        %div{:id => "field_term_course_term_course_students_attributes_0_term_student_id", :class => 'field'}
+          = fields.label :term_student_id, 'Estudiante'
+          = fields.select :term_student_id, students_available
+
+        #dialog-submit-button-area
+          = fields.submit "Agregar estudiante al curso"
+      - else
+        #add-student-to-course-note Todos los estudiantes del periodo ya estan en este curso

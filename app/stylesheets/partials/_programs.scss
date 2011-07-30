@@ -1,6 +1,8 @@
 .plan,
 .terms,
-.schedule {
+.schedule,
+.enrollment,
+.tc-students {
   width: 100%;
   background: $white;
   border-collapse: collapse;
@@ -9,27 +11,26 @@
     th {
       font-weight: bold;
       padding: 4px;
-      border: 1px solid $line-color;
+      background-color: $light-grey;
+      border: 1px solid $light-grey;
     }
     &.term {
       th {
-        color: $black;
-        background: $bg-color;
-        border-bottom: 2px solid $light-grey;
+        color: $white;
+        background: $grey;
       }
     }
     &.optional {
       th {
-        color: $grey;
-        background: $bg-color;
-        border-bottom: 2px solid $light-grey;
+        color: $light-grey;
+        background: $grey;
       }
     }
     &.header {
     }
     td {
       padding: 4px;
-      border: 1px solid $line-color;
+      border: 1px solid $light-grey;
     }
     &.schedule-item:hover td,
     &.term-item:hover td,
@@ -48,9 +49,16 @@
 
 #a-new-course,
 #a-new-term,
+#a-new-enrollment,
+#enrollment-status-note,
+#add-student-to-course,
 #a-new-schedule {
   float: right;
   margin: 10px;
+}
+
+#enrollment-status-note {
+  color: $grey;
 }
 
 .edit-course td,
@@ -105,18 +113,44 @@ table.plan-coreq {
   }
 }
 
-#schedule-header {
+#enrollment-header {
   height: 32px;
   border-bottom: 1px dashed $line2-color;
   padding-bottom: 10px;
-  margin-bottom: 20px;
 
-  #schedule-title {
+  #enrollment-title {
     width: 300px;
     float: left;
   }
 
-  #schedule-filter {
+  #enrollment-filter {
+    float: right;
+    td {
+      padding-left: 10px;
+    }
+  }
+}
+
+#new-enrollment-header {
+  .term {
+    font-size: 90%;
+    color: $grey;
+    margin-bottom: 10px;
+  }
+}
+
+
+#program-header {
+  height: 32px;
+  border-bottom: 1px dashed $line2-color;
+  padding-bottom: 10px;
+
+  #program-title {
+    width: 300px;
+    float: left;
+  }
+
+  #program-filter {
     float: right;
     td {
       padding-left: 10px;
@@ -129,6 +163,41 @@ table.plan-coreq {
       color: $grey;
       font-size: 10px;
     }
+  }
+}
+
+#tc-header {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  height: 32px;
+  margin-top: 20px;
+
+  #tc-title {
+    width: 500px;
+    float: left;
+    div {
+      font-size: 90%;
+      color: $grey;
+    }
+  }
+
+  #tc-options {
+    float: right;
+    margin-top: 10px;
+    a {
+      margin-left: 10px;
+      padding: 4px;
+      font-size: 14px;
+      text-decoration: none;
+      &.tc-selected {
+        font-weight: bold;
+        color: $white;
+        background-color: $selected-color;
+        border: 1px solid $selected-color;
+        @include rounded(5px);
+      }
+    }
+
   }
 }
 
@@ -178,4 +247,10 @@ table.plan-coreq {
       }
     }
   }
+}
+
+#new-enrollment-note,
+#add-student-to-course-note {
+  text-align: center;
+  padding: 40px;
 }

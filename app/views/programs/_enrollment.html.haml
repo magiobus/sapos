@@ -1,0 +1,9 @@
+#enrollment-header
+  #enrollment-title
+    %h2 Inscripciones
+  %table#enrollment-filter
+    %tbody
+      %tr
+        %td#enrollment-terms-dropdown= select "enrollment", "term_id", Term.where("program_id = :p", {:p => @program.id}).collect {|i| [i.name, i.id]}, :prompt => 'Selecciona un periodo'
+
+#enrollment-area

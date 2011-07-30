@@ -1,0 +1,26 @@
+#tc-header
+  #tc-title
+    %h4= @tc.course.name
+    %div Periodo: #{@tc.term.name} (#{l @tc.term.start_date, :format => :long} – #{l @tc.term.end_date, :format => :long})
+  #tc-options
+    = link_to 'Estudiantes', '#', :id=>'a-tc-students', :class=>'tc-selected'
+    = link_to 'Horario', '#', :id=>'a-tc-schedule'
+    
+
+-if @tc.term_course_students.count > 0 
+  %table.tc-students
+    %tbody
+      %tr.header
+        %th Matricula
+        %th Nombre
+        - if [Term::GRADING, Term::ENDED].include? @tc.term.status
+          %th Calificación
+    - @tc.term_course_students.order("created_at DESC").each_with_index do |tc_student, index|
+      %tr.tc-students-item{:id=>"tr_tc_student_#{tc_student.id}", :tc_student_id=>tc_student.id}
+        %td{:title => 'Algo'}= tc_student.term_student.student.card
+        %td= tc_student.term_student.student.full_name
+        - if [Term::GRADING, Term::ENDED].include? @tc.term.status
+          %td= tc_student.grade
+
+- if @tc.term.status == Term::OPEN
+  = link_to 'Agregar estudiante', '#', :id=>'add-student-to-course'

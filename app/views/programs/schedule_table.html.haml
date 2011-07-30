@@ -1,5 +1,12 @@
-%h3= @tc.course.name
-#schedule-term= "Periodo: #{@tc.term.name} (#{l @tc.term.start_date, :format => :long} – #{l @tc.term.end_date, :format => :long})"
+#tc-header
+  #tc-title
+    %h4= @tc.course.name
+    %div Periodo: #{@tc.term.name} (#{l @tc.term.start_date, :format => :long} – #{l @tc.term.end_date, :format => :long})
+  #tc-options
+    = link_to 'Estudiantes', '#', :id=>'a-tc-students'
+    = link_to 'Horario', '#', :id=>'a-tc-schedule', :class=>'tc-selected'
+    
+
 -if @tc.term_course_schedules.count > 0 
   %table.schedule
     %tbody

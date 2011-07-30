@@ -24,7 +24,11 @@
         %tr.course{:id=>"tr_#{course.id}", :course_id=>course.id}
           %td= course.id
           %td= course.name
-          %td= check_box_tag "courses[]", course.id, @courses_assigned.include?(course.id), :id => "chk_#{course.id}"
+          - if @term.status == Term::OPEN
+            %td= check_box_tag "courses[]", course.id, @courses_assigned.include?(course.id), :id => "chk_#{course.id}"
+          - else
+            %td= "-"
 
   #dialog-submit-button-area
-    = f.submit "Asignar cursos"
+    - if @term.status == Term::OPEN
+      = f.submit "Asignar cursos"

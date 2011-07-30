@@ -1,1 +1,4 @@
-= select "tc", "course_id", TermCourse.where("term_id = :t AND status = :s", {:t => params[:term_id], :s => TermCourse::ASSIGNED}).collect {|i| [ i.course.name, i.course.id]} + [['Asignar cursos al periodo', 0]], :prompt => 'Selecciona un curso'
+- items = @term_course.collect {|i| [ i.course.name, i.course.id]}
+- if @term.status == Term::OPEN
+  - items += [['Asignar cursos al periodo', 0]]
+= select "tc", "course_id", items, :prompt => 'Selecciona un curso'

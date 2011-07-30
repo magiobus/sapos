@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110725200106) do
+ActiveRecord::Schema.define(:version => 20110729222714) do
 
   create_table "academic_degrees", :force => true do |t|
     t.integer  "student_id"
@@ -276,14 +276,15 @@ ActiveRecord::Schema.define(:version => 20110725200106) do
 
   create_table "term_course_students", :force => true do |t|
     t.integer  "term_course_id"
-    t.integer  "student_id"
+    t.integer  "term_student_id"
     t.integer  "grade"
+    t.integer  "status",          :default => 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "term_course_students", ["student_id"], :name => "index_term_course_students_on_student_id"
   add_index "term_course_students", ["term_course_id"], :name => "index_term_course_students_on_term_course_id"
+  add_index "term_course_students", ["term_student_id"], :name => "index_term_course_students_on_term_student_id"
 
   create_table "term_courses", :force => true do |t|
     t.integer  "term_id"
@@ -295,6 +296,18 @@ ActiveRecord::Schema.define(:version => 20110725200106) do
 
   add_index "term_courses", ["course_id"], :name => "index_term_courses_on_course_id"
   add_index "term_courses", ["term_id"], :name => "index_term_courses_on_term_id"
+
+  create_table "term_students", :force => true do |t|
+    t.integer  "term_id"
+    t.integer  "student_id"
+    t.string   "notes"
+    t.integer  "status",     :default => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "term_students", ["student_id"], :name => "index_term_students_on_student_id"
+  add_index "term_students", ["term_id"], :name => "index_term_students_on_term_id"
 
   create_table "terms", :force => true do |t|
     t.integer  "program_id"

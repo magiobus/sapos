@@ -13,6 +13,7 @@
       %li.first-tab= link_to "Detalles", "#detalles"
       %li= link_to "Plan", "#plan"
       %li= link_to "Periodos", "#periodos"
+      %li= link_to "Inscripciones", "#inscripciones"
       %li= link_to "Programación", "#programacion"
 
     #detalles
@@ -43,6 +44,9 @@
 
     #periodos
       = render :partial => 'terms', :locals => {:program => @program, :f => f}
+
+    #inscripciones
+      = render :partial => 'enrollment', :locals => {:program => @program, :f => f}
 
     #programacion
       = render :partial => 'program', :locals => {:program => @program, :f => f}

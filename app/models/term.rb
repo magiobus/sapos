@@ -4,13 +4,18 @@ class Term < ActiveRecord::Base
   has_many :term_courses
   accepts_nested_attributes_for :term_courses
 
+  has_many :term_students
+  accepts_nested_attributes_for :term_students
+
   OPEN      = 1
-  CLOSED    = 2
-  ENDED     = 3
-  CANCELED  = 4
+  PROGRESS  = 2
+  GRADING   = 3
+  ENDED     = 4
+  CANCELED  = 5
 
   STATUS = {OPEN     => 'Abierto',
-            CLOSED   => 'Cerrado',
+            PROGRESS => 'En progreso',
+            GRADING  => 'Calificando',
             ENDED    => 'Finalizado',
             CANCELED => 'Cancelado'}
 
@@ -28,7 +33,6 @@ class Term < ActiveRecord::Base
       courses_in_tc << tc.course_id
       if !courses.include?(tc.course_id) 
         params[:term_courses_attributes][index] = {:id => tc.id, :status => TermCourse::UNASSIGNED}
-        puts "Dar de baja #{tc.course_id}"
         index += 1
       else
         params[:term_courses_attributes][index] = {:id => tc.id, :status => TermCourse::ASSIGNED}
@@ -39,7 +43,6 @@ class Term < ActiveRecord::Base
     courses.each do |c|
       if !courses_in_tc.include?(c)
         params[:term_courses_attributes][index] = {:course_id => c, :status => TermCourse::ASSIGNED}
-        puts "Dar de alta #{c}"
         index += 1
       end
     end

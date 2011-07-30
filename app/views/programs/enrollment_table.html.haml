@@ -1,0 +1,26 @@
+#tc-header
+  #tc-title
+    %h4= @term.name
+    %div (#{l @term.start_date, :format => :long} – #{l @term.end_date, :format => :long})
+
+-if @term.term_students.count > 0 
+  %table.enrollment
+    %tbody
+      %tr.header
+        %th Matricula
+        %th Nombre
+        %th Fecha
+        %th Estado
+        %th Comentarios
+    - @term.term_students.order("created_at").each_with_index do |ts, index|
+      %tr.enrollment-item{:id=>"tr_enrollment_#{ts.id}", :enrollment_id=>ts.id}
+        %td= ts.student.card
+        %td= ts.student.full_name
+        %td= l ts.created_at, :format => :short
+        %td= ts.status_type
+        %td.small-note= ts.notes
+
+- if @term.status == Term::OPEN
+  = link_to 'Inscribir estudiante', '#', :id=>'a-new-enrollment'
+- else
+  #enrollment-status-note= @term.status_type

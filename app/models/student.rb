@@ -16,7 +16,10 @@ class Student < ActiveRecord::Base
 
   has_many :student_file
   accepts_nested_attributes_for :student_file
-  
+
+  has_many :term_students
+  accepts_nested_attributes_for :term_students
+
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :program_id, :presence => true  
@@ -25,6 +28,18 @@ class Student < ActiveRecord::Base
   after_create :set_card, :add_extra
 
   mount_uploader :image, StudentImageUploader
+
+  ACTIVE    = 1
+  GRADUATED = 2
+  INACTIVE  = 3
+
+  STATUS = {ACTIVE    => 'Activo',
+            GRADUATED => 'Graduado',
+            INACTIVE  => 'Baja'}
+
+  def status_type
+    STATUS[status]
+  end
   
   def set_card
     # Update card with format: PPPYYMM999
@@ -54,6 +69,14 @@ class Student < ActiveRecord::Base
 
   def set_nest(item)
     item.student ||= self
+  end
+
+  def full_name
+    "#{first_name} #{last_name}" rescue ''
+  end
+
+  def full_name_with_card
+    "#{card}: #{first_name} #{last_name}" rescue ''
   end
 
 end

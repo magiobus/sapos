@@ -148,6 +148,36 @@ class ProgramsController < ApplicationController
   end
 
   def courses_dropdown
+    @term_course = TermCourse.where('term_id = :t', {:t => params[:term_id]})
+    @term = Term.find(params[:term_id])
+    render :layout => false
+  end
+
+ 
+  def enrollment_table
+    @term = Term.find(params[:term_id])
+    render :layout => false
+  end
+
+  def new_enrollment
+    @program = Term.find(params[:id])
+    @term = Term.find(params[:term_id])
+    render :layout => 'standalone'
+  end
+
+  def create_enrollment
+    @term = Term.find(params[:term_id])
+    if @term.update_attributes(params[:term])
+      flash[:notice] = "Estudiante inscrito satisfactoriamente"
+    else
+      flash[:error] = "Error al inscribir estudiante."
+    end
+    render :layout => 'standalone'
+  end
+
+  def edit_enrollment
+    @program = Program.find(params[:id])
+    @term = Term.find(params[:term_id])
     render :layout => false
   end
 
@@ -196,6 +226,33 @@ class ProgramsController < ApplicationController
     @cs = TermCourseSchedule.find(params[:term_course_schedule_id])
     @staffs = Staff.order('first_name').includes(:institution)
     @institutions = Institution.order('name')
+    render :layout => false
+  end
+
+  def students_table
+    @tc = TermCourse.where('term_id = :t AND course_id = :c', {:t => params[:term_id], :c => params[:course_id]}).first
+    render :layout => false
+  end
+
+  def new_course_student
+    @program = Program.find(params[:id])
+    @tc = TermCourse.where('term_id = :t AND course_id = :c', {:t => params[:term_id], :c => params[:course_id]}).first
+    render :layout => 'standalone'
+  end
+
+  def create_course_student
+    @tc = TermCourse.find(params[:term_course_id])
+    if @tc.update_attributes(params[:term_course])
+      flash[:notice] = "Estudiante agregado."
+    else
+      flash[:error] = "Error al agregar estudiante."
+    end
+    render :layout => 'standalone'
+  end
+
+  def edit_course_student
+    @program = Program.find(params[:id])
+    @term = Term.find(params[:term_id])
     render :layout => false
   end
 

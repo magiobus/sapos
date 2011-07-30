@@ -1,0 +1,31 @@
+#new-enrollment-header
+  %h3= @term.name
+  .term= "(#{l @term.start_date, :format => :long} – #{l @term.end_date, :format => :long})"
+= form_for(@program, :url => { :action => "create_enrollment" }) do |f|
+  = hidden_field_tag 'term_id', @term.id
+  = fields_for "term[term_students_attributes][0]" do |fields|
+    #enrollment-new
+      - students_in_term = TermStudent.where(:term_id => @term.id).map(&:student_id)
+      - if students_in_term.count > 0
+        - conditions = ['status = ? AND id not in (?)', Student::ACTIVE, students_in_term]
+      - else
+        - conditions = ['status = ?', Student::ACTIVE]
+      - students_available = Student.find(:all, :conditions => conditions).collect {|i| [i.full_name_with_card, i.id]}
+
+      - if students_available.count > 0
+        %div{:id => "field_term_term_students_attributes_0_student_id", :class => 'field'}
+          = fields.label :student_id, 'Estudiante'
+          = fields.select :student_id, students_available
+
+        %div{:id => "field_term_term_students_attributes_0_status", :class => 'field'}
+          = fields.label :status, 'Estado'
+          = fields.select :status, TermStudent::STATUS.invert.sort {|a,b| a[1] <=> b[1] }
+
+        %div{:id => "field_term_term_students_attributes_0_notes", :class => 'field'}
+          = fields.label :notes, 'Comentarios'
+          = fields.text_field :notes
+
+        #dialog-submit-button-area
+          = fields.submit "Agregar estudiante al periodo"
+      - else 
+        #new-enrollment-note Todos los estudiantes ya estan en inscritos en este periodo
