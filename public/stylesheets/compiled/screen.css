@@ -104,13 +104,14 @@ h2 {
 /* line 7, ../../../app/stylesheets/partials/_general.scss */
 h3 {
   font-size: 1.4em;
-  color: #777777;
+  color: #aaaaaa;
   font-weight: normal;
 }
 
 /* line 8, ../../../app/stylesheets/partials/_general.scss */
 h4 {
-  font-size: 1.1em;
+  font-size: 1.2em;
+  color: #cc3c29;
 }
 
 /* line 9, ../../../app/stylesheets/partials/_general.scss */
@@ -315,7 +316,7 @@ span.red {
   text-align: left;
   font-size: 11px;
   margin-top: 20px;
-  color: #777777;
+  color: #aaaaaa;
 }
 
 /* line 156, ../../../app/stylesheets/partials/_general.scss */
@@ -356,7 +357,7 @@ span.red {
 }
 /* line 185, ../../../app/stylesheets/partials/_general.scss */
 .file-entry .file-details {
-  color: #777777;
+  color: #aaaaaa;
   font-size: 11px;
 }
 /* line 190, ../../../app/stylesheets/partials/_general.scss */
@@ -601,7 +602,7 @@ span.red {
 }
 /* line 171, ../../../app/stylesheets/partials/_layout.scss */
 .panel-list li a .comment {
-  color: #777777;
+  color: #aaaaaa;
   font-size: 90%;
 }
 /* line 176, ../../../app/stylesheets/partials/_layout.scss */
@@ -705,7 +706,7 @@ span.red {
 /* line 256, ../../../app/stylesheets/partials/_layout.scss */
 .main-panel .resource-header .comment {
   font-size: 90%;
-  color: #777777;
+  color: #aaaaaa;
 }
 /* line 261, ../../../app/stylesheets/partials/_layout.scss */
 .main-panel #resource-tabs {
@@ -729,7 +730,7 @@ span.red {
 /* line 277, ../../../app/stylesheets/partials/_layout.scss */
 .small-note {
   font-size: 90% !important;
-  color: #777777;
+  color: #aaaaaa;
 }
 
 /* line 1, ../../../app/stylesheets/partials/_forms.scss */
@@ -741,7 +742,7 @@ form {
 
 /* line 6, ../../../app/stylesheets/partials/_forms.scss */
 input[type=text], input[type=password], input[type=email], textarea {
-  border: 1px solid #cccccc;
+  border: 1px solid #eeeeee;
   padding: 4px;
   font-size: 14px;
 }
@@ -749,7 +750,7 @@ input[type=text], input[type=password], input[type=email], textarea {
 /* line 12, ../../../app/stylesheets/partials/_forms.scss */
 select {
   background: #fff;
-  border: 1px solid #cccccc;
+  border: 1px solid #eeeeee;
   padding: 4px;
 }
 
@@ -846,7 +847,7 @@ input[type=button].disabled:hover {
 /* line 85, ../../../app/stylesheets/partials/_forms.scss */
 .field label {
   font-size: 14px;
-  color: #777777;
+  color: #aaaaaa;
   width: 150px;
   float: left;
   display: block;
@@ -978,7 +979,7 @@ input[type=button].disabled:hover {
 
 /* line 17, ../../../app/stylesheets/partials/_tabs.scss */
 .ui-tabs-nav a {
-  color: #777777;
+  color: #aaaaaa;
   text-decoration: none;
   display: block;
   text-shadow: #fff 0px 1px 1px;
@@ -986,7 +987,7 @@ input[type=button].disabled:hover {
 
 /* line 18, ../../../app/stylesheets/partials/_tabs.scss */
 .ui-tabs-nav a:hover {
-  color: #777777;
+  color: #aaaaaa;
   text-decoration: none;
 }
 
@@ -1190,123 +1191,152 @@ input[type=button].disabled:hover {
   background: transparent url(/images/mime/unknown.png) 0 15px no-repeat;
 }
 
-/* line 3, ../../../app/stylesheets/partials/_programs.scss */
+/* line 5, ../../../app/stylesheets/partials/_programs.scss */
 .plan,
 .terms,
-.schedule {
+.schedule,
+.enrollment,
+.tc-students {
   width: 100%;
   background: white;
   border-collapse: collapse;
 }
-/* line 7, ../../../app/stylesheets/partials/_programs.scss */
+/* line 9, ../../../app/stylesheets/partials/_programs.scss */
 .plan tr,
 .terms tr,
-.schedule tr {
+.schedule tr,
+.enrollment tr,
+.tc-students tr {
   margin-bottom: 1px;
 }
-/* line 9, ../../../app/stylesheets/partials/_programs.scss */
+/* line 11, ../../../app/stylesheets/partials/_programs.scss */
 .plan tr th,
 .terms tr th,
-.schedule tr th {
+.schedule tr th,
+.enrollment tr th,
+.tc-students tr th {
   font-weight: bold;
   padding: 4px;
-  border: 1px solid #ebebeb;
+  background-color: #eeeeee;
+  border: 1px solid #eeeeee;
 }
-/* line 15, ../../../app/stylesheets/partials/_programs.scss */
+/* line 18, ../../../app/stylesheets/partials/_programs.scss */
 .plan tr.term th,
 .terms tr.term th,
-.schedule tr.term th {
-  color: #0a0a0a;
-  background: #fcfcfc;
-  border-bottom: 2px solid #cccccc;
+.schedule tr.term th,
+.enrollment tr.term th,
+.tc-students tr.term th {
+  color: white;
+  background: #aaaaaa;
 }
-/* line 22, ../../../app/stylesheets/partials/_programs.scss */
+/* line 24, ../../../app/stylesheets/partials/_programs.scss */
 .plan tr.optional th,
 .terms tr.optional th,
-.schedule tr.optional th {
-  color: #777777;
-  background: #fcfcfc;
-  border-bottom: 2px solid #cccccc;
+.schedule tr.optional th,
+.enrollment tr.optional th,
+.tc-students tr.optional th {
+  color: #eeeeee;
+  background: #aaaaaa;
 }
-/* line 30, ../../../app/stylesheets/partials/_programs.scss */
+/* line 31, ../../../app/stylesheets/partials/_programs.scss */
 .plan tr td,
 .terms tr td,
-.schedule tr td {
+.schedule tr td,
+.enrollment tr td,
+.tc-students tr td {
   padding: 4px;
-  border: 1px solid #ebebeb;
+  border: 1px solid #eeeeee;
 }
-/* line 36, ../../../app/stylesheets/partials/_programs.scss */
+/* line 37, ../../../app/stylesheets/partials/_programs.scss */
 .plan tr.schedule-item:hover td, .plan tr.term-item:hover td, .plan tr.course:hover td,
 .terms tr.schedule-item:hover td,
 .terms tr.term-item:hover td,
 .terms tr.course:hover td,
 .schedule tr.schedule-item:hover td,
 .schedule tr.term-item:hover td,
-.schedule tr.course:hover td {
+.schedule tr.course:hover td,
+.enrollment tr.schedule-item:hover td,
+.enrollment tr.term-item:hover td,
+.enrollment tr.course:hover td,
+.tc-students tr.schedule-item:hover td,
+.tc-students tr.term-item:hover td,
+.tc-students tr.course:hover td {
   background-color: #fcfcfc;
   cursor: pointer;
 }
-/* line 40, ../../../app/stylesheets/partials/_programs.scss */
+/* line 41, ../../../app/stylesheets/partials/_programs.scss */
 .plan tr.selected td,
 .terms tr.selected td,
-.schedule tr.selected td {
+.schedule tr.selected td,
+.enrollment tr.selected td,
+.tc-students tr.selected td {
   border: 1px solid #ddd;
 }
-/* line 43, ../../../app/stylesheets/partials/_programs.scss */
+/* line 44, ../../../app/stylesheets/partials/_programs.scss */
 .plan tr.selected:hover td,
 .terms tr.selected:hover td,
-.schedule tr.selected:hover td {
+.schedule tr.selected:hover td,
+.enrollment tr.selected:hover td,
+.tc-students tr.selected:hover td {
   background: #ddd;
 }
 
-/* line 51, ../../../app/stylesheets/partials/_programs.scss */
+/* line 55, ../../../app/stylesheets/partials/_programs.scss */
 #a-new-course,
 #a-new-term,
+#a-new-enrollment,
+#enrollment-status-note,
+#add-student-to-course,
 #a-new-schedule {
   float: right;
   margin: 10px;
 }
 
-/* line 57, ../../../app/stylesheets/partials/_programs.scss */
+/* line 60, ../../../app/stylesheets/partials/_programs.scss */
+#enrollment-status-note {
+  color: #aaaaaa;
+}
+
+/* line 65, ../../../app/stylesheets/partials/_programs.scss */
 .edit-course td,
 .edit-term td {
   border: 1px solid #ddd !important;
 }
 
-/* line 62, ../../../app/stylesheets/partials/_programs.scss */
+/* line 70, ../../../app/stylesheets/partials/_programs.scss */
 .edit-course-div,
 .edit-term-div {
   background-color: white;
   padding: 10px;
 }
 
-/* line 67, ../../../app/stylesheets/partials/_programs.scss */
+/* line 75, ../../../app/stylesheets/partials/_programs.scss */
 #program_courses_attributes_0_code {
   width: 50px;
 }
 
-/* line 71, ../../../app/stylesheets/partials/_programs.scss */
+/* line 79, ../../../app/stylesheets/partials/_programs.scss */
 #program_courses_attributes_0_name {
   width: 350px;
 }
 
-/* line 75, ../../../app/stylesheets/partials/_programs.scss */
+/* line 83, ../../../app/stylesheets/partials/_programs.scss */
 #program_courses_attributes_0_description {
   width: 350px;
   height: 50px;
 }
 
-/* line 80, ../../../app/stylesheets/partials/_programs.scss */
+/* line 88, ../../../app/stylesheets/partials/_programs.scss */
 #program_courses_attributes_0_notes {
   width: 350px;
   height: 35px;
 }
 
-/* line 85, ../../../app/stylesheets/partials/_programs.scss */
+/* line 93, ../../../app/stylesheets/partials/_programs.scss */
 table.plan-credits {
   border-collapse: collapse;
 }
-/* line 87, ../../../app/stylesheets/partials/_programs.scss */
+/* line 95, ../../../app/stylesheets/partials/_programs.scss */
 table.plan-credits th {
   border: 1px solid #ebebeb;
   font-size: 90%;
@@ -1314,70 +1344,136 @@ table.plan-credits th {
   background: #fcfcfc;
   padding: 4px;
 }
-/* line 94, ../../../app/stylesheets/partials/_programs.scss */
+/* line 102, ../../../app/stylesheets/partials/_programs.scss */
 table.plan-credits td {
   border: 1px solid #ebebeb;
   padding: 4px;
 }
 
-/* line 101, ../../../app/stylesheets/partials/_programs.scss */
+/* line 109, ../../../app/stylesheets/partials/_programs.scss */
 table.plan-prereq,
 table.plan-coreq {
   border-collapse: collapse;
 }
-/* line 103, ../../../app/stylesheets/partials/_programs.scss */
+/* line 111, ../../../app/stylesheets/partials/_programs.scss */
 table.plan-prereq td,
 table.plan-coreq td {
   border: 0 !important;
 }
 
-/* line 108, ../../../app/stylesheets/partials/_programs.scss */
-#schedule-header {
+/* line 116, ../../../app/stylesheets/partials/_programs.scss */
+#enrollment-header {
   height: 32px;
   border-bottom: 1px dashed #f0f0f0;
   padding-bottom: 10px;
-  margin-bottom: 20px;
 }
-/* line 114, ../../../app/stylesheets/partials/_programs.scss */
-#schedule-header #schedule-title {
+/* line 121, ../../../app/stylesheets/partials/_programs.scss */
+#enrollment-header #enrollment-title {
   width: 300px;
   float: left;
 }
-/* line 119, ../../../app/stylesheets/partials/_programs.scss */
-#schedule-header #schedule-filter {
+/* line 126, ../../../app/stylesheets/partials/_programs.scss */
+#enrollment-header #enrollment-filter {
   float: right;
 }
-/* line 121, ../../../app/stylesheets/partials/_programs.scss */
-#schedule-header #schedule-filter td {
+/* line 128, ../../../app/stylesheets/partials/_programs.scss */
+#enrollment-header #enrollment-filter td {
   padding-left: 10px;
-}
-/* line 127, ../../../app/stylesheets/partials/_programs.scss */
-#schedule-header #courses-dropdown span {
-  padding: 8px;
-  color: #777777;
-  font-size: 10px;
 }
 
 /* line 135, ../../../app/stylesheets/partials/_programs.scss */
-#schedule-term {
+#new-enrollment-header .term {
   font-size: 90%;
-  color: #777777;
+  color: #aaaaaa;
   margin-bottom: 10px;
 }
 
-/* line 141, ../../../app/stylesheets/partials/_programs.scss */
+/* line 143, ../../../app/stylesheets/partials/_programs.scss */
+#program-header {
+  height: 32px;
+  border-bottom: 1px dashed #f0f0f0;
+  padding-bottom: 10px;
+}
+/* line 148, ../../../app/stylesheets/partials/_programs.scss */
+#program-header #program-title {
+  width: 300px;
+  float: left;
+}
+/* line 153, ../../../app/stylesheets/partials/_programs.scss */
+#program-header #program-filter {
+  float: right;
+}
+/* line 155, ../../../app/stylesheets/partials/_programs.scss */
+#program-header #program-filter td {
+  padding-left: 10px;
+}
+/* line 161, ../../../app/stylesheets/partials/_programs.scss */
+#program-header #courses-dropdown span {
+  padding: 8px;
+  color: #aaaaaa;
+  font-size: 10px;
+}
+
+/* line 169, ../../../app/stylesheets/partials/_programs.scss */
+#tc-header {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  height: 32px;
+  margin-top: 20px;
+}
+/* line 175, ../../../app/stylesheets/partials/_programs.scss */
+#tc-header #tc-title {
+  width: 500px;
+  float: left;
+}
+/* line 178, ../../../app/stylesheets/partials/_programs.scss */
+#tc-header #tc-title div {
+  font-size: 90%;
+  color: #aaaaaa;
+}
+/* line 184, ../../../app/stylesheets/partials/_programs.scss */
+#tc-header #tc-options {
+  float: right;
+  margin-top: 10px;
+}
+/* line 187, ../../../app/stylesheets/partials/_programs.scss */
+#tc-header #tc-options a {
+  margin-left: 10px;
+  padding: 4px;
+  font-size: 14px;
+  text-decoration: none;
+}
+/* line 192, ../../../app/stylesheets/partials/_programs.scss */
+#tc-header #tc-options a.tc-selected {
+  font-weight: bold;
+  color: white;
+  background-color: #2277cc;
+  border: 1px solid #2277cc;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+/* line 204, ../../../app/stylesheets/partials/_programs.scss */
+#schedule-term {
+  font-size: 90%;
+  color: #aaaaaa;
+  margin-bottom: 10px;
+}
+
+/* line 210, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign {
   width: 522px;
   border: 1px solid #ebebeb;
   background: white;
   border-collapse: collapse;
 }
-/* line 147, ../../../app/stylesheets/partials/_programs.scss */
+/* line 216, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign thead tr {
   position: relative;
   display: block;
 }
-/* line 150, ../../../app/stylesheets/partials/_programs.scss */
+/* line 219, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign thead tr th {
   width: 50px;
   border: 1px solid #2277cc;
@@ -1386,46 +1482,53 @@ table.plan-coreq td {
   color: white;
   background-color: #2277cc;
 }
-/* line 151, ../../../app/stylesheets/partials/_programs.scss */
+/* line 220, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign thead tr th + th {
   width: 440px;
 }
-/* line 152, ../../../app/stylesheets/partials/_programs.scss */
+/* line 221, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign thead tr th + th + th {
   width: 56px;
 }
-/* line 155, ../../../app/stylesheets/partials/_programs.scss */
+/* line 224, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign tbody {
   display: block;
   overflow: auto;
   height: 320px;
   width: 522px;
 }
-/* line 161, ../../../app/stylesheets/partials/_programs.scss */
+/* line 230, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign tbody tr td {
   width: 56px;
   border: 1px solid #ebebeb;
   padding: 4px;
 }
-/* line 162, ../../../app/stylesheets/partials/_programs.scss */
+/* line 231, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign tbody tr td + td {
   width: 440px;
 }
-/* line 163, ../../../app/stylesheets/partials/_programs.scss */
+/* line 232, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign tbody tr td + td + td {
   width: 40px;
   text-align: center;
 }
-/* line 166, ../../../app/stylesheets/partials/_programs.scss */
+/* line 235, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign tbody tr.term td {
   background-color: #fcfcfc;
   font-weight: bold;
   padding: 4px;
 }
-/* line 173, ../../../app/stylesheets/partials/_programs.scss */
+/* line 242, ../../../app/stylesheets/partials/_programs.scss */
 .courses-assign tbody tr.optional td {
   background-color: #fcfcfc;
-  color: #777777;
+  color: #aaaaaa;
   font-weight: bold;
   padding: 4px;
+}
+
+/* line 253, ../../../app/stylesheets/partials/_programs.scss */
+#new-enrollment-note,
+#add-student-to-course-note {
+  text-align: center;
+  padding: 40px;
 }

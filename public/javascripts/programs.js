@@ -152,7 +152,7 @@ function loadSchedule() {
   if ((term_id > 0) && (course_id > 0)) {
     url = location.pathname + "/" + program_id + "/periodo/" + term_id + "/curso/" + course_id + "/horario";
     $.get(url, {}, function(html) {
-      $("#schedule-area").html(html);
+      $("#program-area").html(html);
     });
     $("#new-schedule-dialog").remove();
     url_dialog = location.pathname + "/" + program_id + "/periodo/" + term_id + "/curso/" + course_id + "/nueva_sesion";
@@ -162,7 +162,7 @@ function loadSchedule() {
       $("#new-schedule-dialog").dialog('open');
     });
   } else {
-      $("#schedule-area").html('');
+      $("#program-area").html('');
   }
 }
 
@@ -213,6 +213,28 @@ $(".schedule-item").live("click", function() {
   }
 });
 
+// Students
+var current_student_edit = 0;
+function loadStudents() {
+  term_id = $('#tc_term_id').val();
+  course_id = $('#tc_course_id').val();
+  program_id = $('#program_id').val();
+  if ((term_id > 0) && (course_id > 0)) {
+    url = location.pathname + "/" + program_id + "/periodo/" + term_id + "/curso/" + course_id + "/estudiantes";
+    $.get(url, {}, function(html) {
+      $("#program-area").html(html);
+    });
+    $("#add-student-to-course-dialog").remove();
+    url_dialog = location.pathname + "/" + program_id + "/periodo/" + term_id + "/curso/" + course_id + "/agregar_estudiante";
+    $('#content-panel').append('<div title="Agregar estudiante a curso" id="add-student-to-course-dialog"><iframe width="550" height="340" src="' + url_dialog + '" scrolling="no"></iframe></div>');
+    $("#add-student-to-course-dialog").dialog({ autoOpen: false, width: 640, height: 450, modal:true });
+    $("#add-student-to-course").live("click", function() {
+      $("#add-student-to-course-dialog").dialog('open');
+    });
+  } else {
+      $("#program-area").html('');
+  }
+}
 
 // Program
 $('#tc_term_id').live("change", function() {
@@ -225,7 +247,7 @@ function loadTermsDropdown() {
   $.get(url, {}, function(html) {
     $("#terms-dropdown").html(html);
     $("#courses-dropdown").html('<span>Es necesario seleccionar un periodo</span>');
-    $("#schedule-area").html('');
+    $("#program-area").html('');
   });
 }
 
@@ -233,7 +255,7 @@ function loadTermsDropdown() {
 function loadCoursesDropdown() {
   term_id = $('#tc_term_id').val();
   program_id = $('#program_id').val();
-  $("#schedule-area").html('');
+  $("#program-area").html('');
   if (term_id > 0) {
     url = location.pathname + "/" + program_id + "/periodo/" + term_id + "/courses_dropdown";
     $.get(url, {}, function(html) {
@@ -248,12 +270,12 @@ $('#tc_course_id').live("change", function() {
   if ($('#tc_course_id').val() == 0) {
     openAssignCoursesDialog();
   } else {
-    loadSchedule();
+    loadStudents();
   }
 });
     
 function openAssignCoursesDialog() {
-  $("#schedule-area").html('');
+  $("#program-area").html('');
   program_id = $('#program_id').val();
   term_id = $('#tc_term_id').val();
   $("#select-courses-dialog").remove();
@@ -261,3 +283,39 @@ function openAssignCoursesDialog() {
   $('#content-panel').append('<div title="Asignar cursos" id="select-courses-dialog"><iframe width="550" height="440" src="' + url + '" scrolling="no"></iframe></div>');
   $("#select-courses-dialog").dialog({ autoOpen: true, width: 590, height: 550, modal:true });
 }
+
+$('#a-tc-schedule').live('click', function() {
+  loadSchedule();
+});
+
+$('#a-tc-students').live('click', function() {
+  loadStudents();
+});
+
+// Enrollment
+$('#enrollment_term_id').live("change", function() {
+  loadEnrollment();
+});
+
+var current_enrollment_edit = 0;
+function loadEnrollment() {
+  term_id = $('#enrollment_term_id').val();
+  program_id = $('#program_id').val();
+  if (term_id > 0) {
+    url = location.pathname + "/" + program_id + "/periodo/" + term_id + "/inscripciones";
+    $.get(url, {}, function(html) {
+      $("#enrollment-area").html(html);
+    });
+
+    $("#new-enrollment-dialog").remove();
+    url_dialog = location.pathname + "/" + program_id + "/periodo/" + term_id + "/nueva_inscripcion";
+    $('#content-panel').append('<div title="Inscribir estudiante" id="new-enrollment-dialog"><iframe width="550" height="340" src="' + url_dialog + '" scrolling="no"></iframe></div>');
+    $("#new-enrollment-dialog").dialog({ autoOpen: false, width: 640, height: 450, modal:true });
+    $("#a-new-enrollment").live("click", function() {
+      $("#new-enrollment-dialog").dialog('open');
+    });
+  } else {
+      $("#enrollment-area").html('');
+  }
+}
+
