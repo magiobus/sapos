@@ -15,9 +15,6 @@
   $('.file-desc-form')
     .live("ajax:success", function(evt, data, status, xhr) {
       var res = $.parseJSON(xhr.responseText);
-      //$("#flash-notice").removeClass('error').removeClass('notice').removeClass('info');
-      //$("#flash-notice").addClass('success').html(res['flash']['notice']);
-      //$("#flash-notice").slideDown().delay(1500).slideUp();
       id = res['id'];
       $("#file-" + id + " .file-desc-form").hide();
       $("#file-" + id + " .file-desc").show();
@@ -58,13 +55,17 @@
   %table{'class' => 'files-table'}
     - @student.student_file.each do |student_file|
       %tr{'id' => "file-#{student_file.id}"}
-        %td{"class" => "file-entry type-unknown type-" + File.extname(student_file.file.to_s)[1..-1], "title" => File.basename(student_file.file.to_s)}
+        - if File.extname(student_file.file.to_s) == ''
+          - ext = 'unknown'
+        - else 
+          - ext = File.extname(student_file.file.to_s)[1..-1]
+        %td{"class" => "file-entry type-unknown type-" + ext, "title" => File.basename(student_file.file.to_s)}
           = form_for(student_file, :remote => true, :html => {:'data-type' => 'html', :class => 'file-desc-form'}) do |ff|
             = ff.text_field :description
           %span.file-desc
             %a{'href' => "/estudiantes/#{@student.id}/archivo/#{student_file.id}"}= student_file.description
           %br
-          %span.file-details= File.extname(student_file.file.to_s)[1..-1].upcase + ", " + number_to_human_size(File.size(student_file.file.to_s))
+          %span.file-details= ext.upcase + ", " + number_to_human_size(File.size(student_file.file.to_s))
           %span.file-edit
             = link_to_function 'Editar descripci?n', "edit_description(#{student_file.id})"
             |
