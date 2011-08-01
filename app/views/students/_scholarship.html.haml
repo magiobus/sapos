@@ -1,6 +1,6 @@
 %div{:id => "field_student_scholarship_type", :class => 'field'}
-  = fields.label :scholarship_type, 'Tipo'
-  = fields.select :scholarship_type,  [['Ninguna', 'NINGUNA'], ['Institucional', 'INSTITUCIONAL'], ['PROMEP', 'PROMEP'], ['PNPC', 'PNPC'], ['Beca Mixta', 'MIXTA'], ['Departamental', 'DEPARTAMENTAL']]
+  = fields.label :scholarship_type_id, 'Tipo'
+  = fields.grouped_collection_select :scholarship_type_id, ScholarshipCategory.order(:name), :scholarship_types, :name, :id, :name, options = {:prompt => "Selecciona la beca"}
 
 
 %div{:id => "field_student_scholarship_start_date", :class => 'field'}
