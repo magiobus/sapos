@@ -20,7 +20,7 @@
 
 %div{:id => "field_student_thesis_defence_date", :class => 'field'}
   = fields.label :defence_date, 'Fecha de defensa'
-  = fields.datetime_select :defence_date
+  = fields.datetime_select :defence_date, :start_year => 1994
 
 %div{:id => "field_student_thesis_examiner1", :class => 'field'}
   = fields.label :examiner1, 'Sinodal 1'

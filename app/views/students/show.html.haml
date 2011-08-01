@@ -58,11 +58,11 @@
         = f.grouped_collection_select :co_supervisor, @institutions, :staffs, :name, :id, :full_name, options = {:prompt => "Sin coasesor"}
       .field#field_student_start_date
         = f.label :start_date, 'Fecha de inicio'
-        = f.date_select :start_date
+        = f.date_select :start_date, :start_year => 1994
       - if @student.status.to_i == 3
         .field#field_student_inactive_date
           = f.label :inactive_date, 'Fecha de baja'
-          = f.date_select :inactive_date
+          = f.date_select :inactive_date, :start_year => 1994
       .field#field_student_cvu
         = f.label :cvu, 'CVU'
         = f.text_field :cvu
@@ -78,7 +78,7 @@
 
       .field#field_student_date_of_birth
         = f.label :date_of_birth, 'Fecha de nacimiento'
-        = f.date_select :date_of_birth, :start_year => 1920
+        = f.date_select :date_of_birth, :start_year => DateTime.now.year - 100
 
       .field#field_student_country_id
         = f.label :country_id, 'País de nacimiento'
@@ -112,7 +112,7 @@
         = f.text_field :previous_degree_desc
       .field#field_previous_degree_date
         = f.label :previous_degree_date, 'Fecha'
-        = f.date_select :previous_degree_date
+        = f.date_select :previous_degree_date, :start_year => 1950
 
 
       %h3 Información en caso de accidente

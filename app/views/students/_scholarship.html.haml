@@ -5,11 +5,11 @@
 
 %div{:id => "field_student_scholarship_start_date", :class => 'field'}
   = fields.label :start_date, 'Fecha de inicio'
-  = fields.date_select :start_date
+  = fields.date_select :start_date, :start_year => 1994
 
 %div{:id => "field_student_scholarship_end_date", :class => 'field'}
   = fields.label :end_date, 'Fecha de termino'
-  = fields.date_select :end_date
+  = fields.date_select :end_date, :start_year => 1994
 
 %div{:id => "field_student_scholarship_status", :class => 'field'}
   = fields.label :status, 'Estado'
