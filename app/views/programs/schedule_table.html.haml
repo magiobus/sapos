@@ -26,9 +26,9 @@
         %td= schedule.classroom.name
         - comments = ''
         - if schedule.start_date != @tc.term.start_date 
-          - comments += "Inicia: #{l @tc.term.start_date, :format => :long}. "
+          - comments += "Inicia: #{l schedule.start_date, :format => :long}. "
         - if schedule.end_date != @tc.term.end_date 
-          - comments += "Finaliza: #{l @tc.term.end_date, :format => :long}"
+          - comments += "Finaliza: #{l schedule.end_date, :format => :long}"
         %td.small-note= comments
 
 = link_to 'Agregar sesión', '#', :id=>'a-new-schedule'
