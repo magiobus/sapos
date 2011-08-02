@@ -160,7 +160,7 @@ class ProgramsController < ApplicationController
   end
 
   def new_enrollment
-    @program = Term.find(params[:id])
+    @program = Program.find(params[:id])
     @term = Term.find(params[:term_id])
     render :layout => 'standalone'
   end
