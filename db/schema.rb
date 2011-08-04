@@ -25,13 +25,6 @@ ActiveRecord::Schema.define(:version => 20110801194010) do
   add_index "academic_degrees", ["institution_id"], :name => "index_academic_degrees_on_institution_id"
   add_index "academic_degrees", ["student_id"], :name => "index_academic_degrees_on_student_id"
 
-  create_table "accident_contacts", :force => true do |t|
-    t.string   "name",       :limit => 20
-    t.integer  "contact_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "advances", :force => true do |t|
     t.integer  "student_id"
     t.text     "title"

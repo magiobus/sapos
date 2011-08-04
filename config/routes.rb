@@ -22,6 +22,8 @@ Sapos::Application.routes.draw do
   match 'instituciones/:id/cambiar_logo' => 'institutions#change_image'
   match 'instituciones/upload_image' => 'institutions#upload_image'
 
+  match 'aulas/busqueda' => 'classrooms#live_search'
+
   match 'usuarios/busqueda' => 'users#live_search'
   
   match 'programas/busqueda' => 'programs#live_search'
@@ -53,6 +55,7 @@ Sapos::Application.routes.draw do
     resources :staffs, :path => "docentes"
     resources :programs, :path => "programas"
     resources :institutions, :path => "instituciones"
+    resources :classrooms, :path => "aulas"
     resources :users, :path => "usuarios"
   end
 

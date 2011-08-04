@@ -7,9 +7,9 @@
     #enrollment-new
       - students_in_term = TermStudent.where(:term_id => @term.id).map(&:student_id)
       - if students_in_term.count > 0
-        - conditions = ['status = ? AND id not in (?)', Student::ACTIVE, students_in_term]
+        - conditions = ['program_id = ? AND status = ? AND id not in (?)', @term.program_id, Student::ACTIVE, students_in_term]
       - else
-        - conditions = ['status = ?', Student::ACTIVE]
+        - conditions = ['program_id = ? AND status = ?', @term.program_id, Student::ACTIVE]
       - students_available = Student.find(:all, :conditions => conditions).collect {|i| [i.full_name_with_card, i.id]}
 
       - if students_available.count > 0

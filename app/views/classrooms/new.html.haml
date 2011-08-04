@@ -1,0 +1,26 @@
+- form_for @classroom, :remote => true, :html => { :'data-type' => 'html', :id => 'item-new-form' } do |f|
+
+  .resource-header
+    .resource-title
+      %h1= "Nueva Aula"
+    .resource-save
+      = f.submit 'Agregar'
+
+  #resource-tabs
+    %ul
+      %li.first-tab= link_to "Detalles", "#detalles"
+
+    #detalles
+      %h2 Detalles
+
+      .field#field_classroom_code
+        = f.label :code, mark_required(@classroom, :code) + 'Clave'
+        = f.text_field :code
+
+      .field#field_classroom_name
+        = f.label :name, mark_required(@classroom, :name) + 'Nombre' 
+        = f.text_field :name 
+
+      .field#field_classroom_room_type
+        = f.label :room_type, 'Tipo'
+        = f.select :room_type, Classroom::ROOMS.invert.sort {|a,b| a[1] <=> b[1] }
