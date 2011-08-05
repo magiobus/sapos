@@ -1,0 +1,43 @@
+:javascript
+  $('#item-edit-course-student')
+    .live("ajax:beforeSend", function(evt, xhr, settings) {
+        var $submitButton = $(this).find('input[type="submit"]');
+        $submitButton.data( 'origText', $(this).text() );
+        $submitButton.text( "Actualizando..." );
+        $('.error-message').remove();
+        $('.with-errors').removeClass('with-errors');
+    })
+    .live("ajax:success", function(evt, data, status, xhr) {
+        var $form = $(this);
+        var res = $.parseJSON(xhr.responseText);
+        $("#flash-notice").removeClass('error').removeClass('notice').removeClass('info');
+        $("#flash-notice").addClass('success').html(res['flash']['notice']);
+        $("#flash-notice").slideDown().delay(1500).slideUp();
+    })
+    .live('ajax:complete', function(evt, xhr, status) {
+        var $submitButton = $(this).find('input[type="submit"]');
+        $submitButton.text( $(this).data('origText') );
+        $submitButton.attr('disabled', 'disabled').addClass('disabled');
+    })
+    .live("ajax:error", function(evt, xhr, status, error) {
+        showFormErrors(xhr, status, error);
+    });
+
+= form_for @program, :remote => true, :url => {:action => 'update_course_student' }, :html => {:'data-type' => 'html', :id => 'item-edit-course-student', :class => 'edit-course-student'} do |f|
+  = fields_for "cs", @cs do |fields|
+    = fields.hidden_field :id
+
+    %div{:id => "cs_card", :class => 'field'}
+      = fields.label :term_student_id, 'Matricula'
+      %span.text= @cs.term_student.student.card
+
+    %div{:id => "cs_full_name", :class => 'field'}
+      = fields.label :term_student_id, 'Estudiante'
+      %span.text= @cs.term_student.student.full_name
+
+    %div{:id => "cs_grade", :class => 'field'}
+      = fields.label :grade, 'Calificación'
+      = fields.select :grade, (0..100).to_a, :prompt => 'Selecciona la calificación'
+
+    #dialog-submit-button-area
+      = fields.submit "Actualizar estudiante"

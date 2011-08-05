@@ -46,6 +46,8 @@ Sapos::Application.routes.draw do
   match 'programas/:id/periodo/:term_id/curso/:course_id/estudiantes' => 'programs#students_table'
   match 'programas/:id/periodo/:term_id/curso/:course_id/agregar_estudiante' => 'programs#new_course_student'
   match 'programas/create_course_student' => 'programs#create_course_student'
+  match 'programas/update_course_student' => 'programs#update_course_student'
+  match 'programas/:id/periodo/:term_id/curso/:course_id/estudiante/:term_course_student_id' => 'programs#edit_course_student'
   match 'programas/:id/periodo/:term_id/inscripciones' => 'programs#enrollment_table'
   match 'programas/:id/periodo/:term_id/nueva_inscripcion' => 'programs#new_enrollment'
   match 'programas/:id/create_enrollment' => 'programs#create_enrollment'

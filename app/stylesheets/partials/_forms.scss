@@ -84,7 +84,7 @@ input[type=button].disabled:hover {
 
 .field label { 
   font-size: 14px;
-  color: $grey;
+  color: $black;
   width: 150px;
   float: left;
   display: block;
@@ -103,6 +103,12 @@ input[type=button].disabled:hover {
   background-color: #fff;
   padding: 2px;
   font-size: 14px;
+}
+
+.field .text {
+  display: block;
+  font-size: 14px;
+  padding: 4px;
 }
 
 .with-errors label {

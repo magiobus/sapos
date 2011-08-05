@@ -252,8 +252,41 @@ class ProgramsController < ApplicationController
 
   def edit_course_student
     @program = Program.find(params[:id])
-    @term = Term.find(params[:term_id])
-    render :layout => false
+    @cs = TermCourseStudent.find(params[:term_course_student_id])
+    raise "Programs doesn't match" if @program.id != @cs.term_course.term.program_id
+    render :layout => 'standalone'
+  end
+
+  def update_course_student
+    @cs = TermCourseStudent.find(params[:cs][:id])
+    if @cs.update_attributes(params[:cs])
+      flash[:notice] = "Estudiante actualizado."
+      respond_with do |format|
+        format.html do
+          if request.xhr?
+            json = {}
+            json[:flash] = flash
+            render :json => json
+          else 
+            redirect_to @cs
+          end
+        end
+      end
+    else
+      flash[:error] = "Error al actualizar al estudiante."
+      respond_with do |format|
+        format.html do
+          if request.xhr?
+            json = {}
+            json[:flash] = flash
+            json[:errors] = @cs.errors
+            render :json => json, :status => :unprocessable_entity
+          else 
+            redirect_to @cs
+          end
+        end
+      end
+    end
   end
 
 end
