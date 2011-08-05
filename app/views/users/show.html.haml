@@ -28,8 +28,8 @@
 
       .field#field_user_access
         = f.label :access, mark_required(@user, :access) + 'Tipo de acceso'
-        = f.select :access,  User::ACCESS_TYPE.invert
+        = f.select :access,  User::ACCESS_TYPE.invert.sort {|a,b| a[1] <=> b[1] }
 
       .field#field_user_status
         = f.label :status, 'Estado'
-        = f.select :status,  User::STATUS.invert
+        = f.select :status,  User::STATUS.invert.sort {|a,b| a[1] <=> b[1] }

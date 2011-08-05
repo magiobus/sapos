@@ -21,4 +21,4 @@
         
       .field#field_user_access
         = f.label :access, mark_required(@user, :access) + 'Tipo de acceso'
-        = f.select :access,  User::ACCESS_TYPE.invert
+        = f.select :access,  User::ACCESS_TYPE.invert.sort {|a,b| a[1] <=> b[1] }
