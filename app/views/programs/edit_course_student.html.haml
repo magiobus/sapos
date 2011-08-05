@@ -10,18 +10,35 @@
     .live("ajax:success", function(evt, data, status, xhr) {
         var $form = $(this);
         var res = $.parseJSON(xhr.responseText);
-        $("#flash-notice").removeClass('error').removeClass('notice').removeClass('info');
-        $("#flash-notice").addClass('success').html(res['flash']['notice']);
-        $("#flash-notice").slideDown().delay(1500).slideUp();
+        parent.showFlash(res['flash']['notice'], 'success');
+        parent.loadStudents();
     })
     .live('ajax:complete', function(evt, xhr, status) {
-        var $submitButton = $(this).find('input[type="submit"]');
-        $submitButton.text( $(this).data('origText') );
-        $submitButton.attr('disabled', 'disabled').addClass('disabled');
     })
     .live("ajax:error", function(evt, xhr, status, error) {
         showFormErrors(xhr, status, error);
     });
+
+  $('#inactive-course-student')
+    .live('ajax:success', function(evt, data, status, xhr) {
+      var res = $.parseJSON(xhr.responseText);
+      parent.showFlash(res['flash']['notice'], 'success');
+      parent.loadStudents();
+    })
+
+    .live('ajax:beforeSend', function(ev, xhr, settings) {
+       $(this).addClass("loading");
+    })
+
+    .live("ajax:error", function(data, status) {
+      console.log(data);
+      console.log(status);
+    })
+
+    .live('ajax:complete', function(evt, xhr, status) {
+       $(this).removeClass("loading");
+    });
+
 
 = form_for @program, :remote => true, :url => {:action => 'update_course_student' }, :html => {:'data-type' => 'html', :id => 'item-edit-course-student', :class => 'edit-course-student'} do |f|
   = fields_for "cs", @cs do |fields|
@@ -35,9 +52,19 @@
       = fields.label :term_student_id, 'Estudiante'
       %span.text= @cs.term_student.student.full_name
 
-    %div{:id => "cs_grade", :class => 'field'}
-      = fields.label :grade, 'Calificación'
-      = fields.select :grade, (0..100).to_a, :prompt => 'Selecciona la calificación'
+    - if @cs.term_course.term.status == Term::GRADING
+      %div{:id => "cs_grade", :class => 'field'}
+        = fields.label :grade, 'Calificación'
+        = fields.select :grade, (0..100).to_a, :prompt => '---'
 
-    #dialog-submit-button-area
-      = fields.submit "Actualizar estudiante"
+      .iframe-submit-button-area
+        = fields.submit "Actualizar"
+    - else 
+      %div{:id => "cs_grade", :class => 'field'}
+        = fields.label :grade, 'Calificación'
+        %span.text= @cs.grade rescue '---'
+
+    - if [Term::OPEN, Term::PROGRESS].include? @cs.term_course.term.status
+      .inactive-link
+        - link_to "#{request.request_uri}/desactivar", :method => :post, :remote => true, :id => 'inactive-course-student', :'data-type' => 'html', :confirm => '¿Está seguro?' do
+          = "¿Dar de baja?"

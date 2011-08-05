@@ -172,3 +172,20 @@ input[type=button].disabled:hover {
   height: 50px;
 }
 
+.edit-subitem iframe {
+  margin: 0 auto;
+  overflow: none;
+  width: 100%;
+}
+
+.inactive-link { 
+  float: right;
+  a {
+   cursor: pointer; 
+   color: $grey;
+   text-decoration: none;
+   &:hover {
+     color: $selected-color;
+   }
+  }
+}

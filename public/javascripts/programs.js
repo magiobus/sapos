@@ -214,7 +214,6 @@ $(".schedule-item").live("click", function() {
 });
 
 // Students
-var current_student_edit = 0;
 function loadStudents() {
   term_id = $('#tc_term_id').val();
   course_id = $('#tc_course_id').val();
@@ -235,6 +234,54 @@ function loadStudents() {
       $("#program-area").html('');
   }
 }
+
+var current_tc_student_edit = 0;
+$(".tc-students-item").live("click", function() {
+  program_id = $('#program_id').val();
+  term_id = $('#tc_term_id').val();
+  course_id = $('#tc_course_id').val();
+  var tc_student_id = $('#'+this.id).attr('tc_student_id');
+  var tr_tc_student_id = this.id;
+  if (current_tc_student_edit != tc_student_id) {
+    if (current_tc_student_edit != 0) {
+      current_tc_student_edit2 = current_tc_student_edit;
+      $("#div_"+current_tc_student_edit).slideUp("fast", function() {
+        $("#edit-course_"+current_tc_student_edit2).remove();
+        $('#tr_tc_student_'+current_tc_student_edit2).animate({ backgroundColor: "white" }, 1000, function() {
+          $('#tr_tc_student_'+current_tc_student_edit2).removeClass("selected");
+        });
+      });
+    }
+
+    url = location.pathname + '/' + program_id + '/periodo/' + term_id + '/curso/' + course_id + '/estudiante/' + tc_student_id;
+    $("<tr class=\"edit-subitem edit-student\" id=\"edit-course_" + tc_student_id + "\"><td colspan=\"6\"><div class=\"edit-course-div\" id=\"div_"+tc_student_id+"\"></div></td></tr>").insertAfter($('#'+this.id));
+    $.get(url, {}, function(html) {
+      $('#'+tr_tc_student_id).animate({ backgroundColor: "#dddddd" }, 1000);
+      /*$("#div_"+tc_student_id).hide().html(html).slideDown("fast", function() {
+        $('#'+tr_tc_student_id).addClass("selected");
+      });*/
+      $("#div_"+tc_student_id).hide();
+      $('<iframe />', {
+        id: 'edit-student-iframe',
+        src: url,
+        scrolling: 'no'
+      }).appendTo("#div_"+tc_student_id);
+
+      $("#div_"+tc_student_id).slideDown("fast", function() {
+        $('#'+tr_tc_student_id).addClass("selected");
+      });
+    });
+    current_tc_student_edit = tc_student_id;
+  } else {
+    $("#div_"+tc_student_id).slideUp("fast", function() {
+      $(".edit-student").remove();
+      $('#'+tr_tc_student_id).animate({ backgroundColor: "white" }, 1000, function() {
+        $('#'+tr_tc_student_id).removeClass("selected");
+      });
+    });
+    current_tc_student_edit = 0;
+  }
+});
 
 // Program
 $('#tc_term_id').live("change", function() {
@@ -328,40 +375,3 @@ function hideCurrentEnrollment() {
   }
 }
 
-var current_tc_student_edit = 0;
-$(".tc-students-item").live("click", function() {
-  program_id = $('#program_id').val();
-  term_id = $('#tc_term_id').val();
-  course_id = $('#tc_course_id').val();
-  var tc_student_id = $('#'+this.id).attr('tc_student_id');
-  var tr_tc_student_id = this.id;
-  if (current_tc_student_edit != tc_student_id) {
-    if (current_tc_student_edit != 0) {
-      current_tc_student_edit2 = current_tc_student_edit;
-      $("#div_"+current_tc_student_edit).slideUp("fast", function() {
-        $("#edit-course_"+current_tc_student_edit2).remove();
-        $('#tr_tc_student_'+current_tc_student_edit2).animate({ backgroundColor: "white" }, 1000, function() {
-          $('#tr_tc_student_'+current_tc_student_edit2).removeClass("selected");
-        });
-      });
-    }
-
-    url = location.pathname + '/' + program_id + '/periodo/' + term_id + '/curso/' + course_id + '/estudiante/' + tc_student_id;
-    $("<tr class=\"edit-course\" id=\"edit-course_" + tc_student_id + "\"><td colspan=\"6\"><div class=\"edit-course-div\" id=\"div_"+tc_student_id+"\"></div></td></tr>").insertAfter($('#'+this.id));
-    $.get(url, {}, function(html) {
-      $('#'+tr_tc_student_id).animate({ backgroundColor: "#dddddd" }, 1000);
-      $("#div_"+tc_student_id).hide().html(html).slideDown("fast", function() {
-        $('#'+tr_tc_student_id).addClass("selected");
-      });
-    });
-    current_tc_student_edit = tc_student_id;
-  } else {
-    $("#div_"+tc_student_id).slideUp("fast", function() {
-      $(".edit-course").remove();
-      $('#'+tr_tc_student_id).animate({ backgroundColor: "white" }, 1000, function() {
-        $('#'+tr_tc_student_id).removeClass("selected");
-      });
-    });
-    current_tc_student_edit = 0;
-  }
-});

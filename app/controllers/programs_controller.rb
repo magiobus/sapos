@@ -289,4 +289,37 @@ class ProgramsController < ApplicationController
     end
   end
 
+  def inactive_course_student
+    @cs = TermCourseStudent.find(params[:term_course_student_id])
+    params[:cs] = {:status => TermCourseStudent::INACTIVE}
+    if @cs.update_attributes(params[:cs])
+      flash[:notice] = "Estudiante dado de baja."
+      respond_with do |format|
+        format.html do
+          if request.xhr?
+            json = {}
+            json[:flash] = flash
+            render :json => json
+          else 
+            redirect_to @cs
+          end
+        end
+      end
+    else
+      flash[:error] = "Error al desactivar al estudiante."
+      respond_with do |format|
+        format.html do
+          if request.xhr?
+            json = {}
+            json[:flash] = flash
+            json[:errors] = @cs.errors
+            render :json => json, :status => :unprocessable_entity
+          else 
+            redirect_to @cs
+          end
+        end
+      end
+    end
+  end
+
 end

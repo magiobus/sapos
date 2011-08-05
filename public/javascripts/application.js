@@ -40,14 +40,20 @@ function showFormErrors(xhr, status, error) {
     } catch(err) {
         res['errors'] = { generic_error: "Error:" + err.description };
     }
-
-    $("#flash-notice").removeClass('success').removeClass('notice').removeClass('info');
-    $("#flash-notice").addClass('error').html(res['flash']['error']);
-    $("#flash-notice").slideDown();
+    showFlash(res['flash']['error'], 'error');
 
     for ( e in res['errors'] ) {
         errorMsg = $('<div>' + res['errors'][e] + '</div>').addClass('error-message');
         $('#field_' + model_name + '_' + e.replace('.', '_')).addClass('with-errors').append(errorMsg);
+    }
+}
+
+function showFlash(msg, type) {
+    $("#flash-notice").removeClass('success').removeClass('notice').removeClass('info');
+    $("#flash-notice").addClass(type).html(msg);
+    $("#flash-notice").slideDown();
+    if (type != 'error') {
+      $("#flash-notice").delay(1500).slideUp();
     }
 }
 
@@ -143,9 +149,7 @@ $('#item-new-form')
         // Load new
         var $form = $(this);
         var res = $.parseJSON(xhr.responseText);
-        $("#flash-notice").removeClass('error').removeClass('notice').removeClass('info');
-        $("#flash-notice").addClass('success').html(res['flash']['notice']);
-        $("#flash-notice").slideDown().delay(1500).slideUp();
+        showFlash(res['flash']['notice'], 'success');
         $("#search-box").val(res['uniq']);
         initializeSearchForm();
         liveSearch();       
@@ -175,9 +179,7 @@ $('#item-edit-form')
     .live("ajax:success", function(evt, data, status, xhr) {
         var $form = $(this);
         var res = $.parseJSON(xhr.responseText);
-        $("#flash-notice").removeClass('error').removeClass('notice').removeClass('info');
-        $("#flash-notice").addClass('success').html(res['flash']['notice']);
-        $("#flash-notice").slideDown().delay(1500).slideUp();
+        showFlash(res['flash']['notice'],'success');
     })
 
     .live('ajax:complete', function(evt, xhr, status) {

@@ -733,6 +733,21 @@ span.red {
   color: #aaaaaa;
 }
 
+/* line 282, ../../../app/stylesheets/partials/_layout.scss */
+.centered-div {
+  margin: 0 auto;
+}
+
+/* line 286, ../../../app/stylesheets/partials/_layout.scss */
+.iframe-submit-button-area {
+  margin-top: 20px;
+}
+
+/* line 290, ../../../app/stylesheets/partials/_layout.scss */
+.iframe-submit-button-area input[type=submit] {
+  font-size: 90%;
+}
+
 /* line 1, ../../../app/stylesheets/partials/_forms.scss */
 form {
   margin: 0;
@@ -954,6 +969,28 @@ input[type=button].disabled:hover {
   margin-top: 10px;
   width: 360px;
   height: 50px;
+}
+
+/* line 175, ../../../app/stylesheets/partials/_forms.scss */
+.edit-subitem iframe {
+  margin: 0 auto;
+  overflow: none;
+  width: 100%;
+}
+
+/* line 181, ../../../app/stylesheets/partials/_forms.scss */
+.inactive-link {
+  float: right;
+}
+/* line 183, ../../../app/stylesheets/partials/_forms.scss */
+.inactive-link a {
+  cursor: pointer;
+  color: #aaaaaa;
+  text-decoration: none;
+}
+/* line 187, ../../../app/stylesheets/partials/_forms.scss */
+.inactive-link a:hover {
+  color: #2277cc;
 }
 
 /* line 1, ../../../app/stylesheets/partials/_tabs.scss */

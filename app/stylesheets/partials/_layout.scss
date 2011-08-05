@@ -278,3 +278,15 @@
   font-size: 90% !important;
   color: $grey;
 }
+
+.centered-div {
+  margin: 0 auto;
+}
+
+.iframe-submit-button-area {
+  margin-top: 20px;
+}
+
+.iframe-submit-button-area input[type=submit] {
+  font-size: 90%;
+}
