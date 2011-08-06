@@ -177,8 +177,40 @@ class ProgramsController < ApplicationController
 
   def edit_enrollment
     @program = Program.find(params[:id])
-    @term = Term.find(params[:term_id])
-    render :layout => false
+    @ts = TermStudent.find(params[:term_student_id])
+    render :layout => 'standalone'
+  end
+
+  def update_enrollment
+    @ts = TermStudent.find(params[:ts][:id])
+    if @ts.update_attributes(params[:ts])
+      flash[:notice] = "Inscripción actualizada"
+      respond_with do |format|
+        format.html do
+          if request.xhr?
+            json = {}
+            json[:flash] = flash
+            render :json => json
+          else 
+            redirect_to @cs
+          end
+        end
+      end
+    else
+      flash[:error] = "Error al actualizar la inscripción"
+      respond_with do |format|
+        format.html do
+          if request.xhr?
+            json = {}
+            json[:flash] = flash
+            json[:errors] = @cs.errors
+            render :json => json, :status => :unprocessable_entity
+          else 
+            redirect_to @cs
+          end
+        end
+      end
+    end
   end
 
   def schedule_table

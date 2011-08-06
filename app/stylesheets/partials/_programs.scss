@@ -35,6 +35,7 @@
     &.schedule-item:hover td,
     &.term-item:hover td,
     &.tc-students-item:hover td,
+    &.enrollment-item:hover td,
     &.course:hover td {
       background-color: $bg-color;
       cursor: pointer;

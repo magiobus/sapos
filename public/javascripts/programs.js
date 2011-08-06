@@ -265,9 +265,10 @@ $(".tc-students-item").live("click", function() {
       $('#'+tr_tc_student_id).animate({ backgroundColor: "#dddddd" }, 1000);
       $("#div_"+tc_student_id).hide();
       $('<iframe />', {
-        id: 'edit-student-iframe',
+        id: 'edit-student-iframe' + tc_student_id,
         src: url,
-        scrolling: 'no'
+        scrolling: 'no',
+        onload: "autoResizeIFRAME('edit-schedule-iframe" + tc_student_id + "')"
       }).appendTo("#div_"+tc_student_id);
 
       $("#div_"+tc_student_id).slideDown("fast", function() {
@@ -368,13 +369,62 @@ function loadEnrollment() {
   }
 }
 
-function hideCurrentEnrollment() {
-  if (current_tc_student_edit != 0) {
-    $("#div_"+current_tc_student_edit).slideUp("fast", function() {
-      $('#tr_tc_student_'+current_tc_student_edit).animate({ backgroundColor: "white" }, 1000, function() {
-        $('#tr_tc_student_'+current_tc_student_edit).removeClass("selected");
+function hideCurrentEnrollment(functocall) {
+  if (current_enrollment_edit != 0) {
+    $("#div_"+current_enrollment_edit).slideUp("fast", function() {
+      $(".edit-enrollment").remove();
+      $('#tr_enrollment_'+current_enrollment_edit).animate({ backgroundColor: "white" }, 1000, function() {
+        $('#tr_enrollment_'+current_enrollment_edit).removeClass("selected");
+        if (typeof functocall !== "undefined") {
+          eval(functocall);
+        }
       });
     });
   }
+
 }
 
+var current_enrollment_edit = 0;
+$(".enrollment-item").live("click", function() {
+  program_id = $('#program_id').val();
+  term_id = $('#enrollment_term_id').val();
+  var enrollment_id = $('#'+this.id).attr('enrollment_id');
+  var tr_enrollment_id = this.id;
+  if (current_enrollment_edit != enrollment_id) {
+    if (current_enrollment_edit != 0) {
+      current_enrollment_edit2 = current_enrollment_edit;
+      $("#div_"+current_enrollment_edit).slideUp("fast", function() {
+        $("#edit-course_"+current_enrollment_edit2).remove();
+        $('#tr_enrollment_'+current_enrollment_edit2).animate({ backgroundColor: "white" }, 1000, function() {
+          $('#tr_enrollment_'+current_enrollment_edit2).removeClass("selected");
+        });
+      });
+    }
+
+    url = location.pathname + '/' + program_id + '/periodo/' + term_id + '/inscripcion/' + enrollment_id;
+    $("<tr class=\"edit-subitem edit-enrollment\" id=\"edit-course_" + enrollment_id + "\"><td colspan=\"6\"><div class=\"edit-course-div\" id=\"div_"+enrollment_id+"\"></div></td></tr>").insertAfter($('#'+this.id));
+    $.get(url, {}, function(html) {
+      $('#'+tr_enrollment_id).animate({ backgroundColor: "#dddddd" }, 1000);
+      $("#div_"+enrollment_id).hide();
+      $('<iframe />', {
+        id: 'edit-student-iframe' + enrollment_id,
+        src: url,
+        scrolling: 'no',
+        onload: "autoResizeIFRAME('edit-schedule-iframe" + enrollment_id + "')"
+      }).appendTo("#div_"+enrollment_id);
+
+      $("#div_"+enrollment_id).slideDown("fast", function() {
+        $('#'+tr_enrollment_id).addClass("selected");
+      });
+    });
+    current_enrollment_edit = enrollment_id;
+  } else {
+    $("#div_"+enrollment_id).slideUp("fast", function() {
+      $(".edit-enrollment").remove();
+      $('#'+tr_enrollment_id).animate({ backgroundColor: "white" }, 1000, function() {
+        $('#'+tr_enrollment_id).removeClass("selected");
+      });
+    });
+    current_enrollment_edit = 0;
+  }
+});

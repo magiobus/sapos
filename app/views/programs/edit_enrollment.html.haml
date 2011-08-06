@@ -1,0 +1,40 @@
+:javascript
+  $('#item-edit-enrollment')
+    .live("ajax:beforeSend", function(evt, xhr, settings) {
+        var $submitButton = $(this).find('input[type="submit"]');
+        $submitButton.data( 'origText', $(this).text() );
+        $submitButton.text( "Actualizando..." );
+        $('.error-message').remove();
+        $('.with-errors').removeClass('with-errors');
+    })
+    .live("ajax:success", function(evt, data, status, xhr) {
+        var $form = $(this);
+        var res = $.parseJSON(xhr.responseText);
+        parent.showFlash(res['flash']['notice'], 'success');
+        parent.hideCurrentEnrollment('loadEnrollment()');
+    })
+    .live('ajax:complete', function(evt, xhr, status) {
+    })
+    .live("ajax:error", function(evt, xhr, status, error) {
+        showFormErrors(xhr, status, error);
+    });
+
+= form_for @program, :remote => true, :url => {:action => 'update_enrollment' }, :html => {:'data-type' => 'html', :id => 'item-edit-enrollment', :class => 'edit-course-student'} do |f|
+  = fields_for "ts", @ts do |fields|
+    = fields.hidden_field :id
+
+    %div{:id => "ts_student_id", :class => 'field'}
+      = fields.label :student_id, 'Estudiante'
+      %span.text= @ts.student.full_name
+
+    %div{:id => "ts_status", :class => 'field'}
+      = fields.label :status, 'Estado'
+      = fields.select :status, TermStudent::STATUS.invert.sort {|a,b| a[1] <=> b[1] }
+
+    %div{:id => "ts_notes", :class => 'field'}
+      = fields.label :notes, 'Comentarios'
+      = fields.text_field :notes
+
+    .iframe-submit-button-area
+      = fields.submit "Actualizar inscripción"
+
