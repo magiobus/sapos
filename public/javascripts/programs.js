@@ -186,7 +186,7 @@ $(".schedule-item").live("click", function() {
     if (current_schedule_edit != 0) {
       current_schedule_edit2 = current_schedule_edit;
       $("#div_"+current_schedule_edit).slideUp("fast", function() {
-        $("#edit-course_"+current_schedule_edit2).remove();
+        $("#edit-schedule_"+current_schedule_edit2).remove();
         $('#tr_schedule_'+current_schedule_edit2).animate({ backgroundColor: "white" }, 1000, function() {
           $('#tr_schedule_'+current_schedule_edit2).removeClass("selected");
         });
@@ -194,13 +194,19 @@ $(".schedule-item").live("click", function() {
     }
 
     url = location.pathname + '/' + program_id + '/periodo/' + term_id + '/curso/' + course_id + '/sesion/' + schedule_id;
-    $("<tr class=\"edit-course\" id=\"edit-course_" + schedule_id + "\"><td colspan=\"6\"><div class=\"edit-course-div\" id=\"div_"+schedule_id+"\"></div></td></tr>").insertAfter($('#'+this.id));
-    $.get(url, {}, function(html) {
-      $('#'+tr_schedule_id).animate({ backgroundColor: "#dddddd" }, 1000);
-      $("#div_"+schedule_id).hide().html(html).slideDown("fast", function() {
-        $('#'+tr_schedule_id).addClass("selected");
-      });
+    $("<tr class=\"edit-schedule edit-subitem\" id=\"edit-schedule_" + schedule_id + "\"><td colspan=\"6\"><div class=\"edit-course-div\" id=\"div_"+schedule_id+"\"></div></td></tr>").insertAfter($('#'+this.id));
+    $('#'+tr_schedule_id).animate({ backgroundColor: "#dddddd" }, 1000);
+    $('<iframe />', {
+      id: 'edit-schedule-iframe' + schedule_id,
+      src: url,
+      scrolling: 'no',
+      onload: "autoResizeIFRAME('edit-schedule-iframe" + schedule_id + "')"
+    }).appendTo("#div_"+schedule_id);
+
+    $("#div_"+schedule_id).slideDown("fast", function() {
+      $('#'+tr_schedule_id).addClass("selected");
     });
+
     current_schedule_edit = schedule_id;
   } else {
     $("#div_"+schedule_id).slideUp("fast", function() {
@@ -257,9 +263,6 @@ $(".tc-students-item").live("click", function() {
     $("<tr class=\"edit-subitem edit-student\" id=\"edit-course_" + tc_student_id + "\"><td colspan=\"6\"><div class=\"edit-course-div\" id=\"div_"+tc_student_id+"\"></div></td></tr>").insertAfter($('#'+this.id));
     $.get(url, {}, function(html) {
       $('#'+tr_tc_student_id).animate({ backgroundColor: "#dddddd" }, 1000);
-      /*$("#div_"+tc_student_id).hide().html(html).slideDown("fast", function() {
-        $('#'+tr_tc_student_id).addClass("selected");
-      });*/
       $("#div_"+tc_student_id).hide();
       $('<iframe />', {
         id: 'edit-student-iframe',

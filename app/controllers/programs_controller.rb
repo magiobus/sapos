@@ -223,10 +223,47 @@ class ProgramsController < ApplicationController
   end
 
   def edit_schedule
+    @program = Program.find(params[:id])
     @cs = TermCourseSchedule.find(params[:term_course_schedule_id])
     @staffs = Staff.order('first_name').includes(:institution)
     @institutions = Institution.order('name')
-    render :layout => false
+    render :layout => 'standalone'
+  end
+
+  def update_schedule
+    @cs = TermCourseSchedule.find(params[:cs][:id])
+    if @cs.update_attributes(params[:cs])
+      if (@cs.status == TermCourseSchedule::INACTIVE) 
+        flash[:notice] = "Sesión dada de baja."
+      else
+        flash[:notice] = "Sesión actualizada."
+      end
+      respond_with do |format|
+        format.html do
+          if request.xhr?
+            json = {}
+            json[:flash] = flash
+            render :json => json
+          else 
+            redirect_to @cs
+          end
+        end
+      end
+    else
+      flash[:error] = "Error al actualizar la sesión"
+      respond_with do |format|
+        format.html do
+          if request.xhr?
+            json = {}
+            json[:flash] = flash
+            json[:errors] = @cs.errors
+            render :json => json, :status => :unprocessable_entity
+          else 
+            redirect_to @cs
+          end
+        end
+      end
+    end
   end
 
   def students_table

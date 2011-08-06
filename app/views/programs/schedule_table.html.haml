@@ -7,7 +7,7 @@
     = link_to 'Horario', '#', :id=>'a-tc-schedule', :class=>'tc-selected'
     
 
--if @tc.term_course_schedules.count > 0 
+-if @tc.term_course_schedules.where(:status => TermCourseSchedule::ACTIVE).count > 0 
   %table.schedule
     %tbody
       %tr.header
@@ -17,7 +17,7 @@
         %th Docente
         %th Aula
         %th Comentarios
-    - @tc.term_course_schedules.order("start_date").order("day").order("start_hour").each_with_index do |schedule, index|
+    - @tc.term_course_schedules.where(:status => TermCourseSchedule::ACTIVE).order("start_date").order("day").order("start_hour").each_with_index do |schedule, index|
       %tr.schedule-item{:id=>"tr_schedule_#{schedule.id}", :schedule_id=>schedule.id}
         %td= schedule.day_name
         %td.centered=  l schedule.start_hour, :format => "%H:%M"

@@ -1,34 +1,63 @@
-= fields_for "program[terms_attributes][0][term_courses_attributes][0][term_course_schedules_attributes][0]", @cs do |fields|
-  = hidden_field_tag 'program[terms_attributes][0][id]', @cs.term_course.term_id
-  = hidden_field_tag 'program[terms_attributes][0][term_courses_attributes][0][id]', @cs.term_course.id
-  = hidden_field_tag 'program[terms_attributes][0][term_courses_attributes][0][term_course_schedules_attributes][0][term_course_id]', @cs.term_course.id
-  = fields.hidden_field :id
+:javascript
+  $('#inactive-schedule').live('click', function() {
+    if (confirm('¿Estas seguro?')) {
+      $("#cs_status").val("#{TermCourseSchedule::INACTIVE}");
+      $('#item-edit-schedule').submit();
+    }
+  });
+  $('#item-edit-schedule')
+    .live("ajax:beforeSend", function(evt, xhr, settings) {
+        var $submitButton = $(this).find('input[type="submit"]');
+        $submitButton.data( 'origText', $(this).text() );
+        $submitButton.text( "Actualizando..." );
+        $('.error-message').remove();
+        $('.with-errors').removeClass('with-errors');
+    })
+    .live("ajax:success", function(evt, data, status, xhr) {
+        var $form = $(this);
+        var res = $.parseJSON(xhr.responseText);
+        parent.showFlash(res['flash']['notice'], 'success');
+        parent.loadSchedule();
+    })
+    .live('ajax:complete', function(evt, xhr, status) {
+    })
+    .live("ajax:error", function(evt, xhr, status, error) {
+        showFormErrors(xhr, status, error);
+    });
 
-  %div{:id => "field_terms_courses_term_course_schedules_attributes_0_staff_id", :class => 'field'}
-    = fields.label :start_date, 'Docente'
-    = fields.grouped_collection_select :staff_id, @institutions, :staffs, :name, :id, :full_name, options = {:prompt => "Selecciona el docente"}
+= form_for @program, :remote => true, :url => {:action => 'update_schedule' }, :html => {:'data-type' => 'html', :id => 'item-edit-schedule', :class => 'edit-course-student'} do |f|
+  = fields_for "cs", @cs do |fields|
+    = fields.hidden_field :id
+    = fields.hidden_field :status
 
-  %div{:id => "field_terms_courses_term_course_schedules_attributes_0_day", :class => 'field'}
-    = fields.label :day, 'Horario'
-    = fields.select :day, TermCourseSchedule::DAY.invert.sort {|a,b| a[1] <=> b[1] }
-    = fields.select :start_hour, TermCourseSchedule::HOURS
-    = fields.select :end_hour, TermCourseSchedule::HOURS
+    %div{:id => "field_terms_courses_term_course_schedules_attributes_0_staff_id", :class => 'field'}
+      = fields.label :start_date, 'Docente'
+      = fields.grouped_collection_select :staff_id, @institutions, :staffs, :name, :id, :full_name, options = {:prompt => "Selecciona el docente"}
 
-  %div{:id => "field_terms_courses_term_course_schedules_attributes_0_classroom_id", :class => 'field'}
-    = fields.label :classroom_id, 'Aula'
-    = fields.select :classroom_id, Classroom.order(:name).collect {|i| [i.full_name, i.id]}
+    %div{:id => "field_terms_courses_term_course_schedules_attributes_0_day", :class => 'field'}
+      = fields.label :day, 'Horario'
+      = fields.select :day, TermCourseSchedule::DAY.invert.sort {|a,b| a[1] <=> b[1] }
+      = fields.select :start_hour, TermCourseSchedule::HOURS
+      = fields.select :end_hour, TermCourseSchedule::HOURS
 
-  %div{:id => "field_terms_courses_term_course_schedules_attributes_0_class_type", :class => 'field'}
-    = fields.label :class_type, 'Tipo de clase'
-    = fields.select :class_type, TermCourseSchedule::CLASSTYPE.invert.sort {|a,b| a[1] <=> b[1] }
+    %div{:id => "field_terms_courses_term_course_schedules_attributes_0_classroom_id", :class => 'field'}
+      = fields.label :classroom_id, 'Aula'
+      = fields.select :classroom_id, Classroom.order(:name).collect {|i| [i.full_name, i.id]}
 
-  %div{:id => "field_terms_courses_term_course_schedules_attributes_0_start_date", :class => 'field'}
-    = fields.label :start_date, 'Fecha Inicio'
-    = fields.date_select :start_date
+    %div{:id => "field_terms_courses_term_course_schedules_attributes_0_class_type", :class => 'field'}
+      = fields.label :class_type, 'Tipo de clase'
+      = fields.select :class_type, TermCourseSchedule::CLASSTYPE.invert.sort {|a,b| a[1] <=> b[1] }
 
-  %div{:id => "field_terms_courses_term_course_schedules_attributes_0_end_date", :class => 'field'}
-    = fields.label :end_date, 'Fecha Fin'
-    = fields.date_select :end_date
+    %div{:id => "field_terms_courses_term_course_schedules_attributes_0_start_date", :class => 'field'}
+      = fields.label :start_date, 'Fecha Inicio'
+      = fields.date_select :start_date
 
-  #dialog-submit-button-area
-    = fields.submit "Actualizar sesión"
+    %div{:id => "field_terms_courses_term_course_schedules_attributes_0_end_date", :class => 'field'}
+      = fields.label :end_date, 'Fecha Fin'
+      = fields.date_select :end_date
+
+    .iframe-submit-button-area
+      = fields.submit "Actualizar sesión"
+    .inactive-link
+      %a#inactive-schedule= "¿Dar de baja?"
+

@@ -981,14 +981,15 @@ input[type=button].disabled:hover {
 /* line 181, ../../../app/stylesheets/partials/_forms.scss */
 .inactive-link {
   float: right;
+  font-size: 80%;
 }
-/* line 183, ../../../app/stylesheets/partials/_forms.scss */
+/* line 184, ../../../app/stylesheets/partials/_forms.scss */
 .inactive-link a {
   cursor: pointer;
   color: #aaaaaa;
   text-decoration: none;
 }
-/* line 187, ../../../app/stylesheets/partials/_forms.scss */
+/* line 188, ../../../app/stylesheets/partials/_forms.scss */
 .inactive-link a:hover {
   color: #2277cc;
 }

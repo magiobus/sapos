@@ -3,6 +3,9 @@ class TermCourseSchedule < ActiveRecord::Base
   belongs_to :staff
   belongs_to :classroom
 
+  ACTIVE   = 1
+  INACTIVE = 2
+
   MONDAY    = 1
   TUESDAY   = 2
   WEDNESDAY = 3
@@ -21,7 +24,7 @@ class TermCourseSchedule < ActiveRecord::Base
 
   PRESENTIAL = 1
   VIRTUAL    = 2
-  
+ 
   CLASSTYPE = {PRESENTIAL => 'Presencial',
                VIRTUAL    => 'Virtual'}
 

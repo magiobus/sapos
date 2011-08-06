@@ -42,6 +42,7 @@ Sapos::Application.routes.draw do
   match 'programas/:id/periodo/:term_id/curso/:course_id/horario' => 'programs#schedule_table'
   match 'programas/:id/periodo/:term_id/curso/:course_id/nueva_sesion' => 'programs#new_schedule'
   match 'programas/create_session' => 'programs#create_schedule'
+  match 'programas/update_session' => 'programs#update_schedule'
   match 'programas/:id/periodo/:term_id/curso/:course_id/sesion/:term_course_schedule_id' => 'programs#edit_schedule'
   match 'programas/:id/periodo/:term_id/curso/:course_id/estudiantes' => 'programs#students_table'
   match 'programas/:id/periodo/:term_id/curso/:course_id/agregar_estudiante' => 'programs#new_course_student'

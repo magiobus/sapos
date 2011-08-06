@@ -180,6 +180,7 @@ input[type=button].disabled:hover {
 
 .inactive-link { 
   float: right;
+  font-size: 80%;
   a {
    cursor: pointer; 
    color: $grey;
