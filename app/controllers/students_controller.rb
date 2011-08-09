@@ -1,3 +1,4 @@
+# coding: utf-8
 class StudentsController < ApplicationController
   before_filter :auth_required
   respond_to :html, :xml, :json

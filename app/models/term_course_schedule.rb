@@ -1,3 +1,4 @@
+# coding: utf-8
 class TermCourseSchedule < ActiveRecord::Base
   belongs_to :term_course
   belongs_to :staff

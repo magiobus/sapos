@@ -1,3 +1,4 @@
+# coding: utf-8
 class Term < ActiveRecord::Base
   belongs_to :program
 

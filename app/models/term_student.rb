@@ -1,3 +1,4 @@
+# coding: utf-8
 class TermStudent < ActiveRecord::Base
   belongs_to :term
   belongs_to :student

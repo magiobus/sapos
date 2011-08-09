@@ -1,3 +1,4 @@
+# coding: utf-8
 class Course < ActiveRecord::Base
   belongs_to :program
 

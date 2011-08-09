@@ -1,3 +1,4 @@
+# coding: utf-8
 class Thesis < ActiveRecord::Base
   belongs_to :student
 

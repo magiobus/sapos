@@ -1,3 +1,4 @@
+# coding: utf-8
 class User < ActiveRecord::Base
   ADMINISTRATOR = 1
   OPERATOR      = 2

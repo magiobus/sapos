@@ -1,3 +1,4 @@
+# coding: utf-8
 class Institution < ActiveRecord::Base
   has_many :staffs
 

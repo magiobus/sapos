@@ -1,3 +1,4 @@
+# coding: utf-8
 class Staff < ActiveRecord::Base
   belongs_to :institution
   has_many :term_course_schedule
