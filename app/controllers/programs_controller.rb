@@ -1,3 +1,4 @@
+# coding: utf-8
 class ProgramsController < ApplicationController
   before_filter :auth_required
   respond_to :html, :xml, :json

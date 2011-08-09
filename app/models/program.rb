@@ -1,3 +1,4 @@
+# coding: utf-8
 class Program < ActiveRecord::Base
   MASTER        = 1
   DOCTORATE     = 2
