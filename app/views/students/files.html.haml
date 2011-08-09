@@ -67,6 +67,6 @@
           %br
           %span.file-details= ext.upcase + ", " + number_to_human_size(File.size(student_file.file.to_s))
           %span.file-edit
-            = link_to_function 'Editar descripci?n', "edit_description(#{student_file.id})"
+            = link_to_function 'Editar descripción', "edit_description(#{student_file.id})"
             |
             = link_to 'Eliminar archivo', [@students, student_file], :confirm => '¿Estás seguro?', :method => 'delete', :remote => true, :class => 'delete-file'
