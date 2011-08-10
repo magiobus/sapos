@@ -194,8 +194,16 @@ $('#item-edit-form')
 );
 
 
-$('#nav-select').bind('click', function() {
-  event.stopPropagation();
+$('#nav-select').bind('click', function(e) {
+  if (!e) var e = window.event;
+  // ie
+  e.cancelBubble = true;
+  e.returnValue = false;
+  // ff / webkit
+  if (e.stopPropagation) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
   $('#nav-menu').slideToggle('fast');
 });
 
