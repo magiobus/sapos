@@ -19,7 +19,7 @@
     %tr.course{:id=>"tr_#{course.id}", :course_id=>course.id}
       %td= course.code
       %td= course.name
-      %td.centered= "#{course.lecture_hours}–#{course.lab_hours}–#{course.credits}"
+      %td.centered= "#{course.lecture_hours_int}–#{course.lab_hours_int}–#{course.credits_int}"
       - prereq = []
       - if !course.prereq1.nil?
         - prereq << Course.find(course.prereq1).code rescue 'Error'
