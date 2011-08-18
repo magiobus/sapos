@@ -28,10 +28,10 @@ class Course < ActiveRecord::Base
   end
 
   def credits_int
-    if lab_hours.to_s.last(1) == '5'
-      lab_hours
+    if credits.to_s.last(1) == '5'
+      credits
     else 
-      lab_hours.to_i
+      credits.to_i
     end
   end
 end
