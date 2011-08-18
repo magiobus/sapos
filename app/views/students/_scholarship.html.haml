@@ -1,7 +1,41 @@
+:javascript
+  function showScholarshipFields() {
+    var t = $('#student_scholarship_attributes_scholarship_type_id').val();
+    $('#field_student_scholarship_department_id').hide();
+    $('#field_student_scholarship_institution_id').hide();
+    $('#field_student_scholarship_other_department').hide();
+
+    if (t == 4) {
+      $('#field_student_scholarship_institution_id').show();
+      $('#field_student_scholarship_other_department').show();
+    } else if (t == 3) {
+      $('#field_student_scholarship_department_id').show();
+    }
+  }
+
+  $('#student_scholarship_attributes_scholarship_type_id').live('change', function() {
+    showScholarshipFields();
+  });
+
 %div{:id => "field_student_scholarship_type", :class => 'field'}
   = fields.label :scholarship_type_id, 'Tipo'
   = fields.grouped_collection_select :scholarship_type_id, ScholarshipCategory.order(:name), :scholarship_types, :name, :id, :name, options = {:prompt => "Selecciona la beca"}
 
+%div{:id => "field_student_scholarship_amount", :class => 'field'}
+  = fields.label :amount, 'Cantidad mensual'
+  = fields.text_field :amount
+
+%div{:id => "field_student_scholarship_institution_id", :class => 'field'}
+  = fields.label :institution_id, 'Institución'
+  = fields.collection_select :institution_id, Institution.order('name'), :id, :name, options = {:prompt => "Selecciona la institución"}
+
+%div{:id => "field_student_scholarship_department_id", :class => 'field'}
+  = fields.label :department_id, 'Departamento'
+  = fields.collection_select :department_id, Department.order('name'), :id, :name, options = {:prompt => "Selecciona el departamento"}
+
+%div{:id => "field_student_scholarship_other_department", :class => 'field'}
+  = fields.label :other_department, 'Departamento'
+  = fields.text_field :other_department
 
 %div{:id => "field_student_scholarship_start_date", :class => 'field'}
   = fields.label :start_date, 'Fecha de inicio'

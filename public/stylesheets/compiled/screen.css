@@ -1236,6 +1236,13 @@ input[type=button].disabled:hover {
   background: transparent url(/images/mime/unknown.png) 0 15px no-repeat;
 }
 
+/* line 3, ../../../app/stylesheets/partials/_students.scss */
+#field_student_scholarship_institution_id,
+#field_student_scholarship_department_id,
+#field_student_scholarship_other_department {
+  display: none;
+}
+
 /* line 5, ../../../app/stylesheets/partials/_programs.scss */
 .plan,
 .terms,
