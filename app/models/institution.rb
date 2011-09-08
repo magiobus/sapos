@@ -1,6 +1,6 @@
 # coding: utf-8
 class Institution < ActiveRecord::Base
-  has_many :staffs
+  has_many :staffs, :order => "first_name, last_name"
 
   has_one :contact, :as => :attachable
   accepts_nested_attributes_for :contact
