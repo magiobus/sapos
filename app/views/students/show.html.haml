@@ -58,7 +58,7 @@
         = f.grouped_collection_select :supervisor, @institutions, :staffs, :name, :id, :full_name, options = {:prompt => "Selecciona el asesor"}
       .field#field_student_co_supervisor
         = f.label :co_supervisor, 'Coasesor'
-        = f.grouped_collection_select :co_supervisor, @institutions, :staffs, :name, :id, :full_name, options = {:prompt => "Sin coasesor"}
+        = f.grouped_collection_select :co_supervisor, @institutions, :staffs, :name, :id, :full_name, options = {:include_blank => true}
       .field#field_student_start_date
         = f.label :start_date, 'Fecha de inicio'
         = f.date_select :start_date, :start_year => 1994
