@@ -36,7 +36,34 @@ class StudentsController < ApplicationController
       @students = @students.where("status IN (#{s.join(',')})")
     end
 
-    render :layout => false
+    respond_with do |format|
+      format.html do
+        render :layout => false
+      end
+      format.xls do
+        rows = Array.new
+        @students.collect do |s|
+          rows << {'Matricula' => s.card,
+                   'Nombre' => s.first_name, 
+                   'Apellidos' => s.last_name, 
+                   'Estado' => s.status_type,
+                   'Programa' => s.program.name,
+                   'Inicio' => s.start_date,
+                   'Fin' => s.end_date,
+                   'Asesor' => (Staff.find(s.supervisor).full_name rescue ''),
+                   'Coasesor' => (Staff.find(s.co_supervisor).full_name rescue ''),
+                   'Tesis' => s.thesis.title,
+                   'Sinodal1' => (Staff.find(s.thesis.examiner1).full_name rescue ''),
+                   'Sinodal2' => (Staff.find(s.thesis.examiner2).full_name rescue ''),
+                   'Sinodal3' => (Staff.find(s.thesis.examiner3).full_name rescue ''),
+                   'Sinodal4' => (Staff.find(s.thesis.examiner4).full_name rescue ''),
+                   'Sinodal5' => (Staff.find(s.thesis.examiner5).full_name rescue ''),
+                   }
+        end
+        column_order = ["Matricula", "Nombre", "Apellidos", "Estado", "Programa", "Inicio", "Fin", "Asesor", "Coasesor", "Tesis", "Sinodal1", "Sinodal2", "Sinodal3", "Sinodal4", "Sinodal5"]
+        to_excel(rows, column_order, "Estudiantes", "Estudiantes")
+      end
+    end
   end
 
   def show
@@ -46,7 +73,6 @@ class StudentsController < ApplicationController
     @institutions = Institution.order('name')
     @states = State.order('code')
     render :layout => false
-    #render :inline => "Debugging"
   end
 
   def new
@@ -221,5 +247,4 @@ class StudentsController < ApplicationController
       end
     end
   end
-
 end
