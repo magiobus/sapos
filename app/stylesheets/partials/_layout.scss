@@ -216,6 +216,15 @@
       font-weight: bold;
     }
   }
+  #to_excel {
+    background-color: #090;
+    cursor: pointer;
+    color: $white;
+    float: right;
+    font-weight: bold;
+    font-size: 8px;
+    padding: 2px 8px;
+  }
 }
 
 .main-panel {
