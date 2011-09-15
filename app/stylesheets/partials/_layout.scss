@@ -54,17 +54,16 @@
     color: #000; 
     a {
       display: block;
-      width: 100%;
+      width: 270px;
       color: #000;
       font-weight: bold;
       text-decoration: none;
     }
     li {
       border-bottom: 1px solid $line-color;
-      padding: 10px 0 10px 36px; 
       &.op {
         a {
-          padding-left: 10px;
+          padding: 10px 10px 10px 20px;
           text-shadow: #fff 0px 1px 1px;
         }
         &:hover { 
@@ -192,7 +191,7 @@
 .panel-items {
   position: absolute;
   width: 300px;
-  bottom: 40px;
+  bottom: 70px;
   top: 91px;
   overflow: auto;
 }
@@ -289,4 +288,19 @@
 
 .iframe-submit-button-area input[type=submit] {
   font-size: 90%;
+}
+
+#counter {
+  position: fixed;
+  bottom: 40px;
+  height: 30px;
+  width: 290px;
+  color: $grey;
+  background: $white;
+  border-top: 1px solid $line-color;
+  padding-left: 10px;
+  .inner {
+    text-align: center;
+    margin-top: 8px;
+  }
 }

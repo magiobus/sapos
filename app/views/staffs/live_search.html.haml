@@ -1,7 +1,11 @@
 %ul.panel-list
+  - c = 0
   - @staffs.each do |staff|
+    - c += 1
     %li 
       - link_to staff, :method => :get, :remote => true, :class => 'get-item', :'data-type' => 'html' do
         = image_tag staff.image_url(:small).to_s, :id => "img-small-#{staff.id}"
         .title= staff.first_name + " " + staff.last_name
         .comment= staff.institution.short_name rescue ''
+#counter
+  .inner= "#{c} docentes"

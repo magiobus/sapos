@@ -1,6 +1,10 @@
 %ul.panel-list
+  - c = 0
   - @programs.each do |program|
+    - c += 1
     %li 
       - link_to program, :method => :get, :remote => true, :class => 'get-item', :'data-type' => 'html' do
         .title= program.name rescue ''
         .comment= program.prefix rescue ''
+#counter
+  .inner= "#{c} programas"

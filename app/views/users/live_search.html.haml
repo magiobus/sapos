@@ -1,7 +1,11 @@
 %ul.panel-list
+  - c = 0
   - @users.each do |user|
+    - c += 1
     %li 
       - link_to user, :method => :get, :remote => true, :class => 'get-item', :'data-type' => 'html' do
         %img{:src => profile_picture(user.email), :alt => user.email, :width => 48, :height => 48}
         .title= user.email rescue ''
         .comment= user.access_type rescue ''
+#counter
+  .inner= "#{c} usuarios"

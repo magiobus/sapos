@@ -1,6 +1,11 @@
 %ul.panel-list
+  - c = 0
   - @classrooms.each do |classroom|
+    - c += 1
     %li 
       - link_to classroom, :method => :get, :remote => true, :class => 'get-item', :'data-type' => 'html' do
         .title= classroom.full_name rescue classroom.code
         .comment= classroom.room_type_text
+#counter
+  .inner= "#{c} salones"
+
