@@ -1,4 +1,5 @@
 - form_for @student, :remote => true, :html => {:'data-type' => 'html', :id => 'item-edit-form'} do |f|
+  = hidden_field :student, :id
 
   :javascript
     $(function() {
@@ -32,6 +33,7 @@
       %li= link_to "Avances", "#avances"
       %li= link_to "Tesis", "#tesis"
       %li= link_to "Archivos", "#archivos"
+      %li= link_to "Horario", "#horario"
       %li= link_to "Notas", "#notas"
 
     #detalles
@@ -159,6 +161,9 @@
       %h2 Tesis
       = f.fields_for :thesis do |thesis_fields|
         = render :partial => 'thesis', :locals => {:student => @student, :fields => thesis_fields, :staffs => @staffs}
+
+    #horario 
+      = render :partial => 'schedule', :locals => {:student => @student}
 
     #archivos
       %h2 Archivos

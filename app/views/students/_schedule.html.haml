@@ -1,0 +1,9 @@
+#student-schedule-header
+  #student-schedule-title
+    %h2 Horario
+  %table#student-schedule-filter
+    %tbody
+      %tr
+        %td#student-schedule-terms-dropdown= select "term", "term_id", student.term_students.collect {|i| [i.term.name, i.term.id]}, :prompt => 'Selecciona un periodo'
+
+#student-schedule-area

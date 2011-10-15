@@ -3,3 +3,62 @@
 #field_student_scholarship_other_department {
   display: none;
 }
+
+#student-schedule-header {
+  height: 32px;
+  border-bottom: 1px dashed $line2-color;
+  padding-bottom: 10px;
+
+  #student-schedule-title {
+    width: 300px;
+    float: left;
+  }
+
+  #student-schedule-filter {
+    float: right;
+    td {
+      padding-left: 10px;
+    }
+  }
+}
+
+#student-schedule {
+  border-collapse: collapse; 
+  border: 1px solid $line-color;
+  width: 100%;
+  tr {
+    th {
+      border: 1px solid $line-color;
+      font-weight: bold;
+      padding: 10px;
+      border-bottom: 3px solid $grey;
+    }
+    td {
+      border: 1px solid $line-color;
+      &.hora {
+        text-align: center;
+      }
+      .session_block {
+        margin: 4px; 
+        padding: 4px;
+        @include rounded(5px);
+        font-size: 80%;
+        .session-title {
+          font-weight: bold;
+        }
+      }
+      .session_style_1 {
+        border: 1px solid #8bcd8b;
+        @include gradient(#ffffff,#8bcd8b);
+      }
+      .session_style_2 {
+        border: 1px solid #9bcfde;
+        @include gradient(#ffffff,#9bcfde);
+      }
+      .session_style_3 {
+        border: 1px solid #dedc9b;
+        @include gradient(#ffffff,#dedc9b);
+      }
+    }
+  }
+}

@@ -1269,6 +1269,82 @@ input[type=button].disabled:hover {
   display: none;
 }
 
+/* line 7, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule-header {
+  height: 32px;
+  border-bottom: 1px dashed #f0f0f0;
+  padding-bottom: 10px;
+}
+/* line 12, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule-header #student-schedule-title {
+  width: 300px;
+  float: left;
+}
+/* line 17, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule-header #student-schedule-filter {
+  float: right;
+}
+/* line 19, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule-header #student-schedule-filter td {
+  padding-left: 10px;
+}
+
+/* line 25, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule {
+  border-collapse: collapse;
+  border: 1px solid #ebebeb;
+  width: 100%;
+}
+/* line 30, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr th {
+  border: 1px solid #ebebeb;
+  font-weight: bold;
+  padding: 10px;
+  border-bottom: 3px solid #777777;
+}
+/* line 36, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr td {
+  border: 1px solid #ebebeb;
+}
+/* line 38, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr td.hora {
+  text-align: center;
+}
+/* line 41, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr td .session_block {
+  margin: 4px;
+  padding: 4px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  font-size: 80%;
+}
+/* line 46, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr td .session_block .session-title {
+  font-weight: bold;
+}
+/* line 50, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr td .session_style_1 {
+  border: 1px solid #8bcd8b;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#8bcd8b));
+  background: -moz-linear-gradient(top, white, #8bcd8b);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to');
+}
+/* line 54, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr td .session_style_2 {
+  border: 1px solid #9bcfde;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#9bcfde));
+  background: -moz-linear-gradient(top, white, #9bcfde);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to');
+}
+/* line 58, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr td .session_style_3 {
+  border: 1px solid #dedc9b;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#dedc9b));
+  background: -moz-linear-gradient(top, white, #dedc9b);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to');
+}
+
 /* line 5, ../../../app/stylesheets/partials/_programs.scss */
 .plan,
 .terms,

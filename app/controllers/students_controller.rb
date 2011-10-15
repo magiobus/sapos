@@ -253,4 +253,33 @@ class StudentsController < ApplicationController
       end
     end
   end
+
+  def schedule_table
+    @ts = TermStudent.where(:student_id => params[:id], :term_id => params[:term_id]).first
+    @schedule = Hash.new
+    (6..22).each do |i|
+      @schedule[i] = Array.new
+      (1..7).each do |j|
+        @schedule[i][j] = Array.new
+      end
+    end
+    n = 0
+    courses = Hash.new
+    @ts.term_course_student.each do |c|
+      c.term_course.term_course_schedules.where(:status => TermCourseSchedule::ACTIVE).each do |session_item|
+        hstart = session_item.start_hour.hour
+        hend = session_item.end_hour.hour
+        (hstart..hend).each do |h|
+           if courses[c.term_course.course.id].nil? 
+             n += 1
+             courses[c.term_course.course.id] = n
+           end
+           details = {"name" => c.term_course.course.name, "staff_name" => session_item.staff.full_name, "id" => session_item.id, "n" => courses[c.term_course.course.id]}
+           @schedule[h][session_item.day] << details
+        end
+      end
+    end 
+    render :layout => false
+  end
+
 end

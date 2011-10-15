@@ -1,0 +1,25 @@
+#tc-header
+  #tc-title
+    %h4= @ts.term.name
+    %div (#{l @ts.term.start_date, :format => :long} – #{l @ts.term.end_date, :format => :long})
+
+%table#student-schedule
+  %tr
+    %th Hora
+    %th Lunes
+    %th Martes
+    %th Miercoles
+    %th Jueves
+    %th Viernes
+    %th Sabado
+    %th Domingo
+  - (6..22).each do |i|
+    %tr
+      %td.hora= "#{i}:00"
+      - (1..7).each do |j|
+        %td
+          - @schedule[i][j].each do |k|
+            .session_block(class="session_style_#{k['n']}")
+              .session-title= k['name']
+              .session-staff= k['staff_name']
+

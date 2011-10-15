@@ -11,6 +11,7 @@ Sapos::Application.routes.draw do
   match 'estudiantes/:id/nuevo_avance' => 'students#new_advance'
   match 'estudiantes/create_advance' => 'students#create_advance'
   match 'estudiantes/asignar_numero_tesis' => 'students#assign_thesis_number'
+  match 'estudiantes/:id/horario/:term_id' => 'students#schedule_table'
 
   resources :student_files
 

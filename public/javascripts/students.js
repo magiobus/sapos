@@ -68,5 +68,19 @@ $('#item-edit-form')
     if (r['thesis_status'] == 'C') {
       $("#field_student_thesis_number").show();
     }
-  })
+  });
+
+
+// Schedule
+$('#term_term_id').live("change", function() {
+  loadStudentSchedule($('#term_term_id').val());
+});
+
+function loadStudentSchedule(term_id) {
+  student_id = $('#student_id').val();
+  url = location.pathname + '/' + student_id + '/horario/' + term_id;
+  $.get(url, {}, function(html) {
+    $("#student-schedule-area").html(html);
+  });
+}
 
