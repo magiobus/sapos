@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110817231752) do
+ActiveRecord::Schema.define(:version => 20111014220009) do
 
   create_table "academic_degrees", :force => true do |t|
     t.integer  "student_id"
@@ -46,6 +46,15 @@ ActiveRecord::Schema.define(:version => 20110817231752) do
   add_index "advances", ["tutor3"], :name => "index_advances_on_tutor3"
   add_index "advances", ["tutor4"], :name => "index_advances_on_tutor4"
   add_index "advances", ["tutor5"], :name => "index_advances_on_tutor5"
+
+  create_table "campus", :force => true do |t|
+    t.string   "short_name", :limit => 20
+    t.string   "name"
+    t.integer  "contact_id"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "classrooms", :force => true do |t|
     t.string   "code"
@@ -259,8 +268,10 @@ ActiveRecord::Schema.define(:version => 20110817231752) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "campus_id"
   end
 
+  add_index "students", ["campus_id"], :name => "index_students_on_campus_id"
   add_index "students", ["card"], :name => "index_students_on_card"
   add_index "students", ["co_supervisor"], :name => "index_students_on_co_supervisor"
   add_index "students", ["contact_id"], :name => "index_students_on_contact_id"
