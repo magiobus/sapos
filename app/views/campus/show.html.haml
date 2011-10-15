@@ -1,0 +1,45 @@
+- form_for @campus, :remote => true, :html => {:'data-type' => 'html', :id => 'item-edit-form'} do |f|
+
+  :javascript
+    $(function() {
+      $('#resource-tabs').tabs();
+      $("#change-img-dialog").remove();
+      $('#content-panel').append('<div title="Cambiar logotipo" id="change-img-dialog"><iframe width="430" height="450" src="/campus/#{@campus.id}/cambiar_logo" scrolling="no"></iframe></div>');
+      $("#change-img-dialog").dialog({ autoOpen: false, width: 470, height: 550, modal:true });   
+      $("#a-change-image").live("click", function() {
+        $("#change-img-dialog").dialog('open');
+      });
+    });
+
+
+  .resource-header
+    .resource-picture
+      = image_tag @campus.image_url(:medium).to_s, :id => "img-medium-#{@campus.id}"
+      %br
+      = link_to 'Cambiar logo', '#', :id=>'a-change-image'
+    .resource-title
+      %h1= "#{@campus.short_name}"
+      .comment= @campus.name
+      .comment= "ID: #{@campus.id}"
+    .resource-save
+      = f.submit 'Actualizar'
+
+  #resource-tabs
+    %ul
+      %li.first-tab= link_to "Detalles", "#detalles"
+
+    #detalles
+      %h2 Detalles
+
+      .field#field_campus_short_name
+        = f.label :short_name, mark_required(@campus, :short_name) + 'Nombre corto'
+        = f.text_field :short_name
+
+      .field#field_campus_name
+        = f.label :name, mark_required(@campus, :name) + 'Nombre largo'
+        = f.text_field :name 
+
+      %h3 Contacto
+      = f.fields_for :contact do |contact_fields|
+        = render :partial => 'shared/contact', :locals => {:table => 'staff', :fields => contact_fields, :countries => @countries, :states => @states}
+

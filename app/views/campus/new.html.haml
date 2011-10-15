@@ -1,0 +1,24 @@
+- form_for @campus, :url => { :action => "create" }, :remote => true, :html => { :'data-type' => 'html', :id => 'item-new-form' } do |f|
+
+  .resource-header
+    .resource-picture
+      = image_tag @campus.image_url(:medium).to_s
+    .resource-title
+      %h1= "Nuevo Campus"
+    .resource-save
+      = f.submit 'Agregar'
+
+  #resource-tabs
+    %ul
+      %li.first-tab= link_to "Detalles", "#detalles"
+
+    #detalles
+      %h2 Detalles
+
+      .field#field_campus_short_name
+        = f.label :short_name, mark_required(@campus, :short_name) + 'Nombre corto'
+        = f.text_field :short_name
+
+      .field#field_campus_name
+        = f.label :name, mark_required(@campus, :name) + 'Nombre largo' 
+        = f.text_field :name 
