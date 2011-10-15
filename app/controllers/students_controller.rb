@@ -72,6 +72,7 @@ class StudentsController < ApplicationController
     @countries = Country.order('name')
     @institutions = Institution.order('name')
     @states = State.order('code')
+    @campus = Campus.order('name')
     render :layout => false
   end
 

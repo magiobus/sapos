@@ -69,6 +69,9 @@
       .field#field_student_cvu
         = f.label :cvu, 'CVU'
         = f.text_field :cvu
+      .field#field_student_campus_id
+        = f.label :campus_id, 'Campus'
+        = f.collection_select :campus_id, @campus, :id, :name, options = {:prompt => "Selecciona un campus"} 
       .field#field_student_location
         = f.label :location, 'Ubicación'
         = f.text_field :location
