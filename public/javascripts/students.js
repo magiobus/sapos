@@ -6,6 +6,10 @@ $('#program').live("change", function() {
   liveSearch();
 });
 
+$('#campus').live("change", function() {
+  liveSearch();
+});
+
 // ** On change Status
 $('.status-cbs').live("click", function() {
   liveSearch();
@@ -19,6 +23,7 @@ $('#to_excel').live('click', function() {
 
 function initializeSearchForm() {
   $("#program option[value=0]").attr("selected", true);
+  $("#campus option[value=0]").attr("selected", true);
   $('#status_activos').attr('checked', true);
   $('#status_egresados').attr('checked', false);
   $('#status_bajas').attr('checked', false);

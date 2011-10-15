@@ -10,6 +10,11 @@
       - @programs.each do |program|
         - program_options += "<option value=\"#{program.id}\">#{program.name}</option>" 
       = select_tag "program", program_options.html_safe
+
+      - campus_options = "<option value=\"0\">Todos los campus</option>"
+      - @campus.each do |camp|
+        - campus_options += "<option value=\"#{camp.id}\">#{camp.name}</option>" 
+      = select_tag "campus", campus_options.html_safe
   
       = text_field_tag :q, nil, :id => 'search-box', :placeholder => 'Busqueda'
      

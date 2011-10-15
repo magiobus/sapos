@@ -5,6 +5,7 @@ class StudentsController < ApplicationController
 
   def index
     @programs = Program.order('name')
+    @campus = Campus.order('name')
   end
 
   def live_search
@@ -12,6 +13,10 @@ class StudentsController < ApplicationController
 
     if params[:program] != '0' then
       @students = @students.where(:program_id => params[:program])
+    end 
+
+    if params[:campus] != '0' then
+      @students = @students.where(:campus_id => params[:campus])
     end 
 
     if !params[:q].blank?
