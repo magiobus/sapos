@@ -13,13 +13,14 @@
     %th Viernes
     %th Sabado
     %th Domingo
-  - (6..22).each do |i|
+  - (@min_hour..@max_hour).each do |i|
     %tr
       %td.hora= "#{i}:00"
       - (1..7).each do |j|
-        %td
+        %td.dia
           - @schedule[i][j].each do |k|
             .session_block(class="session_style_#{k['n']}")
               .session-title= k['name']
               .session-staff= k['staff_name']
+              .session-comments= k['comments']
 

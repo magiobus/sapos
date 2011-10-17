@@ -1304,13 +1304,20 @@ input[type=button].disabled:hover {
 }
 /* line 36, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td {
+  vertical-align: top;
   border: 1px solid #ebebeb;
 }
-/* line 38, ../../../app/stylesheets/partials/_students.scss */
+/* line 39, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td.hora {
   text-align: center;
+  width: 2%;
 }
-/* line 41, ../../../app/stylesheets/partials/_students.scss */
+/* line 43, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr td.dia {
+  width: 14%;
+  height: 48px;
+}
+/* line 47, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_block {
   margin: 4px;
   padding: 4px;
@@ -1319,29 +1326,89 @@ input[type=button].disabled:hover {
   -webkit-border-radius: 5px;
   font-size: 80%;
 }
-/* line 46, ../../../app/stylesheets/partials/_students.scss */
+/* line 52, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_block .session-title {
   font-weight: bold;
 }
-/* line 50, ../../../app/stylesheets/partials/_students.scss */
+/* line 55, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr td .session_block .session-comment {
+  white-space: pre;
+}
+/* line 59, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_style_1 {
-  border: 1px solid #8bcd8b;
-  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#8bcd8b));
-  background: -moz-linear-gradient(top, white, #8bcd8b);
+  border: 1px solid #bde8b3;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#bde8b3));
+  background: -moz-linear-gradient(top, white, #bde8b3);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to');
 }
-/* line 54, ../../../app/stylesheets/partials/_students.scss */
+/* line 60, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_style_2 {
-  border: 1px solid #9bcfde;
-  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#9bcfde));
-  background: -moz-linear-gradient(top, white, #9bcfde);
+  border: 1px solid #a2ded2;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#a2ded2));
+  background: -moz-linear-gradient(top, white, #a2ded2);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to');
 }
-/* line 58, ../../../app/stylesheets/partials/_students.scss */
+/* line 61, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_style_3 {
-  border: 1px solid #dedc9b;
-  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#dedc9b));
-  background: -moz-linear-gradient(top, white, #dedc9b);
+  border: 1px solid #fbe3bd;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#fbe3bd));
+  background: -moz-linear-gradient(top, white, #fbe3bd);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to');
+}
+/* line 62, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr td .session_style_4 {
+  border: 1px solid #b2c2e3;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#b2c2e3));
+  background: -moz-linear-gradient(top, white, #b2c2e3);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to');
+}
+/* line 63, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr td .session_style_5 {
+  border: 1px solid #e3b2dd;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#e3b2dd));
+  background: -moz-linear-gradient(top, white, #e3b2dd);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to');
+}
+/* line 64, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr td .session_style_6 {
+  border: 1px solid #bfb1e4;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#bfb1e4));
+  background: -moz-linear-gradient(top, white, #bfb1e4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to');
+}
+/* line 65, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr td .session_style_7 {
+  border: 1px solid #b3e4b1;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#b3e4b1));
+  background: -moz-linear-gradient(top, white, #b3e4b1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to');
+}
+/* line 66, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr td .session_style_8 {
+  border: 1px solid #c3f3e1;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#c3f3e1));
+  background: -moz-linear-gradient(top, white, #c3f3e1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to');
+}
+/* line 67, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr td .session_style_9 {
+  border: 1px solid #ffad8d;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#ffad8d));
+  background: -moz-linear-gradient(top, white, #ffad8d);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to');
+}
+/* line 68, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr td .session_style_10 {
+  border: 1px solid #bae1cf;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#bae1cf));
+  background: -moz-linear-gradient(top, white, #bae1cf);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to');
+}
+/* line 69, ../../../app/stylesheets/partials/_students.scss */
+#student-schedule tr td .session_style_11 {
+  border: 1px solid #bde8b3;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#bde8b3));
+  background: -moz-linear-gradient(top, white, #bde8b3);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to');
 }
 

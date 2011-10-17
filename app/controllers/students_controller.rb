@@ -257,7 +257,7 @@ class StudentsController < ApplicationController
   def schedule_table
     @ts = TermStudent.where(:student_id => params[:id], :term_id => params[:term_id]).first
     @schedule = Hash.new
-    (6..22).each do |i|
+    (4..22).each do |i|
       @schedule[i] = Array.new
       (1..7).each do |j|
         @schedule[i][j] = Array.new
@@ -265,17 +265,35 @@ class StudentsController < ApplicationController
     end
     n = 0
     courses = Hash.new
+    @min_hour = 24
+    @max_hour = 1
     @ts.term_course_student.each do |c|
       c.term_course.term_course_schedules.where(:status => TermCourseSchedule::ACTIVE).each do |session_item|
         hstart = session_item.start_hour.hour
-        hend = session_item.end_hour.hour
+        hend = session_item.end_hour.hour - 1
         (hstart..hend).each do |h|
            if courses[c.term_course.course.id].nil? 
              n += 1
              courses[c.term_course.course.id] = n
            end
-           details = {"name" => c.term_course.course.name, "staff_name" => session_item.staff.full_name, "id" => session_item.id, "n" => courses[c.term_course.course.id]}
+           comments = ''
+           if session_item.start_date != @ts.term.start_date
+             comments += "Inicia: #{l session_item.start_date, :format => :long}\n"
+           end
+           if session_item.end_date != @ts.term.end_date
+             comments += "Finaliza: #{l session_item.end_date, :format => :long}"
+           end
+
+           details = {
+             "name" => c.term_course.course.name, 
+             "staff_name" => session_item.staff.full_name, 
+             "comments" => comments,
+             "id" => session_item.id, 
+             "n" => courses[c.term_course.course.id]
+           }
            @schedule[h][session_item.day] << details
+           @min_hour = h if h < @min_hour
+           @max_hour = h if h > @max_hour
         end
       end
     end 

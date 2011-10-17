@@ -34,9 +34,15 @@
       border-bottom: 3px solid $grey;
     }
     td {
+      vertical-align: top;
       border: 1px solid $line-color;
       &.hora {
         text-align: center;
+        width: 2%;
+      }
+      &.dia {
+        width: 14%;
+        height: 48px;
       }
       .session_block {
         margin: 4px; 
@@ -46,19 +52,21 @@
         .session-title {
           font-weight: bold;
         }
+        .session-comment {
+          white-space: pre;
+        }
       }
-      .session_style_1 {
-        border: 1px solid #8bcd8b;
-        @include gradient(#ffffff,#8bcd8b);
-      }
-      .session_style_2 {
-        border: 1px solid #9bcfde;
-        @include gradient(#ffffff,#9bcfde);
-      }
-      .session_style_3 {
-        border: 1px solid #dedc9b;
-        @include gradient(#ffffff,#dedc9b);
-      }
+      .session_style_1 { border: 1px solid $sch1-color; @include gradient(#ffffff,$sch1-color); }
+      .session_style_2 { border: 1px solid $sch2-color; @include gradient(#ffffff,$sch2-color); }
+      .session_style_3 { border: 1px solid $sch3-color; @include gradient(#ffffff,$sch3-color); }
+      .session_style_4 { border: 1px solid $sch4-color; @include gradient(#ffffff,$sch4-color); }
+      .session_style_5 { border: 1px solid $sch5-color; @include gradient(#ffffff,$sch5-color); }
+      .session_style_6 { border: 1px solid $sch6-color; @include gradient(#ffffff,$sch6-color); }
+      .session_style_7 { border: 1px solid $sch7-color; @include gradient(#ffffff,$sch7-color); }
+      .session_style_8 { border: 1px solid $sch8-color; @include gradient(#ffffff,$sch8-color); }
+      .session_style_9 { border: 1px solid $sch9-color; @include gradient(#ffffff,$sch9-color); }
+      .session_style_10 { border: 1px solid $sch10-color; @include gradient(#ffffff,$sch10-color); }
+      .session_style_11 { border: 1px solid $sch1-color; @include gradient(#ffffff,$sch1-color); }
     }
   }
 }
