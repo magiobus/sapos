@@ -569,23 +569,28 @@ span.red {
   height: 32px !important;
 }
 
-/* line 148, ../../../app/stylesheets/partials/_layout.scss */
+/* line 147, ../../../app/stylesheets/partials/_layout.scss */
+.staffs-side-panel .panel-search {
+  height: 90px !important;
+}
+
+/* line 151, ../../../app/stylesheets/partials/_layout.scss */
 .panel-list {
   font-size: 90%;
 }
-/* line 150, ../../../app/stylesheets/partials/_layout.scss */
+/* line 153, ../../../app/stylesheets/partials/_layout.scss */
 .panel-list li {
   padding: 10px;
   border-bottom: 1px solid #f0f0f0;
   height: 48px;
 }
-/* line 154, ../../../app/stylesheets/partials/_layout.scss */
+/* line 157, ../../../app/stylesheets/partials/_layout.scss */
 .panel-list li img {
   float: left;
   margin-right: 10px;
   padding-bottom: 20px;
 }
-/* line 159, ../../../app/stylesheets/partials/_layout.scss */
+/* line 162, ../../../app/stylesheets/partials/_layout.scss */
 .panel-list li a {
   color: #000;
   display: block;
@@ -593,41 +598,41 @@ span.red {
   height: 58px;
   text-decoration: none;
 }
-/* line 165, ../../../app/stylesheets/partials/_layout.scss */
+/* line 168, ../../../app/stylesheets/partials/_layout.scss */
 .panel-list li a .title {
   font-weight: bold;
   font-size: 110%;
   margin-bottom: 2px;
 }
-/* line 170, ../../../app/stylesheets/partials/_layout.scss */
+/* line 173, ../../../app/stylesheets/partials/_layout.scss */
 .panel-list li a .comment {
   color: #777777;
   font-size: 90%;
 }
-/* line 175, ../../../app/stylesheets/partials/_layout.scss */
+/* line 178, ../../../app/stylesheets/partials/_layout.scss */
 .panel-list li:hover {
   background-color: #fcfcfc;
 }
-/* line 176, ../../../app/stylesheets/partials/_layout.scss */
+/* line 179, ../../../app/stylesheets/partials/_layout.scss */
 .panel-list li.selected {
   background: #2277cc;
   color: #fff;
 }
-/* line 179, ../../../app/stylesheets/partials/_layout.scss */
+/* line 182, ../../../app/stylesheets/partials/_layout.scss */
 .panel-list li.selected .title {
   color: #fff;
   text-shadow: #113f7d 0px 1px 1px;
 }
-/* line 183, ../../../app/stylesheets/partials/_layout.scss */
+/* line 186, ../../../app/stylesheets/partials/_layout.scss */
 .panel-list li.selected .comment {
   color: #fff;
 }
-/* line 185, ../../../app/stylesheets/partials/_layout.scss */
+/* line 188, ../../../app/stylesheets/partials/_layout.scss */
 .panel-list li.loading {
   background-position: 240px 56px;
 }
 
-/* line 191, ../../../app/stylesheets/partials/_layout.scss */
+/* line 194, ../../../app/stylesheets/partials/_layout.scss */
 .panel-items {
   position: absolute;
   width: 300px;
@@ -636,12 +641,17 @@ span.red {
   overflow: auto;
 }
 
-/* line 199, ../../../app/stylesheets/partials/_layout.scss */
+/* line 202, ../../../app/stylesheets/partials/_layout.scss */
 .inst-side-panel .panel-items {
   top: 53px !important;
 }
 
-/* line 203, ../../../app/stylesheets/partials/_layout.scss */
+/* line 206, ../../../app/stylesheets/partials/_layout.scss */
+.staffs-side-panel .panel-items {
+  top: 91px !important;
+}
+
+/* line 210, ../../../app/stylesheets/partials/_layout.scss */
 .panel-add {
   position: absolute;
   width: 280px;
@@ -652,13 +662,13 @@ span.red {
   padding: 10px;
   text-align: center;
 }
-/* line 213, ../../../app/stylesheets/partials/_layout.scss */
+/* line 220, ../../../app/stylesheets/partials/_layout.scss */
 .panel-add.selected a {
   text-decoration: none;
   color: #2277cc;
   font-weight: bold;
 }
-/* line 219, ../../../app/stylesheets/partials/_layout.scss */
+/* line 226, ../../../app/stylesheets/partials/_layout.scss */
 .panel-add #to_excel {
   background-color: #090;
   cursor: pointer;
@@ -669,25 +679,25 @@ span.red {
   padding: 2px 8px;
 }
 
-/* line 230, ../../../app/stylesheets/partials/_layout.scss */
+/* line 237, ../../../app/stylesheets/partials/_layout.scss */
 .main-panel {
   padding-top: 32px;
   margin-left: 302px;
 }
-/* line 233, ../../../app/stylesheets/partials/_layout.scss */
+/* line 240, ../../../app/stylesheets/partials/_layout.scss */
 .main-panel .resource-header {
   padding: 20px;
   height: 100px;
   background-color: #fff;
   min-width: 500px;
 }
-/* line 238, ../../../app/stylesheets/partials/_layout.scss */
+/* line 245, ../../../app/stylesheets/partials/_layout.scss */
 .main-panel .resource-header .resource-picture {
   float: left;
   font-size: 80%;
   text-align: center;
 }
-/* line 242, ../../../app/stylesheets/partials/_layout.scss */
+/* line 249, ../../../app/stylesheets/partials/_layout.scss */
 .main-panel .resource-header .resource-picture a {
   display: none;
   position: relative;
@@ -695,69 +705,69 @@ span.red {
   background: #fff;
   padding: 4px;
 }
-/* line 249, ../../../app/stylesheets/partials/_layout.scss */
+/* line 256, ../../../app/stylesheets/partials/_layout.scss */
 .main-panel .resource-header .resource-picture:hover a {
   display: inline;
 }
-/* line 253, ../../../app/stylesheets/partials/_layout.scss */
+/* line 260, ../../../app/stylesheets/partials/_layout.scss */
 .main-panel .resource-header .resource-title {
   float: left;
   padding-top: 10px;
   margin-left: 20px;
 }
-/* line 258, ../../../app/stylesheets/partials/_layout.scss */
+/* line 265, ../../../app/stylesheets/partials/_layout.scss */
 .main-panel .resource-header .resource-save {
   float: right;
   text-align: right;
   padding-top: 20px;
   width: 110px;
 }
-/* line 264, ../../../app/stylesheets/partials/_layout.scss */
+/* line 271, ../../../app/stylesheets/partials/_layout.scss */
 .main-panel .resource-header .comment {
   font-size: 90%;
   color: #777777;
 }
-/* line 269, ../../../app/stylesheets/partials/_layout.scss */
+/* line 276, ../../../app/stylesheets/partials/_layout.scss */
 .main-panel #resource-tabs {
   position: relative;
   top: -27px;
 }
-/* line 272, ../../../app/stylesheets/partials/_layout.scss */
+/* line 279, ../../../app/stylesheets/partials/_layout.scss */
 .main-panel #resource-tabs .ui-tabs-panel {
   margin-right: 10px;
 }
-/* line 275, ../../../app/stylesheets/partials/_layout.scss */
+/* line 282, ../../../app/stylesheets/partials/_layout.scss */
 .main-panel #resource-tabs .ui-tabs-nav li.first-tab {
   margin-left: 140px;
 }
 
-/* line 281, ../../../app/stylesheets/partials/_layout.scss */
+/* line 288, ../../../app/stylesheets/partials/_layout.scss */
 .programs-main .resource-header {
   height: 70px;
 }
 
-/* line 285, ../../../app/stylesheets/partials/_layout.scss */
+/* line 292, ../../../app/stylesheets/partials/_layout.scss */
 .small-note {
   font-size: 90% !important;
   color: #777777;
 }
 
-/* line 290, ../../../app/stylesheets/partials/_layout.scss */
+/* line 297, ../../../app/stylesheets/partials/_layout.scss */
 .centered-div {
   margin: 0 auto;
 }
 
-/* line 294, ../../../app/stylesheets/partials/_layout.scss */
+/* line 301, ../../../app/stylesheets/partials/_layout.scss */
 .iframe-submit-button-area {
   margin-top: 20px;
 }
 
-/* line 298, ../../../app/stylesheets/partials/_layout.scss */
+/* line 305, ../../../app/stylesheets/partials/_layout.scss */
 .iframe-submit-button-area input[type=submit] {
   font-size: 90%;
 }
 
-/* line 302, ../../../app/stylesheets/partials/_layout.scss */
+/* line 309, ../../../app/stylesheets/partials/_layout.scss */
 #counter {
   position: fixed;
   bottom: 40px;
@@ -768,7 +778,7 @@ span.red {
   border-top: 1px solid #ebebeb;
   padding-left: 10px;
 }
-/* line 311, ../../../app/stylesheets/partials/_layout.scss */
+/* line 318, ../../../app/stylesheets/partials/_layout.scss */
 #counter .inner {
   text-align: center;
   margin-top: 8px;
