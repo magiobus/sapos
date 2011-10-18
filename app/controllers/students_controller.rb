@@ -6,6 +6,7 @@ class StudentsController < ApplicationController
   def index
     @programs = Program.order('name')
     @campus = Campus.order('name')
+    @supervisors = Staff.find_by_sql "SELECT id, first_name, last_name FROM staffs WHERE id IN (SELECT supervisor FROM students UNION SELECT co_supervisor FROM students)"
   end
 
   def live_search
@@ -18,6 +19,10 @@ class StudentsController < ApplicationController
     if params[:campus] != '0' then
       @students = @students.where(:campus_id => params[:campus])
     end 
+
+    if !params[:supervisor] != '0' then
+      @students = @students.where("(supervisor = :supervisor OR co_supervisor = :supervisor)", {:supervisor => params[:supervisor]}) 
+    end
 
     if !params[:q].blank?
       @students = @students.where("(CONCAT(first_name,' ',last_name) LIKE :n OR card LIKE :n)", {:n => "%#{params[:q]}%"}) 

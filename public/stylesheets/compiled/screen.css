@@ -526,7 +526,7 @@ span.red {
   background: #fcfcfc;
   border-bottom: 1px solid #ebebeb;
   padding: 10px;
-  height: 100px;
+  height: 120px;
 }
 /* line 117, ../../../app/stylesheets/partials/_layout.scss */
 .panel-search input[type=text] {
@@ -632,7 +632,7 @@ span.red {
   position: absolute;
   width: 300px;
   bottom: 70px;
-  top: 121px;
+  top: 141px;
   overflow: auto;
 }
 

@@ -15,6 +15,11 @@
       - @campus.each do |camp|
         - campus_options += "<option value=\"#{camp.id}\">#{camp.name}</option>" 
       = select_tag "campus", campus_options.html_safe
+
+      - supervisor_options = "<option value=\"0\">Cualquier asesor</option>"
+      - @supervisors.each do |supervisor|
+        - supervisor_options += "<option value=\"#{supervisor.id}\">#{supervisor.full_name}</option>" 
+      = select_tag "supervisor", supervisor_options.html_safe
   
       = text_field_tag :q, nil, :id => 'search-box', :placeholder => 'Busqueda'
      

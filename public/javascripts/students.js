@@ -10,6 +10,10 @@ $('#campus').live("change", function() {
   liveSearch();
 });
 
+$('#supervisor').live("change", function() {
+  liveSearch();
+});
+
 // ** On change Status
 $('.status-cbs').live("click", function() {
   liveSearch();
