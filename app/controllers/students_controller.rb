@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
       @students = @students.where(:campus_id => params[:campus])
     end 
 
-    if !params[:supervisor] != '0' then
+    if params[:supervisor] != '0' then
       @students = @students.where("(supervisor = :supervisor OR co_supervisor = :supervisor)", {:supervisor => params[:supervisor]}) 
     end
 
