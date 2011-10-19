@@ -6,7 +6,7 @@ class StudentsController < ApplicationController
   def index
     @programs = Program.order('name')
     @campus = Campus.order('name')
-    @supervisors = Staff.find_by_sql "SELECT id, first_name, last_name FROM staffs WHERE id IN (SELECT supervisor FROM students UNION SELECT co_supervisor FROM students)"
+    @supervisors = Staff.find_by_sql "SELECT id, first_name, last_name FROM staffs WHERE id IN (SELECT supervisor FROM students UNION SELECT co_supervisor FROM students) ORDER BY first_name, last_name"
   end
 
   def live_search
