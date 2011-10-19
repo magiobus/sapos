@@ -37,8 +37,10 @@
     %div{:id => "field_terms_courses_term_course_schedules_attributes_0_day", :class => 'field'}
       = fields.label :day, 'Horario'
       = fields.select :day, TermCourseSchedule::DAY.invert.sort {|a,b| a[1] <=> b[1] }
-      = fields.select :start_hour, TermCourseSchedule::HOURS
-      = fields.select :end_hour, TermCourseSchedule::HOURS
+      - start_hour = @cs.start_hour.hour < 10 ? "0#{@cs.start_hour.hour}:00" : "#{@cs.start_hour.hour}:00" 
+      - end_hour = @cs.end_hour.hour < 10 ? "0#{@cs.end_hour.hour}:00" : "#{@cs.end_hour.hour}:00" 
+      = fields.select :start_hour, TermCourseSchedule::HOURS, :selected => start_hour
+      = fields.select :end_hour, TermCourseSchedule::HOURS, :selected => end_hour
 
     %div{:id => "field_terms_courses_term_course_schedules_attributes_0_classroom_id", :class => 'field'}
       = fields.label :classroom_id, 'Aula'
