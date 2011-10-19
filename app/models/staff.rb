@@ -14,6 +14,13 @@ class Staff < ActiveRecord::Base
 
   mount_uploader :image, StaffImageUploader
 
+  ACTIVE    = 0
+  INACTIVE  = 1
+
+  STATUS = {ACTIVE    => 'Activo',
+            INACTIVE  => 'Inactivo'}
+
+
   def full_name
     "#{first_name} #{last_name}" rescue ''
   end
