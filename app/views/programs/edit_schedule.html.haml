@@ -7,6 +7,16 @@
   });
   $('#item-edit-schedule')
     .live("ajax:beforeSend", function(evt, xhr, settings) {
+        if ($('#cs_staff_id').val() == '') {
+            alert ('Es necesario especificar el docente');
+            $('#cs_staff_id').focus();
+            return false;
+        }
+        if ($('#cs_classroom_id').val() == '') {
+            alert ('Es necesario especificar el aula');
+            $('#cs_classroom_id').focus();
+            return false;
+        }
         var $submitButton = $(this).find('input[type="submit"]');
         $submitButton.data( 'origText', $(this).text() );
         $submitButton.text( "Actualizando..." );
