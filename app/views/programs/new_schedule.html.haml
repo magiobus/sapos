@@ -9,7 +9,7 @@
 
       %div{:id => "field_term_course_term_course_schedules_attributes_0_staff_id", :class => 'field'}
         = fields.label :start_date, 'Docente'
-        = fields.grouped_collection_select :staff_id, @institutions, :staffs, :name, :id, :full_name, options = {:prompt => "Selecciona el docente"}
+        = fields.grouped_collection_select :staff_id, @institutions, :staffs_active, :name, :id, :full_name
 
       %div{:id => "field_term_course_term_course_schedules_attributes_0_day", :class => 'field'}
         = fields.label :day, 'Horario'

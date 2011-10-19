@@ -21,4 +21,8 @@ class Institution < ActiveRecord::Base
     self.save(:validate => false)
   end
 
+  def staffs_active
+     staffs.where(:status => 0)
+  end
+
 end
