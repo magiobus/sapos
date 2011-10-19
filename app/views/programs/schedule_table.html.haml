@@ -22,8 +22,8 @@
         %td= schedule.day_name
         %td.centered=  l schedule.start_hour, :format => "%H:%M"
         %td.centered=  l schedule.end_hour, :format => "%H:%M"
-        %td= schedule.staff.full_name
-        %td= schedule.classroom.name
+        %td= schedule.staff.full_name rescue ''
+        %td= schedule.classroom.name rescue ''
         - comments = ''
         - if schedule.start_date != @tc.term.start_date 
           - comments += "Inicia: #{l schedule.start_date, :format => :long}. "
