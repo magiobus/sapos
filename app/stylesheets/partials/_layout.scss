@@ -144,8 +144,13 @@
 .inst-side-panel .panel-search {
   height: 32px !important;
 }
+
 .staffs-side-panel .panel-search {
   height: 70px !important;
+}
+
+.internships-side-panel .panel-search {
+  height: 120px !important;
 }
 
 .panel-list {
@@ -205,6 +210,10 @@
 
 .staffs-side-panel .panel-items {
   top: 91px !important;
+}
+
+.internships-side-panel .panel-items {
+  top: 141px !important;
 }
 
 .panel-add {

@@ -19,6 +19,10 @@ Sapos::Application.routes.draw do
   match 'docentes/:id/cambiar_foto' => 'staffs#change_image'
   match 'docentes/upload_image' => 'staffs#upload_image'
 
+  match 'becarios/busqueda' => 'internships#live_search'
+  match 'becarios/:id/cambiar_foto' => 'internships#change_image'
+  match 'becarios/upload_image' => 'internships#upload_image'
+
   match 'instituciones/busqueda' => 'institutions#live_search'
   match 'instituciones/:id/cambiar_logo' => 'institutions#change_image'
   match 'instituciones/upload_image' => 'institutions#upload_image'
@@ -65,6 +69,7 @@ Sapos::Application.routes.draw do
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
     resources :students, :path => "estudiantes"
     resources :staffs, :path => "docentes"
+    resources :internships, :path => "becarios"
     resources :programs, :path => "programas"
     resources :institutions, :path => "instituciones"
     resources :campus, :path => "campus"
