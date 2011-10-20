@@ -76,6 +76,10 @@ class StudentsController < ApplicationController
     end
   end
 
+  def mypdf
+    @student = Student.find(124) 
+  end 
+
   def show
     @student = Student.includes(:program, :thesis, :contact, :scholarship, :advance).find(params[:id])
     @staffs = Staff.order('first_name').includes(:institution)
@@ -260,6 +264,7 @@ class StudentsController < ApplicationController
   end
 
   def schedule_table
+    @is_pdf = false
     @ts = TermStudent.where(:student_id => params[:id], :term_id => params[:term_id]).first
     @schedule = Hash.new
     (4..22).each do |i|
@@ -288,10 +293,12 @@ class StudentsController < ApplicationController
            if session_item.end_date != @ts.term.end_date
              comments += "Finaliza: #{l session_item.end_date, :format => :long}"
            end
+           
+           staff_name = session_item.staff.full_name rescue 'Sin docente'
 
            details = {
              "name" => c.term_course.course.name, 
-             "staff_name" => session_item.staff.full_name, 
+             "staff_name" => staff_name,
              "comments" => comments,
              "id" => session_item.id, 
              "n" => courses[c.term_course.course.id]
@@ -302,7 +309,20 @@ class StudentsController < ApplicationController
         end
       end
     end 
-    render :layout => false
+    respond_with do |format|
+      format.html do
+        render :layout => false
+      end
+      format.pdf do
+        @is_pdf = true
+        html = render_to_string(:layout => false , :action => "schedule_table.html.haml")
+        kit = PDFKit.new(html)
+kit = PDFKit.new(html, :page_size => 'Letter')
+        kit.stylesheets << "#{Rails.root}/public/stylesheets/compiled/pdf.css"
+        send_data(kit.to_pdf, :filename => "horario-#{@ts.student_id}-#{@ts.term_id}.pdf", :type => 'application/pdf')
+        return # to avoid double render call
+      end
+    end
   end
 
 end

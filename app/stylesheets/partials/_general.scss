@@ -222,3 +222,18 @@ span.red { color: $red; }
   text-align: center;
 }
 
+.pdf-link {
+  float: right;
+  a {
+    background-color: #b00;
+    cursor: pointer;
+    color: $white;
+    float: right;
+    font-weight: bold;
+    font-size: 9px;
+    padding: 2px 8px;
+    margin: 5px;
+    text-decoration: none;
+  }
+}
+

@@ -1,7 +1,16 @@
+- if @is_pdf 
+  %h1= @ts.student.full_name
+  %div= @ts.student.program.name
 #tc-header
   #tc-title
-    %h4= @ts.term.name
+    - if @is_pdf 
+      %h4= "Horario #{@ts.term.name}"
+    - else
+      %h4= @ts.term.name
     %div (#{l @ts.term.start_date, :format => :long} – #{l @ts.term.end_date, :format => :long})
+
+- if !@is_pdf 
+  .pdf-link= link_to "PDF", :controller => "students", :action => "schedule_table", :id => @ts.student_id, :term_id => @ts.term_id, :format => 'pdf'
 
 %table#student-schedule
   %tr
