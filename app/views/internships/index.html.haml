@@ -1,0 +1,43 @@
+- @include_js = ['internships']
+- @page_title = 'Becarios'
+- @nav_icon = 'internships'
+#items-panel.side-panel.internships-side-panel
+  .panel-search
+    
+    - form_tag internships_path, :id => 'live-search', :method => 'get', :remote => true do
+
+      - internship_type_options = "<option value=\"0\">Todas los tipos</option>"
+      - @internship_types.each do |internship_type|
+        - internship_type_options += "<option value=\"#{internship_type.id}\">#{internship_type.name}</option>" 
+      = select_tag "internship_type", internship_type_options.html_safe
+  
+      - institution_options = "<option value=\"0\">Todas las instituciones</option>"
+      - @institutions.each do |institution|
+        - institution_options += "<option value=\"#{institution.id}\">#{institution.name}</option>" 
+      = select_tag "institution", institution_options.html_safe
+
+      - staff_options = "<option value=\"0\">Todas los responsables</option>"
+      - @staffs.each do |staff|
+        - staff_options += "<option value=\"#{staff.id}\">#{staff.full_name}</option>" 
+      = select_tag "staff", staff_options.html_safe
+  
+  
+      = text_field_tag :q, nil, :id => 'search-box', :placeholder => 'Busqueda'
+     
+      .cbs
+        %span 
+          = check_box_tag 'status_activos', '0', true, :class => 'status-cbs'
+          = label_tag 'status_activos', 'Activos'
+        %span   
+          = check_box_tag 'status_finalizados', '1', false, :class => 'status-cbs'
+          = label_tag 'status_finalizados', 'Finalizados'
+        %span   
+          = check_box_tag 'status_inactivos', '2', false, :class => 'status-cbs'
+          = label_tag 'status_inactivos', 'Baja'
+  
+  #items-list.panel-items
+  
+  .panel-add
+    = link_to  'Agregar nuevo becario', {:action => 'new'},  {:id => 'add-new-item', :method => :get, :remote => true, :'data-type' => 'html'}
+
+#content-panel.main-panel

@@ -1,0 +1,17 @@
+:javascript
+  $(document).ready(function() {
+    parent.changeResourceImage("#{@internship.id}", "#{@internship.image_url(:small).to_s}", "#{@internship.image_url(:medium).to_s}");
+  });
+
+  $("#internship_image").live("change", function() {
+    $('#upload-button').html('Cambiando...')
+    $("#item-upload-image-form").submit();
+  });
+#change-image-box
+  = form_for(@internship, :url => { :action => "upload_image" }, :html => {:id => 'item-upload-image-form', :multipart => true}) do |f|
+    = hidden_field_tag :id, @internship.id
+    = image_tag @internship.image_url.to_s
+
+    #upload-pic-box
+      = f.file_field :image
+      #upload-button.upload Cambiar fotografía

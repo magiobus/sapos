@@ -1,0 +1,11 @@
+%ul.panel-list
+  - c = 0
+  - @internships.each do |internship|
+    - c += 1
+    %li 
+      - link_to internship, :method => :get, :remote => true, :class => 'get-item', :'data-type' => 'html' do
+        = image_tag internship.image_url(:small).to_s, :id => "img-small-#{internship.id}"
+        .title= internship.first_name + " " + internship.last_name
+        .comment= internship.institution.short_name rescue ''
+#counter
+  .inner= "#{c} becarios"

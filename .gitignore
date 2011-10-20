@@ -6,6 +6,8 @@ private/*
 public/images/student/
 public/images/staff/
 public/images/institution/
+public/images/campus/
+public/images/internship/
 db/seed-data/
 .DS_Store
 .swp

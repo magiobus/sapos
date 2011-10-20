@@ -1,0 +1,97 @@
+- form_for @internship, :remote => true, :html => {:'data-type' => 'html', :id => 'item-edit-form'} do |f|
+
+  :javascript
+    $(function() {
+      $('#resource-tabs').tabs();
+      $("#change-img-dialog").remove();
+      $('#content-panel').append('<div title="Cambiar fotografía" id="change-img-dialog"><iframe width="430" height="450" src="/becarios/#{@internship.id}/cambiar_foto" scrolling="no"></iframe></div>');
+      $("#change-img-dialog").dialog({ autoOpen: false, width: 470, height: 550, modal:true });   
+      $("#a-change-image").live("click", function() {
+        $("#change-img-dialog").dialog('open');
+      });
+    });
+
+
+  .resource-header
+    .resource-picture
+      = image_tag @internship.image_url(:medium).to_s, :id => "img-medium-#{@internship.id}"
+      %br
+      = link_to 'Cambiar foto', '#', :id=>'a-change-image'
+    .resource-title
+      %h1= "#{@internship.first_name} #{@internship.last_name}"
+      .comment= @internship.institution.name
+      .comment= "ID: #{@internship.id}"
+    .resource-save
+      = f.submit 'Actualizar'
+
+  #resource-tabs
+    %ul
+      %li.first-tab= link_to "Detalles", "#detalles"
+      %li= link_to "Contacto", "#contacto"
+      %li= link_to "Notas", "#notas"
+
+    #detalles
+      %h2 Detalles
+
+      .field#field_internship_internship_type_id
+        = f.label :internship_type_id, mark_required(@internship, :internship_type_id) + 'Tipo'
+        = f.collection_select :internship_type_id, @internship_types, :id, :name, options = {:prompt => "Selecciona el tipo"} 
+
+      .field#field_internship_first_name
+        = f.label :first_name, mark_required(@internship, :first_name) + 'Nombre'
+        = f.text_field :first_name 
+
+      .field#field_internship_last_name
+        = f.label :last_name, mark_required(@internship, :last_name) + 'Apellidos'
+        = f.text_field :last_name
+
+      .field#field_internship_email
+        = f.label :email, 'Correo Electrónico'
+        = f.email_field :email
+
+      - if @internship.institution_id.to_i != 1
+        .field#field_internship_institution_id
+          = f.label :institution_id, 'Institucion'
+          = f.collection_select :institution_id, @institutions, :id, :name, options = {:prompt => "Selecciona la institucion"}
+
+      .field#field_internship_start_date
+        = f.label :start_date, 'Fecha de inicio'
+        = f.date_select :start_date
+
+      .field#field_internship_end_date
+        = f.label :end_date, 'Fecha de termino'
+        = f.date_select :end_date
+
+      .field#field_internship_staff_id
+        = f.label :staff_id, 'Docente responsable'
+        = f.grouped_collection_select :staff_id, @institutions, :staffs_active, :name, :id, :full_name
+
+      .field#field_internship_gender 
+        = f.label :gender, 'Sexo'
+        = f.select :gender,  [['Hombre', 'H'], ['Mujer', 'F']]
+
+      .field#field_internship_date_of_birth
+        = f.label :date_of_birth, 'Fecha de nacimiento'
+        = f.date_select :date_of_birth
+
+      .field#field_internship_thesis_title
+        = f.label :thesis_title, 'Tesis'
+        = f.text_field :thesis_title
+
+      .field#field_internship_activities
+        = f.label :activities, 'Actividades a desempeñar'
+        = f.text_area :activities
+
+      .field#field_internship_status
+        = f.label :status, 'Estado'
+        = f.select :status,  Internship::STATUS.invert.sort {|a,b| a[1] <=> b[1] }
+
+    #contacto
+      %h2 Contacto
+      = f.fields_for :contact do |contact_fields|
+        = render :partial => 'shared/contact', :locals => {:table => 'internship', :fields => contact_fields, :countries => @countries, :states => @states}
+ 
+    #notas
+      %h2 Notas
+      = f.text_area :notes
+
