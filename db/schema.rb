@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111019233519) do
+ActiveRecord::Schema.define(:version => 20111020235409) do
 
   create_table "academic_degrees", :force => true do |t|
     t.integer  "student_id"
@@ -131,6 +131,16 @@ ActiveRecord::Schema.define(:version => 20111019233519) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "internship_files", :force => true do |t|
+    t.integer  "internship_id"
+    t.string   "description"
+    t.string   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "internship_files", ["internship_id"], :name => "index_internship_files_on_internship_id"
 
   create_table "internship_types", :force => true do |t|
     t.string   "name"

@@ -1,0 +1,18 @@
+= form_for(internship_file, :url => { :action => "upload_file"}, :html => {:id => 'upload-form', :multipart => true, :target => "submit_iframe"}) do |f|
+  = hidden_field_tag :id, internship.id
+  = f.hidden_field :internship_id, {:value => internship.id }
+  %table{'class' => 'files-table'}
+    %tr
+      %th Descripción
+      %th Archivo
+    - internship.internship_file.each do |file_entry|
+      %tr
+        %td= file_entry.description
+        %td{"class" => "type-" + File.extname(file_entry.file.to_s)[1..-1]}= File.basename(file_entry.file.to_s)
+    %tr
+      %td= f.text_field :description
+      %td
+        .fakefile
+          = f.file_field :file
+          .upload Subir archivo
+          = f.submit 'Arriba'

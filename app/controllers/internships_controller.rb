@@ -150,4 +150,36 @@ class InternshipsController < ApplicationController
     redirect_to :action => 'change_image', :id => params[:id]
   end
 
+  def files
+    @internship = Internship.includes(:internship_file).find(params[:id])
+    @internship_file = InternshipFile.new
+    render :layout => 'standalone'
+  end
+
+  def upload_file
+    params[:internship_file]['file'].each do |f|
+      @internship_file = InternshipFile.new(f)
+      @internship_file.internship_id = params[:internship_file]['internship_id']
+      @internship_file.file = f
+      @internship_file.description = f.original_filename
+      if @internship_file.save
+        flash[:notice] = "Archivo subido exitosamente."
+      else
+        flash[:error] = "Error al subir archivo."
+      end
+    end
+
+    redirect_to :action => 'files', :id => params[:id]
+  end
+
+  def file
+    s = Internship.find(params[:id])
+    sf = s.internship_file.find(params[:file_id]).file
+    send_file sf.to_s, :x_sendfile=>true
+  end
+
+  def delete_file
+  end
+
+
 end

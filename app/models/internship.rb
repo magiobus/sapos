@@ -4,6 +4,9 @@ class Internship < ActiveRecord::Base
   has_one :contact, :as => :attachable
   accepts_nested_attributes_for :contact
 
+  has_many :internship_file
+  accepts_nested_attributes_for :internship_file
+
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :institution_id, :presence => true

@@ -1,5 +1,5 @@
 - @include_js = ['internships']
-- @page_title = 'Becarios'
+- @page_title = 'Servicios CIMAV'
 - @nav_icon = 'internships'
 #items-panel.side-panel.internships-side-panel
   .panel-search
@@ -38,6 +38,6 @@
   #items-list.panel-items
   
   .panel-add
-    = link_to  'Agregar nuevo becario', {:action => 'new'},  {:id => 'add-new-item', :method => :get, :remote => true, :'data-type' => 'html'}
+    = link_to  'Agregar nuevo servicio', {:action => 'new'},  {:id => 'add-new-item', :method => :get, :remote => true, :'data-type' => 'html'}
 
 #content-panel.main-panel

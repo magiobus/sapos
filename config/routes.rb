@@ -19,9 +19,15 @@ Sapos::Application.routes.draw do
   match 'docentes/:id/cambiar_foto' => 'staffs#change_image'
   match 'docentes/upload_image' => 'staffs#upload_image'
 
-  match 'becarios/busqueda' => 'internships#live_search'
-  match 'becarios/:id/cambiar_foto' => 'internships#change_image'
-  match 'becarios/upload_image' => 'internships#upload_image'
+  match 'internados/busqueda' => 'internships#live_search'
+  match 'internados/:id/cambiar_foto' => 'internships#change_image'
+  match 'internados/upload_image' => 'internships#upload_image'
+  match 'internados/:id/archivos' => 'internships#files'
+  match 'internados/:id/archivo/:file_id' => 'internships#file'
+  match 'internados/upload_file' => 'internships#upload_file'
+  match 'internados/delete_file' => 'internships#delete_file'
+
+  resources :internship_files
 
   match 'instituciones/busqueda' => 'institutions#live_search'
   match 'instituciones/:id/cambiar_logo' => 'institutions#change_image'
@@ -69,7 +75,7 @@ Sapos::Application.routes.draw do
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
     resources :students, :path => "estudiantes"
     resources :staffs, :path => "docentes"
-    resources :internships, :path => "becarios"
+    resources :internships, :path => "internados"
     resources :programs, :path => "programas"
     resources :institutions, :path => "instituciones"
     resources :campus, :path => "campus"

@@ -4,7 +4,7 @@
     $(function() {
       $('#resource-tabs').tabs();
       $("#change-img-dialog").remove();
-      $('#content-panel').append('<div title="Cambiar fotografía" id="change-img-dialog"><iframe width="430" height="450" src="/becarios/#{@internship.id}/cambiar_foto" scrolling="no"></iframe></div>');
+      $('#content-panel').append('<div title="Cambiar fotografía" id="change-img-dialog"><iframe width="430" height="450" src="/servicios/#{@internship.id}/cambiar_foto" scrolling="no"></iframe></div>');
       $("#change-img-dialog").dialog({ autoOpen: false, width: 470, height: 550, modal:true });   
       $("#a-change-image").live("click", function() {
         $("#change-img-dialog").dialog('open');
@@ -28,6 +28,7 @@
     %ul
       %li.first-tab= link_to "Detalles", "#detalles"
       %li= link_to "Contacto", "#contacto"
+      %li= link_to "Archivos", "#archivos"
       %li= link_to "Notas", "#notas"
 
     #detalles
@@ -90,6 +91,11 @@
       %h2 Contacto
       = f.fields_for :contact do |contact_fields|
         = render :partial => 'shared/contact', :locals => {:table => 'internship', :fields => contact_fields, :countries => @countries, :states => @states}
+
+    #archivos
+      %h2 Archivos
+      %iframe{"name" => "submit_iframe", "id" => "files_iframe", "width" => "100%", "height" => "250", "src" => "/internados/#{@internship.id}/archivos", "scrolling" => "no", "onLoad" => "calcFrameHeight(this.id);" }
+	
  
     #notas
       %h2 Notas

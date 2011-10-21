@@ -1,0 +1,72 @@
+:javascript
+  function edit_description(id)
+  {
+    $("#file-" + id + " .file-desc").hide();
+    $("#file-" + id + " .file-details").hide();
+    $("#file-" + id + " .file-desc-form").show();
+    $("#file-" + id + " .file-desc-form input").focus();
+  }
+
+
+  $('#internship_file_file').live('change', function() {
+    $("#item-upload-file-form").submit();
+  });
+
+  $('.file-desc-form')
+    .live("ajax:success", function(evt, data, status, xhr) {
+      var res = $.parseJSON(xhr.responseText);
+      id = res['id'];
+      $("#file-" + id + " .file-desc-form").hide();
+      $("#file-" + id + " .file-desc").show();
+      $("#file-" + id + " .file-desc a").html(res['newdesc']);
+      $("#file-" + id + " .file-details").show();
+    })
+
+    .live('ajax:beforeSend', function(ev, xhr, settings) {
+       $(this).closest('input').addClass("loading");
+    })
+
+    .live('ajax:complete', function(evt, xhr, status) {
+
+    });
+
+  $('.delete-file')
+    .live('ajax:success', function(data, status, xhr) {
+      $(this).closest('tr').hide("slow", function() { $(this).remove(); });
+      $('#content-panel').html(status);
+    })
+
+    .live('ajax:beforeSend', function(ev, xhr, settings) {
+       $(this).closest('tr').addClass("loading");
+    })
+
+    .live('ajax:complete', function(evt, xhr, status) {
+
+    });
+
+= form_for(@internship_file, :url => { :action => "upload_file" }, :html => {:id => 'item-upload-file-form', :multipart => true}) do |f|
+  = hidden_field_tag :id, @internship.id
+  = f.hidden_field :internship_id, {:value => @internship.id }
+  #upload-box
+    = f.file_field :file, {"multiple" => "multiple"}
+    .upload Subir archivos
+    .upload-msg Puedes seleccionar varios archivos a la vez para subir.
+#files-area
+  %table{'class' => 'files-table'}
+    - @internship.internship_file.each do |internship_file|
+      %tr{'id' => "file-#{internship_file.id}"}
+        - if File.extname(internship_file.file.to_s) == ''
+          - ext = 'unknown'
+        - else 
+          - ext = File.extname(internship_file.file.to_s)[1..-1]
+        %td{"class" => "file-entry type-unknown type-" + ext, "title" => File.basename(internship_file.file.to_s)}
+          = form_for(internship_file, :remote => true, :html => {:'data-type' => 'html', :class => 'file-desc-form'}) do |ff|
+            = ff.text_field :description
+          %span.file-desc
+            %a{'href' => "/internados/#{@internship.id}/archivo/#{internship_file.id}"}= internship_file.description
+          %br
+          %span.file-details= ext.upcase + ", " + number_to_human_size(File.size(internship_file.file.to_s))
+          %span.file-edit
+            = link_to_function 'Editar descripción', "edit_description(#{internship_file.id})"
+            |
+            = link_to 'Eliminar archivo', [@internships, internship_file], :confirm => '¿Estás seguro?', :method => 'delete', :remote => true, :class => 'delete-file'
