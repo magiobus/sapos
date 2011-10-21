@@ -76,10 +76,6 @@ class StudentsController < ApplicationController
     end
   end
 
-  def mypdf
-    @student = Student.find(124) 
-  end 
-
   def show
     @student = Student.includes(:program, :thesis, :contact, :scholarship, :advance).find(params[:id])
     @staffs = Staff.order('first_name').includes(:institution)
@@ -316,10 +312,14 @@ class StudentsController < ApplicationController
       format.pdf do
         @is_pdf = true
         html = render_to_string(:layout => false , :action => "schedule_table.html.haml")
-        kit = PDFKit.new(html)
-kit = PDFKit.new(html, :page_size => 'Letter')
+        kit = PDFKit.new(html, :page_size => 'Letter')
         kit.stylesheets << "#{Rails.root}/public/stylesheets/compiled/pdf.css"
-        send_data(kit.to_pdf, :filename => "horario-#{@ts.student_id}-#{@ts.term_id}.pdf", :type => 'application/pdf')
+        #kit.stylesheets << "#{Rails.root}/public/stylesheets/compiled/simple.css"
+        filename = "horario-#{@ts.student_id}-#{@ts.term_id}.pdf"
+        send_data(kit.to_pdf, :filename => filename, :type => 'application/pdf')
+        # kit.to_file("/home/rails/sapos/tmp/#{filename}")
+        #send_file "/home/rails/sapos/tmp/#{filename}", :x_sendfile=>true
+        #File.open("tmp/#{filename}", 'w') {|f| f.write() }
         return # to avoid double render call
       end
     end
