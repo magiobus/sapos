@@ -310,16 +310,14 @@ class StudentsController < ApplicationController
         render :layout => false
       end
       format.pdf do
+        institution = Institution.find(1)
+        @logo = institution.image_url(:medium).to_s
         @is_pdf = true
         html = render_to_string(:layout => false , :action => "schedule_table.html.haml")
         kit = PDFKit.new(html, :page_size => 'Letter')
         kit.stylesheets << "#{Rails.root}/public/stylesheets/compiled/pdf.css"
-        #kit.stylesheets << "#{Rails.root}/public/stylesheets/compiled/simple.css"
         filename = "horario-#{@ts.student_id}-#{@ts.term_id}.pdf"
         send_data(kit.to_pdf, :filename => filename, :type => 'application/pdf')
-        # kit.to_file("/home/rails/sapos/tmp/#{filename}")
-        #send_file "/home/rails/sapos/tmp/#{filename}", :x_sendfile=>true
-        #File.open("tmp/#{filename}", 'w') {|f| f.write() }
         return # to avoid double render call
       end
     end
