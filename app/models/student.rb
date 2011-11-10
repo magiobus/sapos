@@ -4,6 +4,9 @@ class Student < ActiveRecord::Base
   belongs_to :program
   belongs_to :campus
 
+  has_one :state
+  has_one :country
+
   has_one :contact, :as => :attachable
   accepts_nested_attributes_for :contact
 
