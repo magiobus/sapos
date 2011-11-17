@@ -1,0 +1,2 @@
+module ScholarshipCategoriesHelper
+end

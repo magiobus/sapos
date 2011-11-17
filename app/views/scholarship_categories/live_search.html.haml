@@ -1,0 +1,12 @@
+%ul.panel-list
+  - b = 0
+  - @scholarship_categories.each do |scholarshipcategory|
+    - b += 1
+    %li 
+      - link_to scholarshipcategory, :method => :get, :remote => true, :class => 'get-item', :'data-type' => 'html' do
+        .title= scholarshipcategory.name rescue ''
+        .comment= scholarshipcategory.description rescue ''
+        
+#counter
+  .inner= "#{b} categorias"
+
