@@ -57,7 +57,7 @@
 
       .field#field_staff_date_of_birth
         = f.label :date_of_birth, 'Fecha de nacimiento'
-        = f.date_select :date_of_birth
+        = f.date_select :date_of_birth, :start_year => DateTime.now.year - 80
 
       .field#field_staff_sni
         = f.label :sni, 'SNI'

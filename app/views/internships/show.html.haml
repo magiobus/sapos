@@ -73,7 +73,7 @@
 
       .field#field_internship_date_of_birth
         = f.label :date_of_birth, 'Fecha de nacimiento'
-        = f.date_select :date_of_birth
+        = f.date_select :date_of_birth, :start_year => DateTime.now.year - 80
 
       .field#field_internship_thesis_title
         = f.label :thesis_title, 'Tesis'
