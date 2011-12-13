@@ -8,9 +8,6 @@ class ClassroomsController < ApplicationController
 
   def live_search
     @classrooms = Classroom.order('code')
-    puts "antes"
-    puts @classrooms.to_s
-    puts "pasa"
     if !params[:q].blank?
       @classrooms = @classrooms.where("(name LIKE :n OR code LIKE :n)", {:n => "%#{params[:q]}%"}) 
     end
