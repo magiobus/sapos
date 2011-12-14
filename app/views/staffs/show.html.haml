@@ -1,4 +1,5 @@
 - form_for @staff, :remote => true, :html => {:'data-type' => 'html', :id => 'item-edit-form'} do |f|
+  = hidden_field :staff, :id
 
   :javascript
     $(function() {
@@ -29,6 +30,9 @@
       %li.first-tab= link_to "Detalles", "#detalles"
       %li= link_to "Contacto", "#contacto"
       %li= link_to "Estudiantes", "#estudiantes"
+      %li= link_to "Seminarios", "#seminarios"
+      %li= link_to "Cursos Externos", "#cursos"
+      %li= link_to "Practicas de Laboratorio", "#practicas"
       %li= link_to "Notas", "#notas"
 
     #detalles
@@ -57,7 +61,7 @@
 
       .field#field_staff_date_of_birth
         = f.label :date_of_birth, 'Fecha de nacimiento'
-        = f.date_select :date_of_birth
+        = f.date_select :date_of_birth, :start_year => DateTime.now.year - 80
 
       .field#field_staff_sni
         = f.label :sni, 'SNI'
@@ -72,6 +76,14 @@
 
     #estudiantes
       %h2 Estudiantes
+
+    #seminarios
+      = render :partial => 'seminars', :locals => {:staff => @staff, :f => f}
+
+    #cursos
+      %h2 Cursos Externos
+    #practicas
+      %h2 Practicas de Laboratorio
 
     #contacto
       %h2 Contacto

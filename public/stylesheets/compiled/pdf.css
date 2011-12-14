@@ -1,4 +1,4 @@
-/* line 17, /home/rails/.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,128 +20,128 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 20, /home/rails/.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 20, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
 }
 
-/* line 22, /home/rails/.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 24, /home/rails/.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 26, /home/rails/.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 28, /home/rails/.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 101, /home/rails/.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 101, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 30, /home/rails/.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 114, /home/rails/.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 114, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
-/* line 1, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 1, ../../../app/stylesheets/partials/_general.scss */
 ins {
   text-decoration: none;
 }
 
-/* line 2, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 2, ../../../app/stylesheets/partials/_general.scss */
 del {
   text-decoration: line-through;
 }
 
-/* line 3, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 3, ../../../app/stylesheets/partials/_general.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 4, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 4, ../../../app/stylesheets/partials/_general.scss */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2em;
   font-weight: bold;
 }
 
-/* line 5, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 5, ../../../app/stylesheets/partials/_general.scss */
 h1 {
   font-size: 2em;
   color: #cc3c29;
 }
 
-/* line 6, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 6, ../../../app/stylesheets/partials/_general.scss */
 h2 {
   font-size: 1.6em;
   color: #154c97;
 }
 
-/* line 7, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 7, ../../../app/stylesheets/partials/_general.scss */
 h3 {
   font-size: 1.4em;
   color: #777777;
   font-weight: normal;
 }
 
-/* line 8, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 8, ../../../app/stylesheets/partials/_general.scss */
 h4 {
   font-size: 1.2em;
   color: #cc3c29;
 }
 
-/* line 9, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 9, ../../../app/stylesheets/partials/_general.scss */
 h5 {
   font-size: 1em;
 }
 
-/* line 10, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 10, ../../../app/stylesheets/partials/_general.scss */
 h6 {
   font-size: 1em;
   font-weight: normal;
 }
 
-/* line 11, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 11, ../../../app/stylesheets/partials/_general.scss */
 em {
   font-style: italic;
 }
 
-/* line 12, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 12, ../../../app/stylesheets/partials/_general.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 13, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 13, ../../../app/stylesheets/partials/_general.scss */
 a {
   color: #1e8edc;
 }
 
-/* line 14, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 14, ../../../app/stylesheets/partials/_general.scss */
 a:hover {
   color: #1e8edc;
 }
 
-/* line 16, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 16, ../../../app/stylesheets/partials/_general.scss */
 body {
   color: #1e1e1e;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -150,91 +150,91 @@ body {
   background-color: #fff;
 }
 
-/* line 24, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 24, ../../../app/stylesheets/partials/_general.scss */
 span.red {
   color: #cc3c29;
 }
 
-/* line 26, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 26, ../../../app/stylesheets/partials/_general.scss */
 .hidden {
   display: none;
 }
 
-/* line 28, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 28, ../../../app/stylesheets/partials/_general.scss */
 .with-top-margin {
   margin-top: 20px;
 }
 
-/* line 32, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 32, ../../../app/stylesheets/partials/_general.scss */
 .loading {
   background-image: url(/images/ajax-loader.gif);
   background-position: right bottom;
   background-repeat: no-repeat;
 }
 
-/* line 38, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 38, ../../../app/stylesheets/partials/_general.scss */
 .error, .alert, .notice, .success, .info {
   padding: 10px;
   margin-bottom: 1em;
   border: 2px solid #ddd;
 }
 
-/* line 44, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 44, ../../../app/stylesheets/partials/_general.scss */
 .error, .alert {
   background: #fbe3e4;
   color: #8a1f11;
   border-color: #fbc2c4;
 }
 
-/* line 50, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 50, ../../../app/stylesheets/partials/_general.scss */
 .notice {
   background: #fff6bf;
   color: #514721;
   border-color: #ffd324;
 }
 
-/* line 56, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 56, ../../../app/stylesheets/partials/_general.scss */
 .success {
   background: #e6efc2;
   color: #264409;
   border-color: #c6d880;
 }
 
-/* line 62, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 62, ../../../app/stylesheets/partials/_general.scss */
 .info {
   background: #d5edf8;
   color: #205791;
   border-color: #92cae4;
 }
 
-/* line 68, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 68, ../../../app/stylesheets/partials/_general.scss */
 .error a, .alert a {
   color: #8a1f11;
 }
 
-/* line 72, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 72, ../../../app/stylesheets/partials/_general.scss */
 .notice a {
   color: #514721;
 }
 
-/* line 76, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 76, ../../../app/stylesheets/partials/_general.scss */
 .success a {
   color: #264409;
 }
 
-/* line 80, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 80, ../../../app/stylesheets/partials/_general.scss */
 .info a {
   color: #205791;
 }
 
-/* line 84, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 84, ../../../app/stylesheets/partials/_general.scss */
 #upload-box {
   float: right;
   position: relative;
   width: 200px;
 }
 
-/* line 90, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 90, ../../../app/stylesheets/partials/_general.scss */
 #upload-pic-box {
   position: relative;
   width: 150px;
@@ -242,7 +242,7 @@ span.red {
   margin-top: 10px;
 }
 
-/* line 97, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 97, ../../../app/stylesheets/partials/_general.scss */
 #upload-pic-box input[type=file] {
   position: absolute;
   text-align: right;
@@ -257,7 +257,7 @@ span.red {
   cursor: hand;
 }
 
-/* line 110, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 110, ../../../app/stylesheets/partials/_general.scss */
 #upload-box input[type=file] {
   position: absolute;
   text-align: right;
@@ -272,7 +272,7 @@ span.red {
   cursor: hand;
 }
 
-/* line 123, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 123, ../../../app/stylesheets/partials/_general.scss */
 .upload {
   z-index: 1;
   width: 150px;
@@ -300,14 +300,14 @@ span.red {
   height: 20px;
 }
 
-/* line 143, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 143, ../../../app/stylesheets/partials/_general.scss */
 #upload-box .upload {
   width: 180px;
   padding: 50px 8px 6px 8px;
   background: #fafafa url(/images/up.png) center 5px no-repeat;
 }
 
-/* line 149, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 149, ../../../app/stylesheets/partials/_general.scss */
 .upload-msg {
   text-align: left;
   font-size: 11px;
@@ -315,71 +315,71 @@ span.red {
   color: #777777;
 }
 
-/* line 156, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 156, ../../../app/stylesheets/partials/_general.scss */
 #files-area {
   margin-right: 220px;
 }
 
-/* line 160, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 160, ../../../app/stylesheets/partials/_general.scss */
 .files-table {
   width: 100%;
 }
 
-/* line 164, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 164, ../../../app/stylesheets/partials/_general.scss */
 .files-table td {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-/* line 169, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 169, ../../../app/stylesheets/partials/_general.scss */
 .file-entry {
   border-bottom: 1px solid #ebebeb;
 }
-/* line 172, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 172, ../../../app/stylesheets/partials/_general.scss */
 .file-entry .file-desc-form {
   display: none;
 }
-/* line 174, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 174, ../../../app/stylesheets/partials/_general.scss */
 .file-entry .file-desc-form input {
   width: 90%;
   margin-top: 10px;
 }
-/* line 180, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 180, ../../../app/stylesheets/partials/_general.scss */
 .file-entry .file-desc {
   font-weight: bold;
   moz-box-shadow: 0 1px 0 white;
   -webkit-box-shadow: 0 1px 0 white;
   box-shadow: 0 1px 0 white;
 }
-/* line 185, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 185, ../../../app/stylesheets/partials/_general.scss */
 .file-entry .file-details {
   color: #777777;
   font-size: 11px;
 }
-/* line 190, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 190, ../../../app/stylesheets/partials/_general.scss */
 .file-entry .file-edit {
   float: right;
   font-size: 10px;
   display: none;
   color: #f0f0f0;
 }
-/* line 197, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 197, ../../../app/stylesheets/partials/_general.scss */
 .file-entry:hover .file-edit {
   display: inline;
 }
 
-/* line 204, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 204, ../../../app/stylesheets/partials/_general.scss */
 #institution_name,
 #program_name {
   width: 400px;
 }
 
-/* line 208, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 208, ../../../app/stylesheets/partials/_general.scss */
 .adv-hidden {
   display: none;
 }
 
-/* line 212, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 212, ../../../app/stylesheets/partials/_general.scss */
 .todo {
   color: #f00;
   background-color: #ff0;
@@ -389,16 +389,16 @@ span.red {
   margin: 10px;
 }
 
-/* line 221, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 221, ../../../app/stylesheets/partials/_general.scss */
 .centered {
   text-align: center;
 }
 
-/* line 225, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 225, ../../../app/stylesheets/partials/_general.scss */
 .pdf-link {
   float: right;
 }
-/* line 227, /home/rails/sapos/app/stylesheets/partials/_general.scss */
+/* line 227, ../../../app/stylesheets/partials/_general.scss */
 .pdf-link a {
   background-color: #b00;
   cursor: pointer;
@@ -411,79 +411,79 @@ span.red {
   text-decoration: none;
 }
 
-/* line 1, /home/rails/sapos/app/stylesheets/partials/_mime.scss */
+/* line 1, ../../../app/stylesheets/partials/_mime.scss */
 .file-entry {
   padding-left: 60px;
   height: 58px;
 }
 
-/* line 6, /home/rails/sapos/app/stylesheets/partials/_mime.scss */
+/* line 6, ../../../app/stylesheets/partials/_mime.scss */
 .type-unknown {
   background: transparent url(/images/mime/unknown.png) 0 15px no-repeat;
 }
 
-/* line 3, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 3, ../../../app/stylesheets/partials/_students.scss */
 #field_student_scholarship_institution_id,
 #field_student_scholarship_department_id,
 #field_student_scholarship_other_department {
   display: none;
 }
 
-/* line 7, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 7, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule-header {
   height: 32px;
   border-bottom: 1px dashed #f0f0f0;
   padding-bottom: 10px;
 }
-/* line 12, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 12, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule-header #student-schedule-title {
   width: 300px;
   float: left;
 }
-/* line 17, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 17, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule-header #student-schedule-filter {
   float: right;
 }
-/* line 19, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 19, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule-header #student-schedule-filter td {
   padding-left: 10px;
 }
 
-/* line 26, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 26, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule-area h4 {
   margin-bottom: 10px;
 }
 
-/* line 31, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 31, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule {
   margin-top: 20px;
   border-collapse: collapse;
   border: 1px solid #ebebeb;
   width: 100%;
 }
-/* line 37, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 37, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr th {
   border: 1px solid #ebebeb;
   font-weight: bold;
   padding: 10px;
   border-bottom: 3px solid #777777;
 }
-/* line 43, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 43, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td {
   vertical-align: top;
   border: 1px solid #ebebeb;
 }
-/* line 46, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 46, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td.hora {
   text-align: center;
   width: 2%;
 }
-/* line 50, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 50, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td.dia {
   width: 14%;
   height: 48px;
 }
-/* line 54, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 54, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_block {
   margin: 4px;
   padding: 4px;
@@ -494,61 +494,66 @@ span.red {
   -webkit-border-radius: 5px;
   font-size: 80%;
 }
-/* line 61, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 61, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_block .session-title {
   font-weight: bold;
 }
-/* line 64, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 64, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_block .session-comment {
   white-space: pre;
 }
-/* line 68, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 68, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_style_1 {
   border: 1px solid #bde8b3;
   background-color: #bde8b3;
 }
-/* line 69, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 69, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_style_2 {
   border: 1px solid #a2ded2;
   background-color: #a2ded2;
 }
-/* line 70, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 70, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_style_3 {
   border: 1px solid #fbe3bd;
   background-color: #fbe3bd;
 }
-/* line 71, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 71, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_style_4 {
   border: 1px solid #b2c2e3;
   background-color: #b2c2e3;
 }
-/* line 72, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 72, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_style_5 {
   border: 1px solid #e3b2dd;
   background-color: #e3b2dd;
 }
-/* line 73, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 73, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_style_6 {
   border: 1px solid #bfb1e4;
   background-color: #bfb1e4;
 }
-/* line 74, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 74, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_style_7 {
   border: 1px solid #b3e4b1;
   background-color: #b3e4b1;
 }
-/* line 75, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 75, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_style_8 {
   border: 1px solid #c3f3e1;
   background-color: #c3f3e1;
 }
-/* line 76, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 76, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_style_9 {
   border: 1px solid #ffad8d;
   background-color: #ffad8d;
 }
-/* line 77, /home/rails/sapos/app/stylesheets/partials/_students.scss */
+/* line 77, ../../../app/stylesheets/partials/_students.scss */
 #student-schedule tr td .session_style_10 {
   border: 1px solid #bae1cf;
   background-color: #bae1cf;
+}
+
+/* line 8, ../../../app/stylesheets/pdf.scss */
+body {
+  font-size: 80%;
 }

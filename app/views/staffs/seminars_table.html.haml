@@ -1,0 +1,13 @@
+-if @staff.seminars.count > 0
+  %table.seminars
+    %tbody
+      %tr.header
+        %th Titulo
+        %th Inicio
+        %th Lugar
+    - @staff.seminars.order("start_date DESC").each_with_index do |seminar, index|
+      %tr.seminar-item{:id=>"tr_seminar_#{seminar.id}", :seminar_id=>seminar.id}
+        %td= seminar.title
+        %td.centered= l seminar.start_date, :format => :long
+        %td= seminar.location
+

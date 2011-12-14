@@ -133,4 +133,30 @@ class StaffsController < ApplicationController
     redirect_to :action => 'change_image', :id => params[:id]
   end
 
+  def new_seminar
+    @staff = Staff.find(params[:id])
+    render :layout => 'standalone'
+  end
+
+  def create_seminar
+    @staff = Staff.find(params[:staff_id])
+    if @staff.update_attributes(params[:staff])
+      flash[:notice] = "Nuevo seminario creado."
+    else
+      flash[:error] = "Error al crear el seminario."
+    end
+    render :layout => 'standalone'
+  end
+
+  def edit_seminar
+    @staff = Staff.find(params[:id])
+    @seminar = Seminar.find(params[:seminar_id])
+    render :layout => false
+  end
+
+  def seminars_table
+    @staff = Staff.find(params[:id])
+    render :layout => false
+  end
+
 end

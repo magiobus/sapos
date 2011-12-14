@@ -31,6 +31,7 @@ class ApplicationController < ActionController::Base
     t = Time.now
     filename = "#{filename}_#{t.strftime("%Y%m%d%H%M%S")}"
     book.write "tmp/#{filename}.xls"
-    send_file("tmp/#{filename}.xls", :type=>"application/ms-excel")
+    # send_file("tmp/#{filename}.xls", :type=>"application/ms-excel", :x_sendfile=>true)
+    send_file "tmp/#{filename}.xls", :x_sendfile=>true
   end
 end

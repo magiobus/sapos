@@ -1,5 +1,5 @@
 # coding: utf-8
-class ClassroomsController < ApplicationController
+class LaboratoriesController < ApplicationController
   before_filter :auth_required
   respond_to :html, :xml, :json
 
@@ -7,53 +7,53 @@ class ClassroomsController < ApplicationController
   end
 
   def live_search
-    @classrooms = Classroom.order('code')
+    @laboratories = Laboratory.order('code')
     if !params[:q].blank?
-      @classrooms = @classrooms.where("(name LIKE :n OR code LIKE :n)", {:n => "%#{params[:q]}%"}) 
+      @laboratories = @laboratories.where("(name LIKE :n OR code LIKE :n)", {:n => "%#{params[:q]}%"}) 
     end
 
     render :layout => false
   end
 
   def show
-    @classroom = Classroom.find(params[:id])
+    @laboratory = Laboratory.find(params[:id])
     render :layout => false
   end
 
   def new
-    @classroom = Classroom.new
+    @laboratory = Laboratory.new
     render :layout => false
   end
 
   def create
-    @classroom = Classroom.new(params[:classroom])
+    @laboratory = Laboratory.new(params[:laboratory])
 
-    if @classroom.save
-      flash[:notice] = "Aula creada."
+    if @laboratory.save
+      flash[:notice] = "Laboratorio creado."
 
       respond_with do |format|
         format.html do
           if request.xhr?
             json = {}
             json[:flash] = flash
-            json[:uniq] = @classroom.code
+            json[:uniq] = @laboratory.code
             render :json => json
           else 
-            redirect_to @classroom
+            redirect_to @laboratory
           end
         end
       end
     else
-      flash[:error] = "Error al crear aula."
+      flash[:error] = "Error al crear laboratorio."
       respond_with do |format|
         format.html do
           if request.xhr?
             json = {}
             json[:flash] = flash
-            json[:errors] = @classroom.errors
+            json[:errors] = @laboratory.errors
             render :json => json, :status => :unprocessable_entity
           else
-            redirect_to @classroom
+            redirect_to @laboratory
           end
         end
       end
@@ -61,10 +61,10 @@ class ClassroomsController < ApplicationController
   end
 
   def update 
-    @classroom = Classroom.find(params[:id])
+    @laboratory = Laboratory.find(params[:id])
 
-    if @classroom.update_attributes(params[:classroom])
-      flash[:notice] = "Aula actualizada."
+    if @laboratory.update_attributes(params[:laboratory])
+      flash[:notice] = "Laboratorio actualizado."
       respond_with do |format|
         format.html do
           if request.xhr?
@@ -72,21 +72,21 @@ class ClassroomsController < ApplicationController
             json[:flash] = flash
             render :json => json
           else 
-            redirect_to @classroom
+            redirect_to @laboratory
           end
         end
       end
     else
-      flash[:error] = "Error al actualizar aula."
+      flash[:error] = "Error al actualizar laboratorio."
       respond_with do |format|
         format.html do
           if request.xhr?
             json = {}
             json[:flash] = flash
-            json[:errors] = @classroom.errors
+            json[:errors] = @laboratory.errors
             render :json => json, :status => :unprocessable_entity
           else 
-            redirect_to @classroom
+            redirect_to @laboratory
           end
         end
       end

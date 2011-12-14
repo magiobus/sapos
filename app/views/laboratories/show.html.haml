@@ -1,0 +1,27 @@
+- form_for @laboratory, :remote => true, :html => {:'data-type' => 'html', :id => 'item-edit-form'} do |f|
+  .resource-header
+    .resource-title
+      %h1= "#{@laboratory.full_name}"
+      .comment= @laboratory.campus.name
+    .resource-save
+      = f.submit 'Actualizar'
+
+  #resource-tabs
+    %ul
+      %li.first-tab= link_to "Detalles", "#detalles"
+
+    #detalles
+      %h2 Detalles
+
+      .field#field_laboratory_code
+        = f.label :code, mark_required(@laboratory, :code) + 'Clave'
+        = f.text_field :code
+
+      .field#field_laboratory_name
+        = f.label :name, mark_required(@laboratory, :name) + 'Nombre'
+        = f.text_field :name
+
+      .field#field_laboratory_campus
+        = f.label :campus_id, 'Campus'
+        = f.collection_select :campus_id, Campus.order(:name), :id, :name, options = {:prompt => "Selecciona un campus"}
+

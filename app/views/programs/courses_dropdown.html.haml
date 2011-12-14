@@ -1,4 +1,5 @@
 - items = @term_course.collect {|i| [ i.course.name, i.course.id]}
+- items = items.sort
 - if @term.status == Term::OPEN
   - items += [['Asignar cursos al periodo', 0]]
 = select "tc", "course_id", items, :prompt => 'Selecciona un curso'

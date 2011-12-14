@@ -2,6 +2,7 @@
 .terms,
 .schedule,
 .enrollment,
+.seminars,
 .tc-students {
   width: 100%;
   background: $white;
@@ -36,6 +37,7 @@
     &.term-item:hover td,
     &.tc-students-item:hover td,
     &.enrollment-item:hover td,
+    &.seminar-item:hover td,
     &.course:hover td {
       background-color: $bg-color;
       cursor: pointer;
@@ -54,6 +56,7 @@
 #a-new-enrollment,
 #enrollment-status-note,
 #add-student-to-course,
+#a-new-seminar,
 #a-new-schedule {
   float: right;
   margin: 10px;
@@ -68,6 +71,7 @@
   border: 1px solid #ddd !important;
 }
 
+.edit-seminar-div,
 .edit-course-div,
 .edit-term-div {
   background-color: $white;

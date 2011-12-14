@@ -1,0 +1,7 @@
+%h2 Seminarios
+#seminars-area
+= link_to 'Agregar seminario', '#', :id=>'a-new-seminar'
+:javascript
+  $(function() {
+    loadSeminarsTable()
+  });

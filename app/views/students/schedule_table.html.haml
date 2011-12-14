@@ -1,13 +1,14 @@
 - if @is_pdf 
+  = image_tag "http://posgrado.cimav.edu.mx/images/pdf-logo-top.jpg", :style => "margin-bottom: 20px; width: 100%;"
   %h1= @ts.student.full_name
   %div= @ts.student.program.name
 #tc-header
   #tc-title
     - if @is_pdf 
-      %h4= "Horario #{@ts.term.name}"
+      %div= "Horario: #{@ts.term.name} (#{l @ts.term.start_date, :format => :long} – #{l @ts.term.end_date, :format => :long})"
     - else
       %h4= @ts.term.name
-    %div (#{l @ts.term.start_date, :format => :long} – #{l @ts.term.end_date, :format => :long})
+      %div (#{l @ts.term.start_date, :format => :long} – #{l @ts.term.end_date, :format => :long})
 
 - if !@is_pdf 
   .pdf-link= link_to "PDF", :controller => "students", :action => "schedule_table", :id => @ts.student_id, :term_id => @ts.term_id, :format => 'pdf'

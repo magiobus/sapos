@@ -1,0 +1,11 @@
+%ul.panel-list
+  - c = 0
+  - @laboratories.each do |laboratory|
+    - c += 1
+    %li 
+      - link_to laboratory, :method => :get, :remote => true, :class => 'get-item', :'data-type' => 'html' do
+        .title= laboratory.full_name rescue laboratory.code
+        .comment= laboratory.campus.name
+#counter
+  .inner= "#{c} laboratorios"
+
