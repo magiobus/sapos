@@ -94,10 +94,7 @@ Sapos::Application.routes.draw do
     resources :institutions, :path => "instituciones"
     resources :campus, :path => "campus"
     resources :classrooms, :path => "aulas"
-<<<<<<< HEAD
-=======
     resources :laboratories, :path => "laboratorios"
->>>>>>> original/master
     resources :scholarship_categories, :path => "becas"
     resources :users, :path => "usuarios"
   end
