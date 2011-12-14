@@ -1,0 +1,12 @@
+-if @scholarship_category.scholarship_types.count > 0 
+  %table.scholarship_types
+    %tbody
+      %tr.header
+        %th Nombre
+        %th Descripción
+    - @scholarship_category.scholarship_types.order("name DESC").each_with_index do |scholarship_type, index|
+      %tr.type-item{:id=>"tr_type_#{scholarship_type.id}", :scholarship_type_id=>scholarship_type.id}
+        %td= scholarship_type.name
+        %td= scholarship_type.description
+
+        

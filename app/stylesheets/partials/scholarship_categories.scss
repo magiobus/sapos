@@ -1,0 +1,45 @@
+.scholarship_types {
+  width: 100%;
+  background: $white;
+  border-collapse: collapse;
+  tr {
+    margin-bottom: 1px;
+    th {
+      font-weight: bold;
+      padding: 4px;
+      background-color: $light-grey;
+      border: 1px solid $light-grey;
+    }
+    td {
+      padding: 4px;
+      border: 1px solid $light-grey;
+    } 
+    &.type-item:hover td {
+      background-color: $bg-color;
+      cursor: pointer;
+    }
+    &.selected td {
+      border: 1px solid #ddd;
+    }
+    &.selected:hover td {
+      background: #ddd;
+    }
+  }
+}
+
+#a-new-type {
+  float: right;
+  margin: 10px;
+}
+
+.edit-type td {
+  border: 1px solid #ddd !important;
+}
+
+.edit-type-div {
+  background-color: $white;
+  padding: 10px;
+}
+
+
+

@@ -1,0 +1,15 @@
+- @include_js = ['scholarship_categories']
+- @page_title = 'Becas'
+- @nav_icon = 'scholarship_categories'
+#items-panel.side-panel.inst-side-panel
+  .panel-search
+    
+    - form_tag scholarship_categories_path, :id => 'live-search', :method => 'get', :remote => true do
+      = text_field_tag :q, nil, :id => 'search-box', :placeholder => 'Busqueda'
+     
+  #items-list.panel-items
+  
+  .panel-add
+    = link_to  'Agregar nueva categoria', {:action => 'new'},  {:id => 'add-new-item', :method => :get, :remote => true, :'data-type' => 'html'}
+
+#content-panel.main-panel

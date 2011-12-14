@@ -1,0 +1,44 @@
+- form_for @scholarship_category, :remote => true, :html => {:'data-type' => 'html', :id => 'item-edit-form'} do |f|
+  = hidden_field :scholarship_category, :id
+  .resource-header
+    .resource-title
+      %h1= "#{@scholarship_category.name}"
+    
+    .resource-save
+      = f.submit 'Actualizar'
+
+  
+  #resource-tabs
+    %ul
+      %li.first-tab= link_to "Detalles", "#detalles"
+      %li= link_to "Tipos", "#tipos"
+
+    #detalles
+      %h2 Detalles
+
+      .field#field_scholarship_category_name
+        = f.label :name, mark_required(@scholarship_category, :name)  + 'Nombre'
+        = f.text_field :name
+
+      .field#field_scholarship_category_description
+        = f.label :description, 'Descripción' 
+        = f.text_field :description
+
+    #tipos
+      = render :partial => 'types', :locals => {:scholarship_Category=> @scholarship_category, :f => f}
+     
+
+
+      
+
+			
+        
+        
+
+
+
+
+
+      
+
+      

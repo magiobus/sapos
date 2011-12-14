@@ -1,0 +1,24 @@
+- form_for @scholarship_category, :remote => true, :html => { :'data-type' => 'html', :id => 'item-new-form' } do |f|
+
+  .resource-header
+    .resource-title
+      %h1= "Nueva Categoria"
+    .resource-save
+      = f.submit 'Agregar'
+
+  #resource-tabs
+    %ul
+      %li.first-tab= link_to "Detalles", "#detalles"
+
+    #detalles
+      %h2 Detalles
+
+      .field#field_scholarship_category_name
+        = f.label :name, mark_required(@scholarship_category, :name) + 'Nombre' 
+        = f.text_field :name
+
+      .field#field_scholarship_category_description
+        = f.label :description, 'Descripción' 
+        = f.text_field :description
+
+      

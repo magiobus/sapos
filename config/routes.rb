@@ -1,4 +1,6 @@
 Sapos::Application.routes.draw do
+  get "scholarship_categories/index"
+
   root :to => 'welcome#index'
 
   match 'estudiantes/busqueda' => 'students#live_search'
@@ -43,6 +45,13 @@ Sapos::Application.routes.draw do
   match 'campus/upload_image' => 'campus#upload_image'
 
   match 'aulas/busqueda' => 'classrooms#live_search'
+  
+  match 'becas/busqueda' => 'scholarship_categories#live_search'
+  match 'becas/:id/tipos' => 'scholarship_categories#types_table'
+  match 'becas/:id/nuevo_tipo' => 'scholarship_categories#new_type'
+  match 'becas/create_type' => 'scholarship_categories#create_type'
+  match 'becas/update_type' => 'scholarship_categories#update_type'
+  match 'becas/:id/tipo/:scholarship_type_id' => 'scholarship_categories#edit_type'
 
   match 'laboratorios/busqueda' => 'laboratories#live_search'
 
@@ -88,6 +97,7 @@ Sapos::Application.routes.draw do
     resources :campus, :path => "campus"
     resources :classrooms, :path => "aulas"
     resources :laboratories, :path => "laboratorios"
+    resources :scholarship_categories, :path => "becas"
     resources :users, :path => "usuarios"
   end
 
