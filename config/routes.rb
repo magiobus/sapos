@@ -18,6 +18,11 @@ Sapos::Application.routes.draw do
   match 'docentes/busqueda' => 'staffs#live_search'
   match 'docentes/:id/cambiar_foto' => 'staffs#change_image'
   match 'docentes/upload_image' => 'staffs#upload_image'
+  match 'docentes/:id/seminarios' => 'staffs#seminars_table'
+  match 'docentes/:id/nuevo_seminario' => 'staffs#new_seminar'
+  match 'docentes/create_seminar' => 'staffs#create_seminar'
+  match 'docentes/update_seminar' => 'staffs#update_seminar'
+  match 'docentes/:id/seminario/:seminar_id' => 'staffs#edit_seminar'
 
   match 'internados/busqueda' => 'internships#live_search'
   match 'internados/:id/cambiar_foto' => 'internships#change_image'
@@ -38,6 +43,8 @@ Sapos::Application.routes.draw do
   match 'campus/upload_image' => 'campus#upload_image'
 
   match 'aulas/busqueda' => 'classrooms#live_search'
+
+  match 'laboratorios/busqueda' => 'laboratories#live_search'
 
   match 'usuarios/busqueda' => 'users#live_search'
   
@@ -80,6 +87,7 @@ Sapos::Application.routes.draw do
     resources :institutions, :path => "instituciones"
     resources :campus, :path => "campus"
     resources :classrooms, :path => "aulas"
+    resources :laboratories, :path => "laboratorios"
     resources :users, :path => "usuarios"
   end
 
