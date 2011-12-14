@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111020235409) do
+ActiveRecord::Schema.define(:version => 20111213232820) do
 
   create_table "academic_degrees", :force => true do |t|
     t.integer  "student_id"
@@ -123,6 +123,24 @@ ActiveRecord::Schema.define(:version => 20111020235409) do
     t.datetime "updated_at"
   end
 
+  create_table "external_courses", :force => true do |t|
+    t.integer  "staff_id"
+    t.integer  "institution_id"
+    t.text     "title"
+    t.string   "location"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "hours"
+    t.string   "participants"
+    t.text     "information"
+    t.string   "status",         :limit => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "external_courses", ["institution_id"], :name => "index_external_courses_on_institution_id"
+  add_index "external_courses", ["staff_id"], :name => "index_external_courses_on_staff_id"
+
   create_table "institutions", :force => true do |t|
     t.string   "short_name", :limit => 20
     t.string   "name"
@@ -175,6 +193,36 @@ ActiveRecord::Schema.define(:version => 20111020235409) do
   add_index "internships", ["internship_type_id"], :name => "index_internships_on_internship_type_id"
   add_index "internships", ["staff_id"], :name => "index_internships_on_staff_id"
 
+  create_table "lab_practices", :force => true do |t|
+    t.integer  "staff_id"
+    t.integer  "laboratory_id"
+    t.integer  "institution_id"
+    t.text     "title"
+    t.string   "location"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "hours"
+    t.string   "participants"
+    t.text     "information"
+    t.string   "status",         :limit => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lab_practices", ["institution_id"], :name => "index_lab_practices_on_institution_id"
+  add_index "lab_practices", ["laboratory_id"], :name => "index_lab_practices_on_laboratory_id"
+  add_index "lab_practices", ["staff_id"], :name => "index_lab_practices_on_staff_id"
+
+  create_table "laboratories", :force => true do |t|
+    t.integer  "campus_id"
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "laboratories", ["campus_id"], :name => "index_laboratories_on_campus_id"
+
   create_table "programs", :force => true do |t|
     t.string   "name"
     t.string   "level",          :limit => 20
@@ -219,6 +267,21 @@ ActiveRecord::Schema.define(:version => 20111020235409) do
   end
 
   add_index "scholarships", ["student_id"], :name => "index_scholarships_on_student_id"
+
+  create_table "seminars", :force => true do |t|
+    t.integer  "staff_id"
+    t.text     "title"
+    t.string   "category"
+    t.string   "location"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.text     "information"
+    t.string   "status",      :limit => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "seminars", ["staff_id"], :name => "index_seminars_on_staff_id"
 
   create_table "staffs", :force => true do |t|
     t.integer  "employee_number"

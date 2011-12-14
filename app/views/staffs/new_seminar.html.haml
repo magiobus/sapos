@@ -1,0 +1,33 @@
+= form_for(@staff, :url => { :action => "create_seminar" }) do |f|
+  = hidden_field_tag 'staff_id', @staff.id
+  = hidden_field_tag 'staff[seminars_attributes][0][staff_id]', @staff.id
+  = fields_for "staff[seminars_attributes][0]" do |fields|
+    #seminar-new
+      %h3 Nuevo Seminario
+
+      %div{:id => "field_staff_seminars_0_title", :class => 'field'}
+        = fields.label :title, 'Título'
+        = fields.text_field :title
+
+      %div{:id => "field_staff_seminars_0_location", :class => 'field'}
+        = fields.label :location, 'Lugar'
+        = fields.text_field :location
+
+      %div{:id => "field_staff_seminars_0_categoria", :class => 'field'}
+        = fields.label :category, 'Tipo de seminario'
+        = fields.text_field :category
+
+      %div{:id => "field_staff_seminars_0_start_date", :class => 'field'}
+        = fields.label :start_date, 'Inicio'
+        = fields.datetime_select :start_date
+
+      %div{:id => "field_staff_seminars_0_end_date", :class => 'field'}
+        = fields.label :end_date, 'Fin'
+        = fields.datetime_select :end_date
+
+      %div{:id => "field_staff_seminars_0_information", :class => 'field'}
+        = fields.label :information, 'Información'
+        = fields.text_area :information
+
+      #dialog-submit-button-area
+        = fields.submit "Crear nuevo seminario"
