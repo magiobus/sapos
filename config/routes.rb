@@ -42,6 +42,11 @@ Sapos::Application.routes.draw do
   match 'aulas/busqueda' => 'classrooms#live_search'
   
   match 'becas/busqueda' => 'scholarship_categories#live_search'
+  match 'becas/:id/tipos' => 'scholarship_categories#types_table'
+  match 'becas/:id/nuevo_tipo' => 'scholarship_categories#new_type'
+  match 'becas/create_type' => 'scholarship_categories#create_type'
+  match 'becas/update_type' => 'scholarship_categories#update_type'
+  match 'becas/:id/tipo/:scholarship_type_id' => 'scholarship_categories#edit_type'
 
   match 'usuarios/busqueda' => 'users#live_search'
   

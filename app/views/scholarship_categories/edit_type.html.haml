@@ -1,0 +1,18 @@
+= fields_for "scholarship_category[scholarship_types_attributes][0]", @type do |fields|
+  = hidden_field_tag 'scholarship_category_id', @scholarship_category.id
+  = hidden_field_tag 'id', @scholarship_category.id
+  = hidden_field_tag 'scholarship_category[scholarship_types_attributes][0][scholarship_category_id]', @scholarship_category.id
+  
+
+  = fields.hidden_field :id
+
+  %div{:id => "field_scholarship_category_scholarship_types_0_name", :class => 'field'}
+    = fields.label :name, 'Nombre'
+    = fields.text_field :name
+
+  %div{:id => "field_scholarship_category_scholarship_types_0_description", :class => 'field'}
+    = fields.label :description, 'Descripción'
+    = fields.text_field :description
+
+  #dialog-submit-button-area
+    = fields.submit "Actualizar Tipo"

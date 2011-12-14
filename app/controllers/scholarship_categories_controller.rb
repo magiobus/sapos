@@ -10,8 +10,7 @@ class ScholarshipCategoriesController < ApplicationController
     if !params[:q].blank?
       @scholarship_categories = @scholarship_categories.where("(name LIKE :n)", {:n => "%#{params[:q]}%"}) 
     end
-
-     render :layout => false
+      render :layout => false
     end
     
     def show
@@ -90,8 +89,33 @@ class ScholarshipCategoriesController < ApplicationController
           end
         end
       end
-    end  
-
-  
-
+    end
+    
+    def new_type
+      @scholarship_category = ScholarshipCategory.find(params[:id])
+      render :layout => 'standalone'
+    end
+    
+    def create_type
+      @scholarship_category = ScholarshipCategory.find(params[:scholarship_category_id])
+      if @scholarship_category.update_attributes(params[:scholarship_category])
+        flash[:notice] = "Nuevo tipo creado."
+      else
+        flash[:error] = "Error al crear tipo."
+      end
+      render :layout => 'standalone'
+    end
+    
+    def edit_type
+      @scholarship_category = ScholarshipCategory.find(params[:id])
+      @type = ScholarshipType.find(params[:scholarship_type_id])
+      render :layout => false
+    end
+    
+    def types_table
+        @scholarship_category = ScholarshipCategory.find(params[:id])
+        render :layout => false
+    end
+    
+    
 end

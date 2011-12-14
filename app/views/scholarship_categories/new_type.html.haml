@@ -1,0 +1,18 @@
+= form_for(@scholarship_category, :url => { :action => "create_type" }) do |f|
+  = hidden_field_tag 'scholarship_category_id', @scholarship_category.id
+  = hidden_field_tag 'scholarship_category[scholarship_types_attributes][0][scholarship_category_id]', @scholarship_category.id
+  = fields_for "scholarship_category[scholarship_types_attributes][0]" do |fields|
+    #type-new
+      %h3 Nuevo Tipo
+
+      %div{:id => "field_scholarship_category_scholarship_types_0_name", :class => 'field'}
+        = fields.label :name, 'Nombre'
+        = fields.text_field :name
+
+      %div{:id => "field_scholarship_category_scholarship_types_0_description", :class => 'field'}
+        = fields.label :description, 'Descripcion'
+        = fields.text_field :description
+
+     
+      #dialog-submit-button-area
+        = fields.submit "Crear nuevo tipo"
